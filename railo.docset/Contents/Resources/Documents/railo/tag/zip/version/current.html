@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="description" content="Documentation Viewer for Railo Server">
+<meta name="author" content="Mark Drew,@markdrew">
+<title>Railo Documentation Viewer, by The Railo Company</title>
+<!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+<!--[if lt IE 9]>
+<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
+<link href="../../../../assets/css/bootstrap.css" rel="stylesheet">
+<link href="../../../../assets/css/docs.css" rel="stylesheet">
+<link href="../../../../assets/css/jquery-ui.css" rel="stylesheet" />
+<script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+<script src="../../../../assets/js/bootstrap.min.js"></script>
+<script src="https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js"></script>
+<script src="http://code.jquery.com/ui/1.10.2/jquery-ui.js"></script>
+<script>
+//Add functionality to the String object
+if (typeof String.prototype.startsWith != 'function') {
+String.prototype.startsWith = function (str){
+return this.indexOf(str) == 0;
+};
+}
+$(function() {
+var availableTags = ["abs","acos","addsoaprequestheader","addsoapresponseheader","ajaxlink","ajaxonload","applicationstarttime","applicationstop","array","arrayappend","arrayavg","arrayclear","arraycontains","arraycontainsnocase","arraydelete","arraydeleteat","arrayeach","arrayfilter","arrayfind","arrayfindall","arrayfindallnocase","arrayfindnocase","arrayfirst","arrayindexexists","arrayinsertat","arrayisdefined","arrayisempty","arraylast","arraylen","arraymax","arraymerge","arraymid","arraymin","arraynew","arrayprepend","arrayresize","arrayreverse","arrayset","arrayslice","arraysort","arraysum","arrayswap","arraytolist","arraytostruct","asc","asin","atn","beat","binarydecode","binaryencode","bitand","bitmaskclear","bitmaskread","bitmaskset","bitnot","bitor","bitshln","bitshrn","bitxor","cacheclear","cachecount","cachedelete","cacheget","cachegetall","cachegetallids","cachegetdefaultcachename","cachegetmetadata","cachegetproperties","cacheidexists","cachekeyexists","cacheput","cacheremove","cacheremoveall","cachesetproperties","callstackdump","callstackget","canonicalize","ceiling","cfabort","cfadmin","cfajaximport","cfajaxproxy","cfapplet","cfapplication","cfargument","cfassociate","cfauthenticate","cfbreak","cfcache","cfcase","cfcatch","cfchart","cfchartdata","cfchartseries","cfcol","cfcollection","cfcomponent","cfcontent","cfcontinue","cfcookie","cfdbinfo","cfdefaultcase","cfdirectory","cfdiv","cfdocument","cfdocumentitem","cfdocumentsection","cfdump","cfelse","cfelseif","cferror","cfexecute","cfexit","cffeed","cffile","cffinally","cfflush","cfform","cfforward","cfftp","cffunction","cfgraph","cfgraphdata","cfheader","cfhtmlhead","cfhttp","cfhttpparam","cfif","cfimage","cfimap","cfimport","cfinclude","cfindex","cfinput","cfinsert","cfinterface","cfinvoke","cfinvokeargument","cflayout","cflayoutarea","cfldap","cflocation","cflock","cflog","cflogin","cfloginuser","cflogout","cfloop","cfmail","cfmailparam","cfmailpart","cfmap","cfmapitem","cfmediaplayer","cfmodule","cfobject","cfobjectcache","cfoutput","cfpageencoding","cfparam","cfpdf","cfpdfparam","cfpop","cfprocessingdirective","cfprocparam","cfprocresult","cfproperty","cfquery","cfqueryparam","cfregistry","cfrethrow","cfretry","cfreturn","cfsavecontent","cfschedule","cfscript","cfscriptjava","cfsearch","cfselect","cfservlet","cfservletparam","cfset","cfsetting","cfsilent","cfsleep","cfslider","cfstopwatch","cfstoredproc","cfswitch","cftable","cftextinput","cfthread","cfthrow","cftimer","cftrace","cftransaction","cftry","cfupdate","cfusion_decrypt","cfusion_encrypt","cfvideo","cfvideoplayer","cfvideoplayerparam","cfwddx","cfwhile","cfwindow","cfxml","cfzip","cfzipparam","charsetdecode","charsetencode","chr","cjustify","compare","comparenocase","componentcacheclear","componentcachelist","componentinfo","compress","contractpath","cos","createdate","createdatetime","createdynamicproxy","createguid","createobject","createodbcdate","createodbcdatetime","createodbctime","createtime","createtimespan","createuniqueid","createuuid","csrfgeneratetoken","csrfverifytoken","ctcacheclear","ctcachelist","datasourceflushmetacache","dateadd","datecompare","dateconvert","datediff","dateformat","datepart","datetimeformat","day","dayofweek","dayofweekasstring","dayofweekshortasstring","dayofyear","daysinmonth","daysinyear","de","decimalformat","decodefromurl","decrementvalue","decrypt","decryptbinary","deleteclientvariable","deserializejson","directorycopy","directorycreate","directorydelete","directoryexists","directorylist","directoryrename","dollarformat","dump","dumpstruct","duplicate","each","echo","empty","encodeforcss","encodefordn","encodeforhtml","encodeforhtmlattribute","encodeforjavascript","encodeforldap","encodeforurl","encodeforxml","encodeforxmlattribute","encodeforxpath","encrypt","encryptbinary","entitydelete","entityload","entityloadbyexample","entityloadbypk","entitymerge","entitynamearray","entitynamelist","entitynew","entityreload","entitysave","entitytoquery","esapidecode","esapiencode","evaluate","evaluatecomponent","evaluatejava","exp","expandpath","extract","fileappend","fileclose","filecopy","filedelete","fileexists","filegetmimetype","fileiseof","filemove","fileopen","fileread","filereadbinary","filereadline","fileseek","filesetaccessmode","filesetattribute","filesetlastmodified","fileskipbytes","fileupload","fileuploadall","filewrite","filewriteline","find","findnocase","findoneof","firstdayofmonth","fix","formatbasen","generatesecretkey","getapplicationmetadata","getapplicationsettings","getauthuser","getbasetagdata","getbasetaglist","getbasetemplatepath","getclasspath","getclientvariableslist","getcomponentmetadata","getcontextroot","getcpuusage","getcurrentcontext","getcurrenttemplatepath","getdirectoryfrompath","getencoding","getfilefrompath","getfileinfo","getfreespace","getfunctioncalledname","getfunctiondata","getfunctionlist","gethttprequestdata","gethttptimestring","getk2serverdoccount","getk2serverdoccountlimit","getlocale","getlocaledisplayname","getlocalhostip","getmemoryusage","getmetadata","getmetricdata","getnumericdate","getpagecontext","getprofilesections","getprofilestring","getrailoid","getreadableimageformats","getsoaprequest","getsoaprequestheader","getsoapresponse","getsoapresponseheader","getsystemfreememory","getsystemtotalmemory","gettagdata","gettaglist","gettempdirectory","gettempfile","gettemplatepath","gettickcount","gettimezone","gettimezoneinfo","gettoken","gettotalspace","getuserroles","getvariable","getvfsmetadata","getwriteableimageformats","hash","hmac","hour","htmlcodeformat","htmleditformat","htmlparse","iif","imageaddborder","imageblur","imageclearrect","imagecopy","imagecrop","imagedrawarc","imagedrawbeveledrect","imagedrawcubiccurve","imagedrawimage","imagedrawline","imagedrawlines","imagedrawoval","imagedrawpoint","imagedrawquadraticcurve","imagedrawrect","imagedrawroundrect","imagedrawtext","imagefilter","imagefiltercolormap","imagefiltercurves","imagefilterkernel","imagefilterwarpgrid","imageflip","imagefonts","imageformats","imagegetblob","imagegetbufferedimage","imagegetexifmetadata","imagegetexiftag","imagegetheight","imagegetiptctag","imagegetwidth","imagegrayscale","imageinfo","imagenegative","imagenew","imageoverlay","imagepaste","imageread","imagereadbase64","imageresize","imagerotate","imagerotatedrawingaxis","imagescaletofit","imagesetantialiasing","imagesetbackgroundcolor","imagesetdrawingalpha","imagesetdrawingcolor","imagesetdrawingstroke","imagesetdrawingtransparency","imagesharpen","imageshear","imagesheardrawingaxis","imagetranslate","imagetranslatedrawingaxis","imagewrite","imagewritebase64","imagexordrawingmode","incrementvalue","inputbasen","insert","int","intergralcontext","invoke","isarray","isbinary","isboolean","isclosure","iscustomfunction","isdate","isdebugmode","isdefined","isempty","isimage","isimagefile","isinstanceof","isipinrange","isipv6","isjson","isk2serverabroker","isk2serverdoccountexceeded","isk2serveronline","isleapyear","islocalhost","isnotmap","isnull","isnumeric","isnumericdate","isobject","ispdfobject","isquery","issimplevalue","issoaprequest","isstruct","isuserinanyrole","isuserinrole","isuserloggedin","isvalid","isvideofile","iswddx","isxml","isxmlattribute","isxmldoc","isxmlelem","isxmlnode","isxmlroot","iszipfile","javacast","jsstringformat","lcase","left","len","listappend","listavg","listchangedelims","listcompact","listcontains","listcontainsnocase","listdeleteat","listfilter","listfind","listfindnocase","listfirst","listgetat","listindexexists","listinsertat","listitemtrim","listlast","listlen","listprepend","listqualify","listremoveduplicates","listrest","listsetat","listsort","listtoarray","listtrim","listvaluecount","listvaluecountnocase","ljustify","location","log","log10","lscurrencyformat","lsdateformat","lsdatetimeformat","lsdayofweek","lseurocurrencyformat","lsiscurrency","lsisdate","lsisnumeric","lsnumberformat","lsparsecurrency","lsparsedatetime","lsparseeurocurrency","lsparsenumber","lstimeformat","lsweek","ltrim","max","metaphone","mid","millisecond","min","minute","month","monthasstring","monthshortasstring","newline","now","nowserver","nullvalue","numberformat","objectequals","objectload","objectsave","ormclearsession","ormclosesession","ormevictcollection","ormevictentity","ormevictqueries","ormexecutequery","ormflush","ormgetsession","ormgetsessionfactory","ormreload","pagepoolclear","pagepoollist","paragraphformat","parameterexists","parsedatetime","parsenumber","pi","precisionevaluate","preservesinglequotes","quarter","query","queryaddcolumn","queryaddrow","querycolumnarray","querycolumncount","querycolumndata","querycolumnexists","querycolumnlist","querydeletecolumn","querydeleterow","querygetcell","querynew","queryrecordcount","querysetcell","queryslice","querysort","quotedvaluelist","rand","randomize","randrange","refind","refindnocase","releasecomobject","rematch","rematchnocase","removechars","repeatstring","replace","replacelist","replacenocase","rereplace","rereplacenocase","restdeleteapplication","restinitapplication","restsetresponse","reverse","right","rjustify","round","rtrim","second","sendgatewaymessage","serialize","serializejson","sessioninvalidate","sessionrotate","sessionstarttime","setencoding","setlocale","setprofilestring","settimezone","setvariable","sgn","sin","sizeof","sleep","soundex","spanexcluding","spanincluding","spreadsheetnew","spreadsheetsetcellvalue","spreadsheetwrite","sqr","sslcertificateinstall","sslcertificatelist","storeaddacl","storegetacl","storesetacl","stringlen","stripcr","struct","structappend","structclear","structcopy","structcount","structdelete","structeach","structfilter","structfind","structfindkey","structfindvalue","structget","structinsert","structisempty","structkeyarray","structkeyexists","structkeylist","structkeytranslate","structnew","structsort","structupdate","systemcacheclear","systemoutput","tan","threadjoin","threadterminate","throw","timeformat","tobase64","tobinary","tonumeric","toscript","tostring","trace","transactioncommit","transactionrollback","transactionsetsavepoint","trim","truefalseformat","ucase","ucfirst","unserializejava","urldecode","urlencode","urlencodedformat","urlsessionformat","val","valuearray","valuelist","verifyclient","week","wrap","writedump","writelog","writeoutput","xmlchildpos","xmlelemnew","xmlformat","xmlgetnodetype","xmlnew","xmlparse","xmlsearch","xmltransform","xmlvalidate","year","yesnoformat"];
+$( "#tags" ).autocomplete({
+source: availableTags,
+select: function( event, ui ) {
+if(ui.item.value.startsWith("cf")){
+window.location = "/tag/" + ui.item.value;
+}
+else {
+window.location = "/function/" + ui.item.value; 
+}
+}
+});
+//Start the popover!
+//Check if we have shown them a popup! 
+//$('#beta').popover('show');
+$('#beta').popover()
+});
+</script>
+</head>
+<body>
+<div class="navbar navbar-fixed-top navbar-inverse">
+<div class="navbar-inner">
+<div class="container">
+<a class="brand" href="../../../../index.cfm.html">Railo Docs</a>
+<ul class="nav">
+<li class=""><a href="../../../../index.cfm.html">Home</a></li>
+<li class="active"><a href="../../../tags.html">Tags</a></li>
+<li class=""><a href="../../../functions.html">Functions</a></li>
+<li class=""><a href="../../../objects.html">Objects</a></li>
+</ul>
+<form class="navbar-form pull-left" action="/index.cfm/search" method="GET">
+<input type="hidden" name="action" value="current.search">
+<input type="text" id="tags" placeholder="Tag or Function" name="q">
+</form>
+</div> 
+</div> 
+</div> 
+<div class="container">
+<div class="row-fluid">
+<div class="span3">
+<div class="well">
+<h5>4.1.1.000 (Endal)</h5>
+<ul class="nav nav-list">
+<li><a href="../../../tags/version/current.html"><i class="icon-chevron-right"></i> Tags</a></li>
+<li><a href="../../../functions/version/current.html"><i class="icon-chevron-right"></i> Functions</a></li>
+<li><a href="../../../objects.html"><i class="icon-chevron-right"></i> Objects</a></li>
+</ul>
+<h5>Categories:</h5>
+<ul class="nav nav-list">
+<li><a href="../../../category/popular.html"><i class="icon-chevron-right"></i> Popular Searches</a></li>
+<li><a href="../../../category/tags.html"><i class="icon-chevron-right"></i> Tags</a></li>
+<li><a href="../../../category/functions.html"><i class="icon-chevron-right"></i> Functions</a></li>
+</ul>
+<h5>Previous Major Versions:</h5>
+<ul class="nav nav-list">
+<li>
+<a href="../../../previous/versionlist/majorversion/3.html"><i class="icon-chevron-right"></i> 3.x</a>
+</li>
+<li>
+<a href="../../../previous/versionlist/majorversion/2.html"><i class="icon-chevron-right"></i> 2.x</a>
+</li>
+<li>
+<a href="../../../previous/versionlist/majorversion/1.html"><i class="icon-chevron-right"></i> 1.x</a>
+</li>
+</ul>
+</div> 
+</div>
+<div class="span9">
+<style>
+.syntaxAttr={color:maroon;}
+</style>
+<section id="function_description">
+<div class="page-header">
+<h1>cfZip</h1>
+</div>
+<div class="text">
+Manipulates ZIP and Java Archive (JAR) files.
+In addition to the basic zip and unzip functions, use the cfzip tag to delete entries from an archive, filter files,
+read files in binary format, list the contents of an archive, and specify an entry path used in an executable JAR file.
+</div>
+<h4>Categories</h4>
+<ul class="inline well well-small" id="categories">
+<li>Communications tags &nbsp;<a href="../../zip.html" data-toggle="tooltip" class="ttip" title="Remove Category">&times;</a></li>
+<li>Database manipulation tags &nbsp;<a href="../../zip.html" data-toggle="tooltip" class="ttip" title="Remove Category">&times;</a></li>
+<li>Debugging tags &nbsp;<a href="../../zip.html" data-toggle="tooltip" class="ttip" title="Remove Category">&times;</a></li>
+<li>Display management tags &nbsp;<a href="../../zip.html" data-toggle="tooltip" class="ttip" title="Remove Category">&times;</a></li>
+<li>Exception handling tags &nbsp;<a href="../../zip.html" data-toggle="tooltip" class="ttip" title="Remove Category">&times;</a></li>
+<li>Flow-control tags &nbsp;<a href="../../zip.html" data-toggle="tooltip" class="ttip" title="Remove Category">&times;</a></li>
+<li>Forms tags &nbsp;<a href="../../zip.html" data-toggle="tooltip" class="ttip" title="Remove Category">&times;</a></li>
+<li>Internet protocol tags &nbsp;<a href="../../zip.html" data-toggle="tooltip" class="ttip" title="Remove Category">&times;</a></li>
+<li>Other tags &nbsp;<a href="../../zip.html" data-toggle="tooltip" class="ttip" title="Remove Category">&times;</a></li>
+<li>Page processing tags &nbsp;<a href="../../zip.html" data-toggle="tooltip" class="ttip" title="Remove Category">&times;</a></li>
+<li>Security tags &nbsp;<a href="../../zip.html" data-toggle="tooltip" class="ttip" title="Remove Category">&times;</a></li>
+</ul>
+<script>
+$(function(){
+$("#btnAddCat").click(function(){
+$("#addItem").toggle();
+});
+})();
+$(".ttip").tooltip();
+</script>
+<button type="submit" class="btn" id="btnAddCat">Add Category</button>
+<div class="hide well" id="addItem">
+<form action="/index.cfm/category/add" class="form-inline">
+<input type="hidden" name="type" value="tag">
+<input type="hidden" name="name" value="zip">
+<select class="form-small" name="category">
+<option>Application framework tags</option>
+<option>AJAX tags</option>
+<option>Communications tags</option>
+<option>Database manipulation tags</option>
+<option>Data output tags</option>
+<option>Debugging tags</option>
+<option>Display management tags</option>
+<option>Exception handling tags</option>
+<option>Extensibility tags</option>
+<option>File management tags</option>
+<option>Flow-control tags</option>
+<option>Forms tags</option>
+<option>Internet protocol tags</option>
+<option>Page processing tags</option>
+<option>Security tags</option>
+<option>Variable manipulation tags</option>
+<option>Other tags</option>
+</select>
+<button type="submit" class="btn">Add</button>
+</form>
+</div>
+<h3>Body</h3>
+<div class="text">This tag may have a body.</div>
+<h4>Example</h4>
+<pre class="prettyprint"><span class="syntaxTag">&lt;cfzip</span>
+	<span class="syntaxAttr">[</span><span class="syntaxAttr">action</span>=<span class="syntaxText">"<i>string</i>"</span><span class="syntaxAttr">]</span>
+	<span class="syntaxAttr">[</span><span class="syntaxAttr">charset</span>=<span class="syntaxText">"<i>string</i>"</span><span class="syntaxAttr">]</span>
+	<span class="syntaxAttr">[</span><span class="syntaxAttr">destination</span>=<span class="syntaxText">"<i>string</i>"</span><span class="syntaxAttr">]</span>
+	<span class="syntaxAttr">[</span><span class="syntaxAttr">entrypath</span>=<span class="syntaxText">"<i>string</i>"</span><span class="syntaxAttr">]</span>
+	<span class="syntaxAttr">[</span><span class="syntaxAttr">file</span>=<span class="syntaxText">"<i>string</i>"</span><span class="syntaxAttr">]</span>
+	<span class="syntaxAttr">[</span><span class="syntaxAttr">filter</span>=<span class="syntaxText">"<i>string</i>"</span><span class="syntaxAttr">]</span>
+	<span class="syntaxAttr">[</span><span class="syntaxAttr">name</span>=<span class="syntaxText">"<i>string</i>"</span><span class="syntaxAttr">]</span>
+	<span class="syntaxAttr">[</span><span class="syntaxAttr">overwrite</span>=<span class="syntaxText">"<i>boolean</i>"</span><span class="syntaxAttr">]</span>
+	<span class="syntaxAttr">[</span><span class="syntaxAttr">prefix</span>=<span class="syntaxText">"<i>string</i>"</span><span class="syntaxAttr">]</span>
+	<span class="syntaxAttr">[</span><span class="syntaxAttr">recurse</span>=<span class="syntaxText">"<i>boolean</i>"</span><span class="syntaxAttr">]</span>
+	<span class="syntaxAttr">[</span><span class="syntaxAttr">showdirectory</span>=<span class="syntaxText">"<i>boolean</i>"</span><span class="syntaxAttr">]</span>
+	<span class="syntaxAttr">[</span><span class="syntaxAttr">source</span>=<span class="syntaxText">"<i>string</i>"</span><span class="syntaxAttr">]</span>
+	<span class="syntaxAttr">[</span><span class="syntaxAttr">storepath</span>=<span class="syntaxText">"<i>boolean</i>"</span><span class="syntaxAttr">]</span>
+	<span class="syntaxAttr">[</span><span class="syntaxAttr">variable</span>=<span class="syntaxText">"<i>string</i>"</span><span class="syntaxAttr">]</span><span class="syntaxTag">&gt;
+
+[&lt;/cfzip&gt;]</span>
+</pre>
+<div class="text">This tag is also supported within cfscript</div>
+<pre class="prettyprint"><span class="syntaxTag">&lt;cfscript></span>
+	<span class="syntaxAttr">zip</span>
+	<span class="syntaxAttr">[</span><span class="syntaxAttr">action</span>=<span class="syntaxText">"<i>string</i>"</span><span class="syntaxAttr">]</span>
+	<span class="syntaxAttr">[</span><span class="syntaxAttr">charset</span>=<span class="syntaxText">"<i>string</i>"</span><span class="syntaxAttr">]</span>
+	<span class="syntaxAttr">[</span><span class="syntaxAttr">destination</span>=<span class="syntaxText">"<i>string</i>"</span><span class="syntaxAttr">]</span>
+	<span class="syntaxAttr">[</span><span class="syntaxAttr">entrypath</span>=<span class="syntaxText">"<i>string</i>"</span><span class="syntaxAttr">]</span>
+	<span class="syntaxAttr">[</span><span class="syntaxAttr">file</span>=<span class="syntaxText">"<i>string</i>"</span><span class="syntaxAttr">]</span>
+	<span class="syntaxAttr">[</span><span class="syntaxAttr">filter</span>=<span class="syntaxText">"<i>string</i>"</span><span class="syntaxAttr">]</span>
+	<span class="syntaxAttr">[</span><span class="syntaxAttr">name</span>=<span class="syntaxText">"<i>string</i>"</span><span class="syntaxAttr">]</span>
+	<span class="syntaxAttr">[</span><span class="syntaxAttr">overwrite</span>=<span class="syntaxText">"<i>boolean</i>"</span><span class="syntaxAttr">]</span>
+	<span class="syntaxAttr">[</span><span class="syntaxAttr">prefix</span>=<span class="syntaxText">"<i>string</i>"</span><span class="syntaxAttr">]</span>
+	<span class="syntaxAttr">[</span><span class="syntaxAttr">recurse</span>=<span class="syntaxText">"<i>boolean</i>"</span><span class="syntaxAttr">]</span>
+	<span class="syntaxAttr">[</span><span class="syntaxAttr">showdirectory</span>=<span class="syntaxText">"<i>boolean</i>"</span><span class="syntaxAttr">]</span>
+	<span class="syntaxAttr">[</span><span class="syntaxAttr">source</span>=<span class="syntaxText">"<i>string</i>"</span><span class="syntaxAttr">]</span>
+	<span class="syntaxAttr">[</span><span class="syntaxAttr">storepath</span>=<span class="syntaxText">"<i>boolean</i>"</span><span class="syntaxAttr">]</span>
+	<span class="syntaxAttr">[</span><span class="syntaxAttr">variable</span>=<span class="syntaxText">"<i>string</i>"</span><span class="syntaxAttr">]</span><span class="syntaxAttr"> {
+
+}</span>
+<span class="syntaxTag">&lt;/cfscript></span></pre>
+<h3>Attributes</h3>
+<div class="text">The attributes for this tag are fixed. Except for the following attributes no other attributes are allowed.
+</div>
+<table class="table table-striped table table-bordered">
+<thead>
+<tr>
+<th width="21%">Name</th>
+<th width="7%">Type</th>
+<th width="7%">Required</th>
+<th width="65%">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>action</td>
+<td>string</td>
+<td>No</td>
+<td>The action to take. Must be one of the following:
+delete
+list
+read
+readBinary
+unzip
+zip
+If you do not specify an action, Railo
+applies the default action, zip.&nbsp;</td>
+</tr>
+<tr>
+<td>charset</td>
+<td>string</td>
+<td>No</td>
+<td>The character set used to translate the ZIP or JAR
+entry into a text string. Examples of character sets are:
+JIS
+RFC1345
+UTF-16 (optional, default=encoding of the host machine)&nbsp;</td>
+</tr>
+<tr>
+<td>destination</td>
+<td>string</td>
+<td>No</td>
+<td>Destination directory where the ZIP or JAR file is extracted.&nbsp;</td>
+</tr>
+<tr>
+<td>entrypath</td>
+<td>string</td>
+<td>No</td>
+<td>Pathname on which the action is performed.&nbsp;</td>
+</tr>
+<tr>
+<td>file</td>
+<td>string</td>
+<td>No</td>
+<td>Absolute pathname of the file on which the action is performed.
+For example, the full pathname of the ZIP file: c:\temp\log.zip.&nbsp;</td>
+</tr>
+<tr>
+<td>filter</td>
+<td>string</td>
+<td>No</td>
+<td>File filter applied to the action. The action
+applies to all files in the pathname specified that match the filter.&nbsp;</td>
+</tr>
+<tr>
+<td>name</td>
+<td>string</td>
+<td>No</td>
+<td>Record set name in which the result of the list action is stored.
+The record set columns are:
+name: filename of the entry in the JAR file. For example, if the entry is
+help/docs/index.htm, the name is index.htm.
+directory: directory containing the entry. For the example above, the
+directory is help/docs. You can obtain the full entry name by concatenating
+directory and name. If an entry is at the root level, the directory is empty ('').
+size: uncompressed size of the entry, in bytes.
+compressedSize: compressed size of the entry, in bytes.
+type: type of entry (directory or file).
+dateLastModified: last modified date of the entry, cfdate object.
+comment: any comment, if present, for the entry.
+crc: crc-32 checksum of the uncompressed entry data.&nbsp;</td>
+</tr>
+<tr>
+<td>overwrite</td>
+<td>boolean</td>
+<td>No</td>
+<td>unzip: Specifies whether to overwrite the extracted files:
+yes: if the extracted file already exists at the destination specified,
+the file is overwritten.
+no: if the extracted file already exists at the destination specified,
+the file is not overwritten and that entry is not extracted. The remaining
+entries are extracted.
+zip: Specifies whether to overwrite the contents of a ZIP or JAR file:
+yes: overwrites all of the content in the ZIP or JAR file if it exists.
+no: updates existing entries and adds new entries to the ZIP or JAR file
+if it exists. (optional, default=no)&nbsp;</td>
+</tr>
+<tr>
+<td>prefix</td>
+<td>string</td>
+<td>No</td>
+<td>String added as a prefix to the ZIP or JAR entry.
+The string is the name of a subdirectory in which the
+entries are added.&nbsp;</td>
+</tr>
+<tr>
+<td>recurse</td>
+<td>boolean</td>
+<td>No</td>
+<td>Specifies whether the action
+applies to subdirectories:
+yes: includes subdirectories.
+no: does not include subdirectories. (optional, default=yes)&nbsp;</td>
+</tr>
+<tr>
+<td>showdirectory</td>
+<td>boolean</td>
+<td>No</td>
+<td>yes: lists the directories.
+no: does not list directories. (optional, default= no)&nbsp;</td>
+</tr>
+<tr>
+<td>source</td>
+<td>string</td>
+<td>No</td>
+<td>Source directory to be zipped. Not required
+if cfzipparam is specified.&nbsp;</td>
+</tr>
+<tr>
+<td>storepath</td>
+<td>boolean</td>
+<td>No</td>
+<td>zip: Specifies whether pathnames are stored in the ZIP or JAR file:
+yes: pathnames of entries are stored in the ZIP or JAR file.
+no: pathnames of the entries are not stored in the ZIP or JAR file.
+All the files are placed at the root level. In case of a name conflict,
+the last file in the iteration is added.
+unzip: Specifies whether files are stored at the entrypath:
+yes: the files are extracted to the entrypath.
+no: the entrypath is ignored and all the files are extracted
+at the root level. (optional, default= yes)&nbsp;</td>
+</tr>
+<tr>
+<td>variable</td>
+<td>string</td>
+<td>No</td>
+<td>Variable in which the read content is stored.&nbsp;</td>
+</tr>
+</tbody>
+</table>
+</section>
+<div class="well">
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+/* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+var disqus_shortname = 'railodocs'; // required: replace example with your forum shortname
+var disqus_identifier = "tag_zip"; //Tag identifier
+/* * * DON'T EDIT BELOW THIS LINE * * */
+(function() {
+var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</div>
+</div>
+</div> 
+</div> 
+<footer class="footer">
+<hr>
+<div class="container">
+<p>&copy; <a href="http://www.getrailo.com" target="_new">The Railo Company Limited</a> &amp; 
+<a href="http://www.twitter.com/markdrew/" target="_new">@markdrew</a> 2013 
+Version: <a href="current.html#" name="" class="btn btn-mini" id="beta" data-toggle="popover" data-placement="top" 
+data-content="Since this site is in beta, you might find errors and what have you. We are constantly working to improve the situation, so send us your feedback!" title="" data-original-title="About Beta Version">Beta</a>
+</p>
+</div>
+</footer>
+</body>
+</html>

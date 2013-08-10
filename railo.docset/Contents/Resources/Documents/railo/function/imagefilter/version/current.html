@@ -1,0 +1,1605 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="description" content="Documentation Viewer for Railo Server">
+<meta name="author" content="Mark Drew,@markdrew">
+<title>Railo Documentation Viewer, by The Railo Company</title>
+<!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+<!--[if lt IE 9]>
+<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
+<link href="../../../../assets/css/bootstrap.css" rel="stylesheet">
+<link href="../../../../assets/css/docs.css" rel="stylesheet">
+<link href="../../../../assets/css/jquery-ui.css" rel="stylesheet" />
+<script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+<script src="../../../../assets/js/bootstrap.min.js"></script>
+<script src="https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js"></script>
+<script src="http://code.jquery.com/ui/1.10.2/jquery-ui.js"></script>
+<script>
+//Add functionality to the String object
+if (typeof String.prototype.startsWith != 'function') {
+String.prototype.startsWith = function (str){
+return this.indexOf(str) == 0;
+};
+}
+$(function() {
+var availableTags = ["abs","acos","addsoaprequestheader","addsoapresponseheader","ajaxlink","ajaxonload","applicationstarttime","applicationstop","array","arrayappend","arrayavg","arrayclear","arraycontains","arraycontainsnocase","arraydelete","arraydeleteat","arrayeach","arrayfilter","arrayfind","arrayfindall","arrayfindallnocase","arrayfindnocase","arrayfirst","arrayindexexists","arrayinsertat","arrayisdefined","arrayisempty","arraylast","arraylen","arraymax","arraymerge","arraymid","arraymin","arraynew","arrayprepend","arrayresize","arrayreverse","arrayset","arrayslice","arraysort","arraysum","arrayswap","arraytolist","arraytostruct","asc","asin","atn","beat","binarydecode","binaryencode","bitand","bitmaskclear","bitmaskread","bitmaskset","bitnot","bitor","bitshln","bitshrn","bitxor","cacheclear","cachecount","cachedelete","cacheget","cachegetall","cachegetallids","cachegetdefaultcachename","cachegetmetadata","cachegetproperties","cacheidexists","cachekeyexists","cacheput","cacheremove","cacheremoveall","cachesetproperties","callstackdump","callstackget","canonicalize","ceiling","cfabort","cfadmin","cfajaximport","cfajaxproxy","cfapplet","cfapplication","cfargument","cfassociate","cfauthenticate","cfbreak","cfcache","cfcase","cfcatch","cfchart","cfchartdata","cfchartseries","cfcol","cfcollection","cfcomponent","cfcontent","cfcontinue","cfcookie","cfdbinfo","cfdefaultcase","cfdirectory","cfdiv","cfdocument","cfdocumentitem","cfdocumentsection","cfdump","cfelse","cfelseif","cferror","cfexecute","cfexit","cffeed","cffile","cffinally","cfflush","cfform","cfforward","cfftp","cffunction","cfgraph","cfgraphdata","cfheader","cfhtmlhead","cfhttp","cfhttpparam","cfif","cfimage","cfimap","cfimport","cfinclude","cfindex","cfinput","cfinsert","cfinterface","cfinvoke","cfinvokeargument","cflayout","cflayoutarea","cfldap","cflocation","cflock","cflog","cflogin","cfloginuser","cflogout","cfloop","cfmail","cfmailparam","cfmailpart","cfmap","cfmapitem","cfmediaplayer","cfmodule","cfobject","cfobjectcache","cfoutput","cfpageencoding","cfparam","cfpdf","cfpdfparam","cfpop","cfprocessingdirective","cfprocparam","cfprocresult","cfproperty","cfquery","cfqueryparam","cfregistry","cfrethrow","cfretry","cfreturn","cfsavecontent","cfschedule","cfscript","cfscriptjava","cfsearch","cfselect","cfservlet","cfservletparam","cfset","cfsetting","cfsilent","cfsleep","cfslider","cfstopwatch","cfstoredproc","cfswitch","cftable","cftextinput","cfthread","cfthrow","cftimer","cftrace","cftransaction","cftry","cfupdate","cfusion_decrypt","cfusion_encrypt","cfvideo","cfvideoplayer","cfvideoplayerparam","cfwddx","cfwhile","cfwindow","cfxml","cfzip","cfzipparam","charsetdecode","charsetencode","chr","cjustify","compare","comparenocase","componentcacheclear","componentcachelist","componentinfo","compress","contractpath","cos","createdate","createdatetime","createdynamicproxy","createguid","createobject","createodbcdate","createodbcdatetime","createodbctime","createtime","createtimespan","createuniqueid","createuuid","csrfgeneratetoken","csrfverifytoken","ctcacheclear","ctcachelist","datasourceflushmetacache","dateadd","datecompare","dateconvert","datediff","dateformat","datepart","datetimeformat","day","dayofweek","dayofweekasstring","dayofweekshortasstring","dayofyear","daysinmonth","daysinyear","de","decimalformat","decodefromurl","decrementvalue","decrypt","decryptbinary","deleteclientvariable","deserializejson","directorycopy","directorycreate","directorydelete","directoryexists","directorylist","directoryrename","dollarformat","dump","dumpstruct","duplicate","each","echo","empty","encodeforcss","encodefordn","encodeforhtml","encodeforhtmlattribute","encodeforjavascript","encodeforldap","encodeforurl","encodeforxml","encodeforxmlattribute","encodeforxpath","encrypt","encryptbinary","entitydelete","entityload","entityloadbyexample","entityloadbypk","entitymerge","entitynamearray","entitynamelist","entitynew","entityreload","entitysave","entitytoquery","esapidecode","esapiencode","evaluate","evaluatecomponent","evaluatejava","exp","expandpath","extract","fileappend","fileclose","filecopy","filedelete","fileexists","filegetmimetype","fileiseof","filemove","fileopen","fileread","filereadbinary","filereadline","fileseek","filesetaccessmode","filesetattribute","filesetlastmodified","fileskipbytes","fileupload","fileuploadall","filewrite","filewriteline","find","findnocase","findoneof","firstdayofmonth","fix","formatbasen","generatesecretkey","getapplicationmetadata","getapplicationsettings","getauthuser","getbasetagdata","getbasetaglist","getbasetemplatepath","getclasspath","getclientvariableslist","getcomponentmetadata","getcontextroot","getcpuusage","getcurrentcontext","getcurrenttemplatepath","getdirectoryfrompath","getencoding","getfilefrompath","getfileinfo","getfreespace","getfunctioncalledname","getfunctiondata","getfunctionlist","gethttprequestdata","gethttptimestring","getk2serverdoccount","getk2serverdoccountlimit","getlocale","getlocaledisplayname","getlocalhostip","getmemoryusage","getmetadata","getmetricdata","getnumericdate","getpagecontext","getprofilesections","getprofilestring","getrailoid","getreadableimageformats","getsoaprequest","getsoaprequestheader","getsoapresponse","getsoapresponseheader","getsystemfreememory","getsystemtotalmemory","gettagdata","gettaglist","gettempdirectory","gettempfile","gettemplatepath","gettickcount","gettimezone","gettimezoneinfo","gettoken","gettotalspace","getuserroles","getvariable","getvfsmetadata","getwriteableimageformats","hash","hmac","hour","htmlcodeformat","htmleditformat","htmlparse","iif","imageaddborder","imageblur","imageclearrect","imagecopy","imagecrop","imagedrawarc","imagedrawbeveledrect","imagedrawcubiccurve","imagedrawimage","imagedrawline","imagedrawlines","imagedrawoval","imagedrawpoint","imagedrawquadraticcurve","imagedrawrect","imagedrawroundrect","imagedrawtext","imagefilter","imagefiltercolormap","imagefiltercurves","imagefilterkernel","imagefilterwarpgrid","imageflip","imagefonts","imageformats","imagegetblob","imagegetbufferedimage","imagegetexifmetadata","imagegetexiftag","imagegetheight","imagegetiptctag","imagegetwidth","imagegrayscale","imageinfo","imagenegative","imagenew","imageoverlay","imagepaste","imageread","imagereadbase64","imageresize","imagerotate","imagerotatedrawingaxis","imagescaletofit","imagesetantialiasing","imagesetbackgroundcolor","imagesetdrawingalpha","imagesetdrawingcolor","imagesetdrawingstroke","imagesetdrawingtransparency","imagesharpen","imageshear","imagesheardrawingaxis","imagetranslate","imagetranslatedrawingaxis","imagewrite","imagewritebase64","imagexordrawingmode","incrementvalue","inputbasen","insert","int","intergralcontext","invoke","isarray","isbinary","isboolean","isclosure","iscustomfunction","isdate","isdebugmode","isdefined","isempty","isimage","isimagefile","isinstanceof","isipinrange","isipv6","isjson","isk2serverabroker","isk2serverdoccountexceeded","isk2serveronline","isleapyear","islocalhost","isnotmap","isnull","isnumeric","isnumericdate","isobject","ispdfobject","isquery","issimplevalue","issoaprequest","isstruct","isuserinanyrole","isuserinrole","isuserloggedin","isvalid","isvideofile","iswddx","isxml","isxmlattribute","isxmldoc","isxmlelem","isxmlnode","isxmlroot","iszipfile","javacast","jsstringformat","lcase","left","len","listappend","listavg","listchangedelims","listcompact","listcontains","listcontainsnocase","listdeleteat","listfilter","listfind","listfindnocase","listfirst","listgetat","listindexexists","listinsertat","listitemtrim","listlast","listlen","listprepend","listqualify","listremoveduplicates","listrest","listsetat","listsort","listtoarray","listtrim","listvaluecount","listvaluecountnocase","ljustify","location","log","log10","lscurrencyformat","lsdateformat","lsdatetimeformat","lsdayofweek","lseurocurrencyformat","lsiscurrency","lsisdate","lsisnumeric","lsnumberformat","lsparsecurrency","lsparsedatetime","lsparseeurocurrency","lsparsenumber","lstimeformat","lsweek","ltrim","max","metaphone","mid","millisecond","min","minute","month","monthasstring","monthshortasstring","newline","now","nowserver","nullvalue","numberformat","objectequals","objectload","objectsave","ormclearsession","ormclosesession","ormevictcollection","ormevictentity","ormevictqueries","ormexecutequery","ormflush","ormgetsession","ormgetsessionfactory","ormreload","pagepoolclear","pagepoollist","paragraphformat","parameterexists","parsedatetime","parsenumber","pi","precisionevaluate","preservesinglequotes","quarter","query","queryaddcolumn","queryaddrow","querycolumnarray","querycolumncount","querycolumndata","querycolumnexists","querycolumnlist","querydeletecolumn","querydeleterow","querygetcell","querynew","queryrecordcount","querysetcell","queryslice","querysort","quotedvaluelist","rand","randomize","randrange","refind","refindnocase","releasecomobject","rematch","rematchnocase","removechars","repeatstring","replace","replacelist","replacenocase","rereplace","rereplacenocase","restdeleteapplication","restinitapplication","restsetresponse","reverse","right","rjustify","round","rtrim","second","sendgatewaymessage","serialize","serializejson","sessioninvalidate","sessionrotate","sessionstarttime","setencoding","setlocale","setprofilestring","settimezone","setvariable","sgn","sin","sizeof","sleep","soundex","spanexcluding","spanincluding","spreadsheetnew","spreadsheetsetcellvalue","spreadsheetwrite","sqr","sslcertificateinstall","sslcertificatelist","storeaddacl","storegetacl","storesetacl","stringlen","stripcr","struct","structappend","structclear","structcopy","structcount","structdelete","structeach","structfilter","structfind","structfindkey","structfindvalue","structget","structinsert","structisempty","structkeyarray","structkeyexists","structkeylist","structkeytranslate","structnew","structsort","structupdate","systemcacheclear","systemoutput","tan","threadjoin","threadterminate","throw","timeformat","tobase64","tobinary","tonumeric","toscript","tostring","trace","transactioncommit","transactionrollback","transactionsetsavepoint","trim","truefalseformat","ucase","ucfirst","unserializejava","urldecode","urlencode","urlencodedformat","urlsessionformat","val","valuearray","valuelist","verifyclient","week","wrap","writedump","writelog","writeoutput","xmlchildpos","xmlelemnew","xmlformat","xmlgetnodetype","xmlnew","xmlparse","xmlsearch","xmltransform","xmlvalidate","year","yesnoformat"];
+$( "#tags" ).autocomplete({
+source: availableTags,
+select: function( event, ui ) {
+if(ui.item.value.startsWith("cf")){
+window.location = "/tag/" + ui.item.value;
+}
+else {
+window.location = "/function/" + ui.item.value; 
+}
+}
+});
+//Start the popover!
+//Check if we have shown them a popup! 
+//$('#beta').popover('show');
+$('#beta').popover()
+});
+</script>
+</head>
+<body>
+<div class="navbar navbar-fixed-top navbar-inverse">
+<div class="navbar-inner">
+<div class="container">
+<a class="brand" href="../../../../index.cfm.html">Railo Docs</a>
+<ul class="nav">
+<li class=""><a href="../../../../index.cfm.html">Home</a></li>
+<li class=""><a href="../../../tags.html">Tags</a></li>
+<li class="active"><a href="../../../functions.html">Functions</a></li>
+<li class=""><a href="../../../objects.html">Objects</a></li>
+</ul>
+<form class="navbar-form pull-left" action="/index.cfm/search" method="GET">
+<input type="hidden" name="action" value="current.search">
+<input type="text" id="tags" placeholder="Tag or Function" name="q">
+</form>
+</div> 
+</div> 
+</div> 
+<div class="container">
+<div class="row-fluid">
+<div class="span3">
+<div class="well">
+<h5>4.1.1.000 (Endal)</h5>
+<ul class="nav nav-list">
+<li><a href="../../../tags/version/current.html"><i class="icon-chevron-right"></i> Tags</a></li>
+<li><a href="../../../functions/version/current.html"><i class="icon-chevron-right"></i> Functions</a></li>
+<li><a href="../../../objects.html"><i class="icon-chevron-right"></i> Objects</a></li>
+</ul>
+<h5>Categories:</h5>
+<ul class="nav nav-list">
+<li><a href="../../../category/popular.html"><i class="icon-chevron-right"></i> Popular Searches</a></li>
+<li><a href="../../../category/tags.html"><i class="icon-chevron-right"></i> Tags</a></li>
+<li><a href="../../../category/functions.html"><i class="icon-chevron-right"></i> Functions</a></li>
+</ul>
+<h5>Previous Major Versions:</h5>
+<ul class="nav nav-list">
+<li>
+<a href="../../../previous/versionlist/majorversion/3.html"><i class="icon-chevron-right"></i> 3.x</a>
+</li>
+<li>
+<a href="../../../previous/versionlist/majorversion/2.html"><i class="icon-chevron-right"></i> 2.x</a>
+</li>
+<li>
+<a href="../../../previous/versionlist/majorversion/1.html"><i class="icon-chevron-right"></i> 1.x</a>
+</li>
+</ul>
+</div> 
+</div>
+<div class="span9">
+<section id="function_description">
+<div class="page-header">
+<h1>ImageFilter 
+</h1>
+</div>
+<div class="text">
+the function ImageFilter allows to execute a filter against a image. Below you find a list of filter names supported by the function.
+every filter need other parameters for the configuration, listed as well below.
+average
+&nbsp;&nbsp;&nbsp;A filter which averages the 3x3 neighbourhood of each pixel, providing a simple blur.
+&nbsp;&nbsp;&nbsp;Parameters:
+&nbsp;&nbsp;&nbsp;- edgeAction (String)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The action to perfomr for pixels off the image edges.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;valid values are:
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- clamp (default): Clamp pixels off the edge to the nearest edge.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- wrap: Wrap pixels off the edge to the opposite edge.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- zero: Treat pixels off the edge as zero
+&nbsp;&nbsp;&nbsp;- useAlpha (boolean)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Set whether to convolve the alpha channel.
+&nbsp;&nbsp;&nbsp;- premultiplyAlpha (boolean)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Set whether to premultiply the alpha channel.
+block
+&nbsp;&nbsp;&nbsp;A Filter to pixellate images.
+&nbsp;&nbsp;&nbsp;Parameters:
+&nbsp;&nbsp;&nbsp;- blockSize (integer)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The pixel block size.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- min-value: 1
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- max-value: 100+
+&nbsp;&nbsp;&nbsp;- edgeAction (String)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The action to perfomr for pixels off the image edges.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;valid values are:
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- clamp (default): Clamp pixels off the edge to the nearest edge.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- wrap: Wrap pixels off the edge to the opposite edge.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- zero: Treat pixels off the edge as zero
+&nbsp;&nbsp;&nbsp;- interpolation (String)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The type of interpolation to perform.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;valid values are:
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- bilinear (default): Use bilinear interpolation.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- nearest_neighbour: Use nearest-neighbour interpolation.
+blur
+&nbsp;&nbsp;&nbsp;A simple blur filter. You should probably use BoxBlurFilter instead.
+&nbsp;&nbsp;&nbsp;Parameters:
+&nbsp;&nbsp;&nbsp;- edgeAction (String)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The action to perfomr for pixels off the image edges.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;valid values are:
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- clamp (default): Clamp pixels off the edge to the nearest edge.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- wrap: Wrap pixels off the edge to the opposite edge.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- zero: Treat pixels off the edge as zero
+&nbsp;&nbsp;&nbsp;- useAlpha (boolean)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Set whether to convolve the alpha channel.
+&nbsp;&nbsp;&nbsp;- premultiplyAlpha (boolean)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Set whether to premultiply the alpha channel.
+border
+&nbsp;&nbsp;&nbsp;A filter to add a border around an image using the supplied Paint, which may be null for no painting.
+&nbsp;&nbsp;&nbsp;Parameters:
+&nbsp;&nbsp;&nbsp;- left (integer)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The border size on the left edge.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- min-value: 0
+&nbsp;&nbsp;&nbsp;- right (integer)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The border size on the right edge.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- min-value: 0
+&nbsp;&nbsp;&nbsp;- top (integer)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The border size on the top edge.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- min-value: 0
+&nbsp;&nbsp;&nbsp;- bottom (integer)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The border size on the bottom edge.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- min-value: 0
+&nbsp;&nbsp;&nbsp;- color (String)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The border color.
+bump
+&nbsp;&nbsp;&nbsp;A simple embossing filter.
+&nbsp;&nbsp;&nbsp;Parameters:
+&nbsp;&nbsp;&nbsp;- edgeAction (String)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The action to perfomr for pixels off the image edges.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;valid values are:
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- clamp (default): Clamp pixels off the edge to the nearest edge.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- wrap: Wrap pixels off the edge to the opposite edge.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- zero: Treat pixels off the edge as zero
+&nbsp;&nbsp;&nbsp;- useAlpha (boolean)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Set whether to convolve the alpha channel.
+&nbsp;&nbsp;&nbsp;- premultiplyAlpha (boolean)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Set whether to premultiply the alpha channel.
+caustics
+&nbsp;&nbsp;&nbsp;A filter which simulates underwater caustics. This can be animated to get a bottom-of-the-swimming-pool effect.
+&nbsp;&nbsp;&nbsp;Parameters:
+&nbsp;&nbsp;&nbsp;- amount (numeric)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The amount of effect.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- min-value: 0
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- max-value: 1
+&nbsp;&nbsp;&nbsp;- brightness (integer)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The brightness.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- min-value: 0
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- max-value: 1
+&nbsp;&nbsp;&nbsp;- turbulence (numeric)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Specifies the turbulence of the texture.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- min-value: 0
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- max-value: 1
+&nbsp;&nbsp;&nbsp;- dispersion (numeric)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The dispersion.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- min-value: 0
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- max-value: 1
+&nbsp;&nbsp;&nbsp;- bgColor (String)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The background color.
+&nbsp;&nbsp;&nbsp;- time (numeric)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The time. Use this to animate the effect.
+&nbsp;&nbsp;&nbsp;- scale (numeric)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Specifies the scale of the texture.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- min-value: 1
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- max-value: 300+
+&nbsp;&nbsp;&nbsp;- samples (integer)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The number of samples per pixel. More samples means better quality, but slower rendering.
+cellular
+&nbsp;&nbsp;&nbsp;A filter which produces an image with a cellular texture.
+&nbsp;&nbsp;&nbsp;Parameters:
+&nbsp;&nbsp;&nbsp;- amount (numeric)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The amount of effect.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- min-value: 0
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- max-value: 1
+&nbsp;&nbsp;&nbsp;- turbulence (numeric)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Specifies the turbulence of the texture.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- min-value: 0
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- max-value: 1
+&nbsp;&nbsp;&nbsp;- stretch (numeric)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Specifies the stretch factor of the texture.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- min-value: 1
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- max-value: 50+
+&nbsp;&nbsp;&nbsp;- angle (numeric)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Specifies the angle of the texture.
+&nbsp;&nbsp;&nbsp;- angleCoefficient (numeric)
+&nbsp;&nbsp;&nbsp;- gradientCoefficient (numeric)
+&nbsp;&nbsp;&nbsp;- colormap (Colormap)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The colormap to be used for the filter. Use function ImageFilterColorMap to create.
+&nbsp;&nbsp;&nbsp;- randomness (numeric)
+&nbsp;&nbsp;&nbsp;- gridType (String)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;the grid type to set, one of the following:
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- RANDOM
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- SQUARE
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- HEXAGONAL
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- OCTAGONAL
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- TRIANGULAR
+&nbsp;&nbsp;&nbsp;- distancePower (numeric)
+&nbsp;&nbsp;&nbsp;- scale (numeric)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Specifies the scale of the texture.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- min-value: 1
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- max-value: 300+
+check
+&nbsp;&nbsp;&nbsp;A Filter to draw grids and check patterns.
+&nbsp;&nbsp;&nbsp;Parameters:
+&nbsp;&nbsp;&nbsp;- angle (numeric)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The angle of the texture.
+&nbsp;&nbsp;&nbsp;- xScale (integer)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The X scale of the texture.
+&nbsp;&nbsp;&nbsp;- yScale (integer)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The Y scale of the texture.
+&nbsp;&nbsp;&nbsp;- fuzziness (integer)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The fuzziness of the texture.
+&nbsp;&nbsp;&nbsp;- foreground (String)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The foreground color.
+&nbsp;&nbsp;&nbsp;- background (String)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The background color.
+&nbsp;&nbsp;&nbsp;- dimensions (Array)
+chrome
+&nbsp;&nbsp;&nbsp;A filter which simulates chrome.
+&nbsp;&nbsp;&nbsp;Parameters:
+&nbsp;&nbsp;&nbsp;- amount (numeric)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The amount of effect.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- min-value: 0
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- max-value: 1
+&nbsp;&nbsp;&nbsp;- exposure (numeric)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The exppsure of the effect.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- min-value: 0
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- max-value: 1
+&nbsp;&nbsp;&nbsp;- colorSource (String)
+&nbsp;&nbsp;&nbsp;- material (String)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Use the following format [color,opacity]; Example: "red,0.5"
+&nbsp;&nbsp;&nbsp;- bumpHeight (numeric)
+&nbsp;&nbsp;&nbsp;- bumpSoftness (numeric)
+&nbsp;&nbsp;&nbsp;- bumpShape (integer)
+&nbsp;&nbsp;&nbsp;- viewDistance (numeric)
+&nbsp;&nbsp;&nbsp;- bumpSource (integer)
+&nbsp;&nbsp;&nbsp;- diffuseColor (String)
+circle
+&nbsp;&nbsp;&nbsp;A filter which wraps an image around a circular arc.
+&nbsp;&nbsp;&nbsp;Parameters:
+&nbsp;&nbsp;&nbsp;- radius (numeric)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The radius of the effect.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- min-value: 0
+&nbsp;&nbsp;&nbsp;- angle (numeric)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The angle of the arc.
+&nbsp;&nbsp;&nbsp;- spreadAngle (numeric)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The spread angle of the arc.
+&nbsp;&nbsp;&nbsp;- centreX (numeric)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The centre of the effect in the Y direction as a proportion of the image size.
+&nbsp;&nbsp;&nbsp;- centreY (numeric)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The centre of the effect in the Y direction as a proportion of the image size.
+&nbsp;&nbsp;&nbsp;- height (numeric)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The height of the arc.
+&nbsp;&nbsp;&nbsp;- edgeAction (String)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The action to perfomr for pixels off the image edges.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;valid values are:
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- clamp (default): Clamp pixels off the edge to the nearest edge.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- wrap: Wrap pixels off the edge to the opposite edge.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- zero: Treat pixels off the edge as zero
+&nbsp;&nbsp;&nbsp;- interpolation (String)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The type of interpolation to perform.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;valid values are:
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- bilinear (default): Use bilinear interpolation.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- nearest_neighbour: Use nearest-neighbour interpolation.
+contour
+&nbsp;&nbsp;&nbsp;A filter which draws contours on an image at given brightness levels.
+&nbsp;&nbsp;&nbsp;Parameters:
+&nbsp;&nbsp;&nbsp;- levels (numeric)
+&nbsp;&nbsp;&nbsp;- contourColor (String)
+&nbsp;&nbsp;&nbsp;- offset (numeric)
+&nbsp;&nbsp;&nbsp;- scale (numeric)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Specifies the scale of the contours.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- min-value: 0
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- max-value: 1
+contrast
+&nbsp;&nbsp;&nbsp;A filter to change the brightness and contrast of an image.
+&nbsp;&nbsp;&nbsp;Parameters:
+&nbsp;&nbsp;&nbsp;- brightness (numeric)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The filter brightness.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- min-value: 0
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- max-value: 0
+&nbsp;&nbsp;&nbsp;- contrast (numeric)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The filter contrast.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- min-value: 0
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- max-value: 0
+&nbsp;&nbsp;&nbsp;- dimensions (Array)
+crop
+&nbsp;&nbsp;&nbsp;A filter which crops an image to a given rectangle.
+&nbsp;&nbsp;&nbsp;Parameters:
+&nbsp;&nbsp;&nbsp;- x (integer)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The left edge of the crop rectangle.
+&nbsp;&nbsp;&nbsp;- y (integer)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The top edge of the crop rectangle.
+&nbsp;&nbsp;&nbsp;- width (integer)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The width of the crop rectangle.
+&nbsp;&nbsp;&nbsp;- height (integer)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The height of the crop rectangle.
+crystallize
+&nbsp;&nbsp;&nbsp;A filter which applies a crystallizing effect to an image, by producing Voronoi cells filled with colours from the image.
+&nbsp;&nbsp;&nbsp;Parameters:
+&nbsp;&nbsp;&nbsp;- edgeThickness (numeric)
+&nbsp;&nbsp;&nbsp;- fadeEdges (boolean)
+&nbsp;&nbsp;&nbsp;- edgeColor (String)
+&nbsp;&nbsp;&nbsp;- amount (numeric)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The amount of effect.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- min-value: 0
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- max-value: 1
+&nbsp;&nbsp;&nbsp;- turbulence (numeric)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Specifies the turbulence of the texture.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- min-value: 0
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- max-value: 1
+&nbsp;&nbsp;&nbsp;- stretch (numeric)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Specifies the stretch factor of the texture.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- min-value: 1
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- max-value: 50+
+&nbsp;&nbsp;&nbsp;- angle (numeric)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Specifies the angle of the texture.
+&nbsp;&nbsp;&nbsp;- angleCoefficient (numeric)
+&nbsp;&nbsp;&nbsp;- gradientCoefficient (numeric)
+&nbsp;&nbsp;&nbsp;- colormap (Colormap)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The colormap to be used for the filter. Use function ImageFilterColorMap to create.
+&nbsp;&nbsp;&nbsp;- randomness (numeric)
+&nbsp;&nbsp;&nbsp;- gridType (String)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;the grid type to set, one of the following:
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- RANDOM
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- SQUARE
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- HEXAGONAL
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- OCTAGONAL
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- TRIANGULAR
+&nbsp;&nbsp;&nbsp;- distancePower (numeric)
+&nbsp;&nbsp;&nbsp;- scale (numeric)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Specifies the scale of the texture.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- min-value: 1
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- max-value: 300+
+curl
+&nbsp;&nbsp;&nbsp;A page curl effect.
+&nbsp;&nbsp;&nbsp;Parameters:
+&nbsp;&nbsp;&nbsp;- radius (numeric)
+&nbsp;&nbsp;&nbsp;- angle (numeric)
+&nbsp;&nbsp;&nbsp;- transition (numeric)
+&nbsp;&nbsp;&nbsp;- edgeAction (String)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The action to perfomr for pixels off the image edges.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;valid values are:
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- clamp (default): Clamp pixels off the edge to the nearest edge.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- wrap: Wrap pixels off the edge to the opposite edge.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- zero: Treat pixels off the edge as zero
+&nbsp;&nbsp;&nbsp;- interpolation (String)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The type of interpolation to perform.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;valid values are:
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- bilinear (default): Use bilinear interpolation.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- nearest_neighbour: Use nearest-neighbour interpolation.
+despeckle
+&nbsp;&nbsp;&nbsp;A filter which removes noise from an image using a "pepper and salt" algorithm.
+&nbsp;&nbsp;&nbsp;Parameters:
+diffuse
+&nbsp;&nbsp;&nbsp;This filter diffuses an image by moving its pixels in random directions.
+&nbsp;&nbsp;&nbsp;Parameters:
+&nbsp;&nbsp;&nbsp;- scale (numeric)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Specifies the scale of the texture.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- min-value: 1
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- max-value: 100+
+&nbsp;&nbsp;&nbsp;- edgeAction (String)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The action to perfomr for pixels off the image edges.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;valid values are:
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- clamp (default): Clamp pixels off the edge to the nearest edge.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- wrap: Wrap pixels off the edge to the opposite edge.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- zero: Treat pixels off the edge as zero
+&nbsp;&nbsp;&nbsp;- interpolation (String)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The type of interpolation to perform.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;valid values are:
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- bilinear (default): Use bilinear interpolation.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- nearest_neighbour: Use nearest-neighbour interpolation.
+diffusion
+&nbsp;&nbsp;&nbsp;A filter which uses Floyd-Steinberg error diffusion dithering to halftone an image.
+&nbsp;&nbsp;&nbsp;Parameters:
+&nbsp;&nbsp;&nbsp;- levels (integer)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The number of dither levels.
+&nbsp;&nbsp;&nbsp;- serpentine (boolean)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Set whether to use a serpentine pattern for return or not. This can reduce 'avalanche' artifacts in the output.
+&nbsp;&nbsp;&nbsp;- colorDither (boolean)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Set whether to use a color dither.
+dilate
+&nbsp;&nbsp;&nbsp;Given a binary image, this filter performs binary dilation, setting all added pixels to the given 'new' color.
+&nbsp;&nbsp;&nbsp;Parameters:
+&nbsp;&nbsp;&nbsp;- threshold (integer)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The threshold - the number of neighbouring pixels for dilation to occur.
+&nbsp;&nbsp;&nbsp;- iterations (integer)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The number of iterations the effect is performed.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- min-value: 0
+&nbsp;&nbsp;&nbsp;- colormap (Colormap)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The colormap to be used for the filter. Use function ImageFilterColorMap to create.
+&nbsp;&nbsp;&nbsp;- newColor (String)
+displace
+&nbsp;&nbsp;&nbsp;A filter which simulates the appearance of looking through glass. A separate grayscale displacement image is provided and
+&nbsp;&nbsp;&nbsp;pixels in the source image are displaced according to the gradient of the displacement map.
+&nbsp;&nbsp;&nbsp;Parameters:
+&nbsp;&nbsp;&nbsp;- amount (numeric)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The amount of distortion.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- min-value: 0
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- max-value: 1
+&nbsp;&nbsp;&nbsp;- displacementMap (Image)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The displacement map.
+&nbsp;&nbsp;&nbsp;- edgeAction (String)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The action to perfomr for pixels off the image edges.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;valid values are:
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- clamp (default): Clamp pixels off the edge to the nearest edge.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- wrap: Wrap pixels off the edge to the opposite edge.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- zero: Treat pixels off the edge as zero
+&nbsp;&nbsp;&nbsp;- interpolation (String)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The type of interpolation to perform.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;valid values are:
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- bilinear (default): Use bilinear interpolation.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- nearest_neighbour: Use nearest-neighbour interpolation.
+dissolve
+&nbsp;&nbsp;&nbsp;A filter which "dissolves" an image by thresholding the alpha channel with random numbers.
+&nbsp;&nbsp;&nbsp;Parameters:
+&nbsp;&nbsp;&nbsp;- density (numeric)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The density of the image in the range 0..1.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- min-value: 0
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- max-value: 1
+&nbsp;&nbsp;&nbsp;- softness (numeric)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The softness of the dissolve in the range 0..1.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- min-value: 0
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- max-value: 1
+&nbsp;&nbsp;&nbsp;- dimensions (Array)
+dither
+&nbsp;&nbsp;&nbsp;A filter which performs ordered dithering on an image.
+&nbsp;&nbsp;&nbsp;Parameters:
+&nbsp;&nbsp;&nbsp;- levels (integer)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The number of dither levels.
+&nbsp;&nbsp;&nbsp;- colorDither (boolean)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Set whether to use a color dither.
+&nbsp;&nbsp;&nbsp;- dimensions (Array)
+edge
+&nbsp;&nbsp;&nbsp;An edge-detection filter.
+&nbsp;&nbsp;&nbsp;Parameters:
+emboss
+&nbsp;&nbsp;&nbsp;A class to emboss an image.
+&nbsp;&nbsp;&nbsp;Parameters:
+&nbsp;&nbsp;&nbsp;- bumpHeight (numeric)
+&nbsp;&nbsp;&nbsp;- azimuth (numeric)
+&nbsp;&nbsp;&nbsp;- elevation (numeric)
+&nbsp;&nbsp;&nbsp;- emboss (boolean)
+equalize
+&nbsp;&nbsp;&nbsp;A filter to perform auto-equalization on an image.
+&nbsp;&nbsp;&nbsp;Parameters:
+erode
+&nbsp;&nbsp;&nbsp;Given a binary image, this filter performs binary erosion, setting all removed pixels to the given 'new' color.
+&nbsp;&nbsp;&nbsp;Parameters:
+&nbsp;&nbsp;&nbsp;- threshold (integer)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The threshold - the number of neighbouring pixels for dilation to occur.
+&nbsp;&nbsp;&nbsp;- iterations (integer)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The number of iterations the effect is performed.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- min-value: 0
+&nbsp;&nbsp;&nbsp;- colormap (Colormap)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The colormap to be used for the filter. Use function ImageFilterColorMap to create.
+&nbsp;&nbsp;&nbsp;- newColor (String)
+exposure
+&nbsp;&nbsp;&nbsp;A filter which changes the exposure of an image.
+&nbsp;&nbsp;&nbsp;Parameters:
+&nbsp;&nbsp;&nbsp;- exposure (numeric)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The exposure level.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- min-value: 0
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- max-value: 5+
+&nbsp;&nbsp;&nbsp;- dimensions (Array)
+fade
+&nbsp;&nbsp;&nbsp;An abstract superclass for point filters. The interface is the same as the old RGBImageFilter.
+&nbsp;&nbsp;&nbsp;Parameters:
+&nbsp;&nbsp;&nbsp;- angle (numeric)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Specifies the angle of the texture.
+&nbsp;&nbsp;&nbsp;- sides (integer)
+&nbsp;&nbsp;&nbsp;- fadeStart (numeric)
+&nbsp;&nbsp;&nbsp;- fadeWidth (numeric)
+&nbsp;&nbsp;&nbsp;- invert (boolean)
+&nbsp;&nbsp;&nbsp;- dimensions (Array)
+feedback
+&nbsp;&nbsp;&nbsp;A filter which priduces a video feedback effect by repeated transformations.
+&nbsp;&nbsp;&nbsp;Parameters:
+&nbsp;&nbsp;&nbsp;- iterations (integer)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The number of iterations.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- min-value: 0
+&nbsp;&nbsp;&nbsp;- angle (numeric)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Specifies the angle of each iteration.
+&nbsp;&nbsp;&nbsp;- centreX (numeric)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The centre of the effect in the X direction as a proportion of the image size.
+&nbsp;&nbsp;&nbsp;- centreY (numeric)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The centre of the effect in the Y direction as a proportion of the image size.
+&nbsp;&nbsp;&nbsp;- distance (numeric)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Specifies the distance to move on each iteration.
+&nbsp;&nbsp;&nbsp;- rotation (numeric)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Specifies the amount of rotation on each iteration.
+&nbsp;&nbsp;&nbsp;- zoom (numeric)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Specifies the amount to scale on each iteration.
+&nbsp;&nbsp;&nbsp;- startAlpha (numeric)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The alpha value at the first iteration.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- min-value: 0
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- max-value: 1
+&nbsp;&nbsp;&nbsp;- endAlpha (numeric)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The alpha value at the last iteration.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- min-value: 0
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- max-value: 1
+fill
+&nbsp;&nbsp;&nbsp;A filter which fills an image with a given color. Normally you would just call Graphics.fillRect but it can sometimes be useful
+&nbsp;&nbsp;&nbsp;to go via a filter to fit in with an existing API.
+&nbsp;&nbsp;&nbsp;Parameters:
+&nbsp;&nbsp;&nbsp;- fillColor (String)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The fill color.
+&nbsp;&nbsp;&nbsp;- dimensions (Array)
+flare
+&nbsp;&nbsp;&nbsp;An experimental filter for rendering lens flares.
+&nbsp;&nbsp;&nbsp;Parameters:
+&nbsp;&nbsp;&nbsp;- radius (numeric)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The radius of the effect.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- min-value: 0
+&nbsp;&nbsp;&nbsp;- centreX (numeric)
+&nbsp;&nbsp;&nbsp;- centreY (numeric)
+&nbsp;&nbsp;&nbsp;- ringWidth (numeric)
+&nbsp;&nbsp;&nbsp;- baseAmount (numeric)
+&nbsp;&nbsp;&nbsp;- ringAmount (numeric)
+&nbsp;&nbsp;&nbsp;- rayAmount (numeric)
+&nbsp;&nbsp;&nbsp;- color (String)
+&nbsp;&nbsp;&nbsp;- dimensions (Array)
+flip
+&nbsp;&nbsp;&nbsp;A filter which flips images or rotates by multiples of 90 degrees.
+&nbsp;&nbsp;&nbsp;Parameters:
+&nbsp;&nbsp;&nbsp;- operation (integer)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The filter operation.
+gain
+&nbsp;&nbsp;&nbsp;A filter which changes the gain and bias of an image - similar to ContrastFilter.
+&nbsp;&nbsp;&nbsp;Parameters:
+&nbsp;&nbsp;&nbsp;- gain (numeric)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The gain.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- min-value:: 0
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- max-value:: 1
+&nbsp;&nbsp;&nbsp;- bias (numeric)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The bias.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- min-value:: 0
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- max-value:: 1
+&nbsp;&nbsp;&nbsp;- dimensions (Array)
+gamma
+&nbsp;&nbsp;&nbsp;A filter for changing the gamma of an image.
+&nbsp;&nbsp;&nbsp;Parameters:
+&nbsp;&nbsp;&nbsp;- gamma (numeric)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The gamma levels.
+&nbsp;&nbsp;&nbsp;- dimensions (Array)
+gaussian
+&nbsp;&nbsp;&nbsp;A filter which applies Gaussian blur to an image. This is a subclass of ConvolveFilter
+&nbsp;&nbsp;&nbsp;which simply creates a kernel with a Gaussian distribution for blurring.
+&nbsp;&nbsp;&nbsp;Parameters:
+&nbsp;&nbsp;&nbsp;- radius (numeric)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The radius of the kernel, and hence the amount of blur. The bigger the radius, the longer this filter will take.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- min-value: 0
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- max-value: 100+
+&nbsp;&nbsp;&nbsp;- edgeAction (String)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The action to perfomr for pixels off the image edges.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;valid values are:
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- clamp (default): Clamp pixels off the edge to the nearest edge.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- wrap: Wrap pixels off the edge to the opposite edge.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- zero: Treat pixels off the edge as zero
+&nbsp;&nbsp;&nbsp;- useAlpha (boolean)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Set whether to convolve the alpha channel.
+&nbsp;&nbsp;&nbsp;- premultiplyAlpha (boolean)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Set whether to premultiply the alpha channel.
+glint
+&nbsp;&nbsp;&nbsp;A filter which renders "glints" on bright parts of the image.
+&nbsp;&nbsp;&nbsp;Parameters:
+&nbsp;&nbsp;&nbsp;- amount (numeric)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The amount of glint.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- min-value: 0
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- max-value: 1
+&nbsp;&nbsp;&nbsp;- colormap (Colormap)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The colormap to be used for the filter. Use function ImageFilterColorMap to create.
+&nbsp;&nbsp;&nbsp;- blur (numeric)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The blur that is applied before thresholding.
+&nbsp;&nbsp;&nbsp;- glintOnly (boolean)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Set whether to render the stars and the image or only the stars.
+&nbsp;&nbsp;&nbsp;- length (integer)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The length of the stars.
+&nbsp;&nbsp;&nbsp;- threshold (numeric)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The threshold value.
+glow
+&nbsp;&nbsp;&nbsp;A filter which adds Gaussian blur to an image, producing a glowing effect.
+&nbsp;&nbsp;&nbsp;Parameters:
+&nbsp;&nbsp;&nbsp;- amount (numeric)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The amount of glow.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- min-value: 0
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- max-value: 1
+&nbsp;&nbsp;&nbsp;- radius (numeric)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The radius of the kernel, and hence the amount of blur. The bigger the radius, the longer this filter will take.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- min-value: 0
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- max-value: 100+
+&nbsp;&nbsp;&nbsp;- edgeAction (String)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The action to perfomr for pixels off the image edges.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;valid values are:
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- clamp (default): Clamp pixels off the edge to the nearest edge.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- wrap: Wrap pixels off the edge to the opposite edge.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- zero: Treat pixels off the edge as zero
+&nbsp;&nbsp;&nbsp;- useAlpha (boolean)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Set whether to convolve the alpha channel.
+&nbsp;&nbsp;&nbsp;- premultiplyAlpha (boolean)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Set whether to premultiply the alpha channel.
+gradient
+&nbsp;&nbsp;&nbsp;A filter which draws a coloured gradient. This is largely superceded by GradientPaint in Java1.2, but does provide a few
+&nbsp;&nbsp;&nbsp;more gradient options.
+&nbsp;&nbsp;&nbsp;Parameters:
+&nbsp;&nbsp;&nbsp;- interpolation (integer)
+&nbsp;&nbsp;&nbsp;- angle (numeric)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Specifies the angle of the texture.
+&nbsp;&nbsp;&nbsp;- colormap (Colormap)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The colormap to be used for the filter. Use function ImageFilterColorMap to create.
+&nbsp;&nbsp;&nbsp;- point1 (String)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Use the following format [X-coordinate,Y-coordinate]; Example: "13,20"
+&nbsp;&nbsp;&nbsp;- point2 (String)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Use the following format [X-coordinate,Y-coordinate]; Example: "13,20"
+&nbsp;&nbsp;&nbsp;- paintMode (integer)
+&nbsp;&nbsp;&nbsp;- type (integer)
+gray
+&nbsp;&nbsp;&nbsp;A filter which 'grays out' an image by averaging each pixel with white.
+&nbsp;&nbsp;&nbsp;Parameters:
+&nbsp;&nbsp;&nbsp;- dimensions (Array)
+grayscale
+&nbsp;&nbsp;&nbsp;A filter which converts an image to grayscale using the NTSC brightness calculation.
+&nbsp;&nbsp;&nbsp;Parameters:
+&nbsp;&nbsp;&nbsp;- dimensions (Array)
+halftone
+&nbsp;&nbsp;&nbsp;A filter which can be used to produce wipes by transferring the luma of a mask image into the alpha channel of the source.
+&nbsp;&nbsp;&nbsp;Parameters:
+&nbsp;&nbsp;&nbsp;- density (numeric)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The density of the image in the range 0..1.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*arg density The density
+&nbsp;&nbsp;&nbsp;- softness (numeric)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The softness of the effect in the range 0..1.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- min-value: 0
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- max-value: 1
+&nbsp;&nbsp;&nbsp;- invert (boolean)
+&nbsp;&nbsp;&nbsp;- mask (Image)
+interpolate
+&nbsp;&nbsp;&nbsp;A filter which interpolates between two images. You can set the interpolation factor outside the range 0 to 1
+&nbsp;&nbsp;&nbsp;to extrapolate images.
+&nbsp;&nbsp;&nbsp;Parameters:
+&nbsp;&nbsp;&nbsp;- destination (Image)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The destination image.
+&nbsp;&nbsp;&nbsp;- interpolation (numeric)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The interpolation factor.
+invert
+&nbsp;&nbsp;&nbsp;A filter which inverts the RGB channels of an image.
+&nbsp;&nbsp;&nbsp;Parameters:
+&nbsp;&nbsp;&nbsp;- dimensions (Array)
+kaleidoscope
+&nbsp;&nbsp;&nbsp;A Filter which produces the effect of looking into a kaleidoscope.
+&nbsp;&nbsp;&nbsp;Parameters:
+&nbsp;&nbsp;&nbsp;- radius (numeric)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The radius of the effect.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- min-value: 0
+&nbsp;&nbsp;&nbsp;- angle (numeric)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The angle of the kaleidoscope.
+&nbsp;&nbsp;&nbsp;- centreX (numeric)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The centre of the effect in the X direction as a proportion of the image size.
+&nbsp;&nbsp;&nbsp;- centreY (numeric)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The centre of the effect in the Y direction as a proportion of the image size.
+&nbsp;&nbsp;&nbsp;- sides (integer)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The number of sides of the kaleidoscope.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- min-value: 2
+&nbsp;&nbsp;&nbsp;- angle2 (numeric)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The secondary angle of the kaleidoscope.
+&nbsp;&nbsp;&nbsp;- edgeAction (String)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The action to perfomr for pixels off the image edges.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;valid values are:
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- clamp (default): Clamp pixels off the edge to the nearest edge.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- wrap: Wrap pixels off the edge to the opposite edge.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- zero: Treat pixels off the edge as zero
+&nbsp;&nbsp;&nbsp;- interpolation (String)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The type of interpolation to perform.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;valid values are:
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- bilinear (default): Use bilinear interpolation.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- nearest_neighbour: Use nearest-neighbour interpolation.
+levels
+&nbsp;&nbsp;&nbsp;A filter which allows levels adjustment on an image.
+&nbsp;&nbsp;&nbsp;Parameters:
+&nbsp;&nbsp;&nbsp;- lowLevel (numeric)
+&nbsp;&nbsp;&nbsp;- highLevel (numeric)
+&nbsp;&nbsp;&nbsp;- lowOutputLevel (numeric)
+&nbsp;&nbsp;&nbsp;- highOutputLevel (numeric)
+life
+&nbsp;&nbsp;&nbsp;A filter which performs one round of the game of Life on an image.
+&nbsp;&nbsp;&nbsp;Parameters:
+&nbsp;&nbsp;&nbsp;- iterations (integer)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The number of iterations the effect is performed.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- min-value: 0
+&nbsp;&nbsp;&nbsp;- colormap (Colormap)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The colormap to be used for the filter. Use function ImageFilterColorMap to create.
+&nbsp;&nbsp;&nbsp;- newColor (String)
+light
+&nbsp;&nbsp;&nbsp;A filter which produces lighting and embossing effects.
+&nbsp;&nbsp;&nbsp;Parameters:
+&nbsp;&nbsp;&nbsp;- colorSource (String)
+&nbsp;&nbsp;&nbsp;- material (String)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Use the following format [color,opacity]; Example: "red,0.5"
+&nbsp;&nbsp;&nbsp;- bumpHeight (numeric)
+&nbsp;&nbsp;&nbsp;- bumpSoftness (numeric)
+&nbsp;&nbsp;&nbsp;- bumpShape (integer)
+&nbsp;&nbsp;&nbsp;- viewDistance (numeric)
+&nbsp;&nbsp;&nbsp;- bumpSource (integer)
+&nbsp;&nbsp;&nbsp;- diffuseColor (String)
+lookup
+&nbsp;&nbsp;&nbsp;A filter which uses the brightness of each pixel to lookup a color from a colormap.
+&nbsp;&nbsp;&nbsp;Parameters:
+&nbsp;&nbsp;&nbsp;- colormap (Colormap)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The colormap to be used for the filter. Use function ImageFilterColorMap to create.
+&nbsp;&nbsp;&nbsp;- dimensions (Array)
+map
+&nbsp;&nbsp;&nbsp;An abstract superclass for filters which distort images in some way. The subclass only needs to override
+&nbsp;&nbsp;&nbsp;two methods to provide the mapping between source and destination pixels.
+&nbsp;&nbsp;&nbsp;Parameters:
+&nbsp;&nbsp;&nbsp;- edgeAction (String)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The action to perfomr for pixels off the image edges.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;valid values are:
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- clamp (default): Clamp pixels off the edge to the nearest edge.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- wrap: Wrap pixels off the edge to the opposite edge.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- zero: Treat pixels off the edge as zero
+&nbsp;&nbsp;&nbsp;- interpolation (String)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The type of interpolation to perform.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;valid values are:
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- bilinear (default): Use bilinear interpolation.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- nearest_neighbour: Use nearest-neighbour interpolation.
+marble
+&nbsp;&nbsp;&nbsp;This filter applies a marbling effect to an image, displacing pixels by random amounts.
+&nbsp;&nbsp;&nbsp;Parameters:
+&nbsp;&nbsp;&nbsp;- amount (numeric)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The amount of effect.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- min-value: 0
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- max-value: 1
+&nbsp;&nbsp;&nbsp;- turbulence (numeric)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Specifies the turbulence of the effect.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- min-value: 0
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- max-value: 1
+&nbsp;&nbsp;&nbsp;- xScale (numeric)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The X scale of the effect.
+&nbsp;&nbsp;&nbsp;- yScale (numeric)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The Y scale of the effect.
+&nbsp;&nbsp;&nbsp;- edgeAction (String)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The action to perfomr for pixels off the image edges.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;valid values are:
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- clamp (default): Clamp pixels off the edge to the nearest edge.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- wrap: Wrap pixels off the edge to the opposite edge.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- zero: Treat pixels off the edge as zero
+&nbsp;&nbsp;&nbsp;- interpolation (String)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The type of interpolation to perform.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;valid values are:
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- bilinear (default): Use bilinear interpolation.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- nearest_neighbour: Use nearest-neighbour interpolation.
+mask
+&nbsp;&nbsp;&nbsp;Applies a bit mask to each ARGB pixel of an image. You can use this for, say, masking out the red channel.
+&nbsp;&nbsp;&nbsp;Parameters:
+&nbsp;&nbsp;&nbsp;- mask (integer)
+&nbsp;&nbsp;&nbsp;- dimensions (Array)
+maximum
+&nbsp;&nbsp;&nbsp;A filter which replcaes each pixel by the maximum of itself and its eight neightbours.
+&nbsp;&nbsp;&nbsp;Parameters:
+median
+&nbsp;&nbsp;&nbsp;A filter which performs a 3x3 median operation. Useful for removing dust and noise.
+&nbsp;&nbsp;&nbsp;Parameters:
+minimum
+&nbsp;&nbsp;&nbsp;A filter which replcaes each pixel by the mimimum of itself and its eight neightbours.
+&nbsp;&nbsp;&nbsp;Parameters:
+mirror
+&nbsp;&nbsp;&nbsp;Parameters:
+&nbsp;&nbsp;&nbsp;- angle (numeric)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Specifies the angle of the mirror.
+&nbsp;&nbsp;&nbsp;- centreY (numeric)
+&nbsp;&nbsp;&nbsp;- distance (numeric)
+&nbsp;&nbsp;&nbsp;- rotation (numeric)
+&nbsp;&nbsp;&nbsp;- gap (numeric)
+&nbsp;&nbsp;&nbsp;- opacity (numeric)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The opacity of the reflection.
+noise
+&nbsp;&nbsp;&nbsp;A filter which adds random noise into an image.
+&nbsp;&nbsp;&nbsp;Parameters:
+&nbsp;&nbsp;&nbsp;- amount (integer)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The amount of effect.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- min-value: 0
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- max-value: 1
+&nbsp;&nbsp;&nbsp;- monochrome (boolean)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Set whether to use monochrome noise.
+&nbsp;&nbsp;&nbsp;- density (numeric)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The density of the noise.
+&nbsp;&nbsp;&nbsp;- distribution (integer)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The distribution of the noise.
+&nbsp;&nbsp;&nbsp;- dimensions (Array)
+offset
+&nbsp;&nbsp;&nbsp;An abstract superclass for filters which distort images in some way. The subclass only needs to override
+&nbsp;&nbsp;&nbsp;two methods to provide the mapping between source and destination pixels.
+&nbsp;&nbsp;&nbsp;Parameters:
+&nbsp;&nbsp;&nbsp;- xOffset (integer)
+&nbsp;&nbsp;&nbsp;- yOffset (integer)
+&nbsp;&nbsp;&nbsp;- wrap (boolean)
+&nbsp;&nbsp;&nbsp;- edgeAction (String)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The action to perfomr for pixels off the image edges.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;valid values are:
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- clamp (default): Clamp pixels off the edge to the nearest edge.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- wrap: Wrap pixels off the edge to the opposite edge.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- zero: Treat pixels off the edge as zero
+&nbsp;&nbsp;&nbsp;- interpolation (String)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The type of interpolation to perform.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;valid values are:
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- bilinear (default): Use bilinear interpolation.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- nearest_neighbour: Use nearest-neighbour interpolation.
+oil
+&nbsp;&nbsp;&nbsp;A filter which produces a "oil-painting" effect.
+&nbsp;&nbsp;&nbsp;Parameters:
+&nbsp;&nbsp;&nbsp;- levels (integer)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The number of levels for the effect.
+&nbsp;&nbsp;&nbsp;- range (integer)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The range of the effect in pixels.
+opacity
+&nbsp;&nbsp;&nbsp;Sets the opacity (alpha) of every pixel in an image to a constant value.
+&nbsp;&nbsp;&nbsp;Parameters:
+&nbsp;&nbsp;&nbsp;- opacity (integer)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The opacity.
+&nbsp;&nbsp;&nbsp;- dimensions (Array)
+outline
+&nbsp;&nbsp;&nbsp;Given a binary image, this filter converts it to its outline, replacing all interior pixels with the 'new' color.
+&nbsp;&nbsp;&nbsp;Parameters:
+&nbsp;&nbsp;&nbsp;- iterations (integer)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The number of iterations the effect is performed.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- min-value: 0
+&nbsp;&nbsp;&nbsp;- colormap (Colormap)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The colormap to be used for the filter. Use function ImageFilterColorMap to create.
+&nbsp;&nbsp;&nbsp;- newColor (String)
+perspective
+&nbsp;&nbsp;&nbsp;A filter which performs a perspective distortion on an image.
+&nbsp;&nbsp;&nbsp;Parameters:
+&nbsp;&nbsp;&nbsp;- xLT (numeric)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;the new horizontal position of the top left corner, negative values are translated to image-width - x.
+&nbsp;&nbsp;&nbsp;- yLT (numeric)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;the new vertical position of the top left corner, negative values are translated to image-height - y.
+&nbsp;&nbsp;&nbsp;- xRT (numeric)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;the new horizontal position of the top right corner, negative values are translated to image-width - x.
+&nbsp;&nbsp;&nbsp;- yRT (numeric)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;the new vertical position of the top right corner, negative values are translated to image-height - y.
+&nbsp;&nbsp;&nbsp;- xRB (numeric)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;the new horizontal position of the bottom right corner, negative values are translated to image-width - x.
+&nbsp;&nbsp;&nbsp;- yRB (numeric)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;the new vertical position of the bottom right corner, negative values are translated to image-height - y.
+&nbsp;&nbsp;&nbsp;- xLB (numeric)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;the new horizontal position of the bottom left corner, negative values are translated to image-width - x.
+&nbsp;&nbsp;&nbsp;- yLB (numeric)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;the new vertical position of the bottom left corner, negative values are translated to image-height - y.
+&nbsp;&nbsp;&nbsp;- edgeAction (String)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The action to perfomr for pixels off the image edges.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;valid values are:
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- clamp (default): Clamp pixels off the edge to the nearest edge.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- wrap: Wrap pixels off the edge to the opposite edge.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- zero: Treat pixels off the edge as zero
+&nbsp;&nbsp;&nbsp;- interpolation (String)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The type of interpolation to perform.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;valid values are:
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- bilinear (default): Use bilinear interpolation.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- nearest_neighbour: Use nearest-neighbour interpolation.
+pinch
+&nbsp;&nbsp;&nbsp;A filter which performs the popular whirl-and-pinch distortion effect.
+&nbsp;&nbsp;&nbsp;Parameters:
+&nbsp;&nbsp;&nbsp;- radius (numeric)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The radius of the effect.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- min-value: 0
+&nbsp;&nbsp;&nbsp;- amount (numeric)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The amount of pinch.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- min-value: -1
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- max-value: 1
+&nbsp;&nbsp;&nbsp;- angle (numeric)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The angle of twirl in radians. 0 means no distortion.
+&nbsp;&nbsp;&nbsp;- centreX (numeric)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The centre of the effect in the X direction as a proportion of the image size.
+&nbsp;&nbsp;&nbsp;- centreY (numeric)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The centre of the effect in the Y direction as a proportion of the image size.
+&nbsp;&nbsp;&nbsp;- edgeAction (String)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The action to perfomr for pixels off the image edges.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;valid values are:
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- clamp (default): Clamp pixels off the edge to the nearest edge.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- wrap: Wrap pixels off the edge to the opposite edge.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- zero: Treat pixels off the edge as zero
+&nbsp;&nbsp;&nbsp;- interpolation (String)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The type of interpolation to perform.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;valid values are:
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- bilinear (default): Use bilinear interpolation.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- nearest_neighbour: Use nearest-neighbour interpolation.
+plasma
+&nbsp;&nbsp;&nbsp;A filter which acts as a superclass for filters which need to have the whole image in memory
+&nbsp;&nbsp;&nbsp;to do their stuff.
+&nbsp;&nbsp;&nbsp;Parameters:
+&nbsp;&nbsp;&nbsp;- turbulence (numeric)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Specifies the turbulence of the texture.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- min-value: 0
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- max-value: 10
+&nbsp;&nbsp;&nbsp;- colormap (Colormap)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The colormap to be used for the filter. Use function ImageFilterColorMap to create.
+&nbsp;&nbsp;&nbsp;- scaling (numeric)
+&nbsp;&nbsp;&nbsp;- useColormap (boolean)
+&nbsp;&nbsp;&nbsp;- useImageColors (boolean)
+&nbsp;&nbsp;&nbsp;- seed (integer)
+pointillize
+&nbsp;&nbsp;&nbsp;A filter which produces an image with a cellular texture.
+&nbsp;&nbsp;&nbsp;Parameters:
+&nbsp;&nbsp;&nbsp;- fuzziness (numeric)
+&nbsp;&nbsp;&nbsp;- edgeThickness (numeric)
+&nbsp;&nbsp;&nbsp;- fadeEdges (boolean)
+&nbsp;&nbsp;&nbsp;- edgeColor (String)
+&nbsp;&nbsp;&nbsp;- amount (numeric)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The amount of effect.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- min-value: 0
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- max-value: 1
+&nbsp;&nbsp;&nbsp;- turbulence (numeric)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Specifies the turbulence of the texture.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- min-value: 0
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- max-value: 1
+&nbsp;&nbsp;&nbsp;- stretch (numeric)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Specifies the stretch factor of the texture.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- min-value: 1
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- max-value: 50+
+&nbsp;&nbsp;&nbsp;- angle (numeric)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Specifies the angle of the texture.
+&nbsp;&nbsp;&nbsp;- angleCoefficient (numeric)
+&nbsp;&nbsp;&nbsp;- gradientCoefficient (numeric)
+&nbsp;&nbsp;&nbsp;- colormap (Colormap)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The colormap to be used for the filter. Use function ImageFilterColorMap to create.
+&nbsp;&nbsp;&nbsp;- randomness (numeric)
+&nbsp;&nbsp;&nbsp;- gridType (String)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;the grid type to set, one of the following:
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- RANDOM
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- SQUARE
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- HEXAGONAL
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- OCTAGONAL
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- TRIANGULAR
+&nbsp;&nbsp;&nbsp;- distancePower (numeric)
+&nbsp;&nbsp;&nbsp;- scale (numeric)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Specifies the scale of the texture.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- min-value: 1
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- max-value: 300+
+polar
+&nbsp;&nbsp;&nbsp;A filter which distorts and image by performing coordinate conversions between rectangular and polar coordinates.
+&nbsp;&nbsp;&nbsp;Parameters:
+&nbsp;&nbsp;&nbsp;- type (String)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The distortion type, valid values are
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- RECT_TO_POLAR = Convert from rectangular to polar coordinates
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- POLAR_TO_RECT = Convert from polar to rectangular coordinates
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- INVERT_IN_CIRCLE = Invert the image in a circle
+&nbsp;&nbsp;&nbsp;- edgeAction (String)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The action to perfomr for pixels off the image edges.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;valid values are:
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- clamp (default): Clamp pixels off the edge to the nearest edge.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- wrap: Wrap pixels off the edge to the opposite edge.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- zero: Treat pixels off the edge as zero
+&nbsp;&nbsp;&nbsp;- interpolation (String)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The type of interpolation to perform.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;valid values are:
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- bilinear (default): Use bilinear interpolation.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- nearest_neighbour: Use nearest-neighbour interpolation.
+posterize
+&nbsp;&nbsp;&nbsp;A filter to posterize an image.
+&nbsp;&nbsp;&nbsp;Parameters:
+&nbsp;&nbsp;&nbsp;- numLevels (integer)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The number of levels in the output image.
+&nbsp;&nbsp;&nbsp;- dimensions (Array)
+quantize
+&nbsp;&nbsp;&nbsp;A filter which quantizes an image to a set number of colors - useful for producing
+&nbsp;&nbsp;&nbsp;images which are to be encoded using an index color model. The filter can perform
+&nbsp;&nbsp;&nbsp;Floyd-Steinberg error-diffusion dithering if required. At present, the quantization
+&nbsp;&nbsp;&nbsp;is done using an octtree algorithm but I eventually hope to add more quantization
+&nbsp;&nbsp;&nbsp;methods such as median cut. Note: at present, the filter produces an image which
+&nbsp;&nbsp;&nbsp;uses the RGB color model (because the application it was written for required it).
+&nbsp;&nbsp;&nbsp;I hope to extend it to produce an IndexColorModel by request.
+&nbsp;&nbsp;&nbsp;Parameters:
+&nbsp;&nbsp;&nbsp;- serpentine (boolean)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Set whether to use a serpentine pattern for return or not. This can reduce 'avalanche' artifacts in the output.
+&nbsp;&nbsp;&nbsp;- numColors (String)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The number of colors to quantize to.
+&nbsp;&nbsp;&nbsp;- dither (boolean)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Set whether to use dithering or not. If not, the image is posterized.
+quilt
+&nbsp;&nbsp;&nbsp;A filter which acts as a superclass for filters which need to have the whole image in memory
+&nbsp;&nbsp;&nbsp;to do their stuff.
+&nbsp;&nbsp;&nbsp;Parameters:
+&nbsp;&nbsp;&nbsp;- iterations (integer)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The number of iterations the effect is performed.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- min-value: 0
+&nbsp;&nbsp;&nbsp;- colormap (Colormap)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The colormap to be used for the filter. Use function ImageFilterColorMap to create.
+&nbsp;&nbsp;&nbsp;- a (numeric)
+&nbsp;&nbsp;&nbsp;- b (numeric)
+&nbsp;&nbsp;&nbsp;- c (numeric)
+&nbsp;&nbsp;&nbsp;- d (numeric)
+&nbsp;&nbsp;&nbsp;- k (integer)
+rays
+&nbsp;&nbsp;&nbsp;A filter which produces the effect of light rays shining out of an image.
+&nbsp;&nbsp;&nbsp;Parameters:
+&nbsp;&nbsp;&nbsp;- colormap (Colormap)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The colormap to be used for the filter. Use function ImageFilterColorMap to create.
+&nbsp;&nbsp;&nbsp;- strength (numeric)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The strength of the rays.
+&nbsp;&nbsp;&nbsp;- opacity (numeric)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The opacity of the rays.
+&nbsp;&nbsp;&nbsp;- raysOnly (boolean)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Set whether to render only the rays.
+&nbsp;&nbsp;&nbsp;- threshold (numeric)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The threshold value.
+&nbsp;&nbsp;&nbsp;- angle (numeric)
+&nbsp;&nbsp;&nbsp;- centreX (numeric)
+&nbsp;&nbsp;&nbsp;- centreY (numeric)
+&nbsp;&nbsp;&nbsp;- distance (numeric)
+&nbsp;&nbsp;&nbsp;- rotation (numeric)
+&nbsp;&nbsp;&nbsp;- zoom (numeric)
+rescale
+&nbsp;&nbsp;&nbsp;A filter which simply multiplies pixel values by a given scale factor.
+&nbsp;&nbsp;&nbsp;Parameters:
+&nbsp;&nbsp;&nbsp;- scale (numeric)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Specifies the scale factor.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- min-value: 1
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- max-value: 5+
+&nbsp;&nbsp;&nbsp;- dimensions (Array)
+ripple
+&nbsp;&nbsp;&nbsp;A filter which distorts an image by rippling it in the X or Y directions.
+&nbsp;&nbsp;&nbsp;The amplitude and wavelength of rippling can be specified as well as whether
+&nbsp;&nbsp;&nbsp;pixels going off the edges are wrapped or not.
+&nbsp;&nbsp;&nbsp;Parameters:
+&nbsp;&nbsp;&nbsp;- xAmplitude (numeric)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The amplitude of ripple in the X direction.
+&nbsp;&nbsp;&nbsp;- xWavelength (numeric)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The wavelength of ripple in the X direction.
+&nbsp;&nbsp;&nbsp;- yAmplitude (numeric)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The amplitude of ripple in the Y direction.
+&nbsp;&nbsp;&nbsp;- yWavelength (numeric)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The wavelength of ripple in the Y direction.
+&nbsp;&nbsp;&nbsp;- waveType (String)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The wave type.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;valid values are:
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- sine (default): Sine wave ripples.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- sawtooth: Sawtooth wave ripples.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- triangle: Triangle wave ripples.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- noise: Noise ripples.
+&nbsp;&nbsp;&nbsp;- edgeAction (String)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The action to perfomr for pixels off the image edges.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;valid values are:
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- clamp (default): Clamp pixels off the edge to the nearest edge.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- wrap: Wrap pixels off the edge to the opposite edge.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- zero: Treat pixels off the edge as zero
+&nbsp;&nbsp;&nbsp;- interpolation (String)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The type of interpolation to perform.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;valid values are:
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- bilinear (default): Use bilinear interpolation.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- nearest_neighbour: Use nearest-neighbour interpolation.
+rotate
+&nbsp;&nbsp;&nbsp;A filter which rotates an image. These days this is easier done with Java2D, but this filter remains.
+&nbsp;&nbsp;&nbsp;Parameters:
+&nbsp;&nbsp;&nbsp;- angle (numeric)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Specifies the angle of rotation.
+&nbsp;&nbsp;&nbsp;- edgeAction (String)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The action to perfomr for pixels off the image edges.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;valid values are:
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- clamp (default): Clamp pixels off the edge to the nearest edge.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- wrap: Wrap pixels off the edge to the opposite edge.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- zero: Treat pixels off the edge as zero
+&nbsp;&nbsp;&nbsp;- interpolation (String)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The type of interpolation to perform.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;valid values are:
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- bilinear (default): Use bilinear interpolation.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- nearest_neighbour: Use nearest-neighbour interpolation.
+saturation
+&nbsp;&nbsp;&nbsp;A filter to change the saturation of an image. This works by calculating a grayscale version of the image
+&nbsp;&nbsp;&nbsp;and then extrapolating away from it.
+&nbsp;&nbsp;&nbsp;Parameters:
+&nbsp;&nbsp;&nbsp;- amount (numeric)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The amount of saturation change. 1 leaves the image unchanged, values between 0 and 1 desaturate, 0 completely
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;desaturates it and values above 1 increase the saturation.
+&nbsp;&nbsp;&nbsp;- dimensions (Array)
+scale
+&nbsp;&nbsp;&nbsp;Scales an image using the area-averaging algorithm, which can't be done with AffineTransformOp.
+&nbsp;&nbsp;&nbsp;Parameters:
+&nbsp;&nbsp;&nbsp;- width (integer)
+&nbsp;&nbsp;&nbsp;- height (integer)
+scratch
+&nbsp;&nbsp;&nbsp;Parameters:
+&nbsp;&nbsp;&nbsp;- angle (numeric)
+&nbsp;&nbsp;&nbsp;- density (numeric)
+&nbsp;&nbsp;&nbsp;- angleVariation (numeric)
+&nbsp;&nbsp;&nbsp;- length (numeric)
+&nbsp;&nbsp;&nbsp;- seed (integer)
+&nbsp;&nbsp;&nbsp;- color (String)
+&nbsp;&nbsp;&nbsp;- width (numeric)
+shade
+&nbsp;&nbsp;&nbsp;A filter which acts as a superclass for filters which need to have the whole image in memory
+&nbsp;&nbsp;&nbsp;to do their stuff.
+&nbsp;&nbsp;&nbsp;Parameters:
+&nbsp;&nbsp;&nbsp;- bumpHeight (numeric)
+&nbsp;&nbsp;&nbsp;- bumpSoftness (numeric)
+&nbsp;&nbsp;&nbsp;- bumpSource (integer)
+shadow
+&nbsp;&nbsp;&nbsp;A filter which draws a drop shadow based on the alpha channel of the image.
+&nbsp;&nbsp;&nbsp;Parameters:
+&nbsp;&nbsp;&nbsp;- radius (numeric)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The radius of the kernel, and hence the amount of blur. The bigger the radius, the longer this filter will take.
+&nbsp;&nbsp;&nbsp;- angle (numeric)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Specifies the angle of the shadow.
+&nbsp;&nbsp;&nbsp;- distance (numeric)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The distance of the shadow.
+&nbsp;&nbsp;&nbsp;- opacity (numeric)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The opacity of the shadow.
+&nbsp;&nbsp;&nbsp;- shadowColor (String)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The color of the shadow.
+&nbsp;&nbsp;&nbsp;- addMargins (boolean)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Set whether to increase the size of the output image to accomodate the shadow.
+&nbsp;&nbsp;&nbsp;- shadowOnly (boolean)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Set whether to only draw the shadow without the original image.
+shape
+&nbsp;&nbsp;&nbsp;A filter which acts as a superclass for filters which need to have the whole image in memory
+&nbsp;&nbsp;&nbsp;to do their stuff.
+&nbsp;&nbsp;&nbsp;Parameters:
+&nbsp;&nbsp;&nbsp;- useAlpha (boolean)
+&nbsp;&nbsp;&nbsp;- colormap (Colormap)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The colormap to be used for the filter. Use function ImageFilterColorMap to create.
+&nbsp;&nbsp;&nbsp;- invert (boolean)
+&nbsp;&nbsp;&nbsp;- factor (numeric)
+&nbsp;&nbsp;&nbsp;- merge (boolean)
+&nbsp;&nbsp;&nbsp;- type (integer)
+sharpen
+&nbsp;&nbsp;&nbsp;A filter which performs a simple 3x3 sharpening operation.
+&nbsp;&nbsp;&nbsp;Parameters:
+&nbsp;&nbsp;&nbsp;- edgeAction (String)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The action to perfomr for pixels off the image edges.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;valid values are:
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- clamp (default): Clamp pixels off the edge to the nearest edge.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- wrap: Wrap pixels off the edge to the opposite edge.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- zero: Treat pixels off the edge as zero
+&nbsp;&nbsp;&nbsp;- useAlpha (boolean)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Set whether to convolve the alpha channel.
+&nbsp;&nbsp;&nbsp;- premultiplyAlpha (boolean)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Set whether to premultiply the alpha channel.
+shatter
+&nbsp;&nbsp;&nbsp;Parameters:
+&nbsp;&nbsp;&nbsp;- iterations (integer)
+&nbsp;&nbsp;&nbsp;- centreX (numeric)
+&nbsp;&nbsp;&nbsp;- centreY (numeric)
+&nbsp;&nbsp;&nbsp;- transition (numeric)
+&nbsp;&nbsp;&nbsp;- distance (numeric)
+&nbsp;&nbsp;&nbsp;- rotation (numeric)
+&nbsp;&nbsp;&nbsp;- zoom (numeric)
+&nbsp;&nbsp;&nbsp;- startAlpha (numeric)
+&nbsp;&nbsp;&nbsp;- endAlpha (numeric)
+&nbsp;&nbsp;&nbsp;- tile (integer)
+shear
+&nbsp;&nbsp;&nbsp;An abstract superclass for filters which distort images in some way. The subclass only needs to override
+&nbsp;&nbsp;&nbsp;two methods to provide the mapping between source and destination pixels.
+&nbsp;&nbsp;&nbsp;Parameters:
+&nbsp;&nbsp;&nbsp;- resize (boolean)
+&nbsp;&nbsp;&nbsp;- xAngle (numeric)
+&nbsp;&nbsp;&nbsp;- yAngle (numeric)
+&nbsp;&nbsp;&nbsp;- edgeAction (String)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The action to perfomr for pixels off the image edges.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;valid values are:
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- clamp (default): Clamp pixels off the edge to the nearest edge.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- wrap: Wrap pixels off the edge to the opposite edge.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- zero: Treat pixels off the edge as zero
+&nbsp;&nbsp;&nbsp;- interpolation (String)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The type of interpolation to perform.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;valid values are:
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- bilinear (default): Use bilinear interpolation.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- nearest_neighbour: Use nearest-neighbour interpolation.
+shine
+&nbsp;&nbsp;&nbsp;A filter which simply multiplies pixel values by a given scale factor.
+&nbsp;&nbsp;&nbsp;Parameters:
+&nbsp;&nbsp;&nbsp;- radius (numeric)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The radius of the kernel, and hence the amount of blur. The bigger the radius, the longer this filter will take.
+&nbsp;&nbsp;&nbsp;- brightness (numeric)
+&nbsp;&nbsp;&nbsp;- angle (numeric)
+&nbsp;&nbsp;&nbsp;- softness (numeric)
+&nbsp;&nbsp;&nbsp;- distance (numeric)
+&nbsp;&nbsp;&nbsp;- shadowOnly (boolean)
+&nbsp;&nbsp;&nbsp;- bevel (numeric)
+&nbsp;&nbsp;&nbsp;- shineColor (String)
+skeleton
+&nbsp;&nbsp;&nbsp;A filter which reduces a binary image to a skeleton.
+&nbsp;&nbsp;&nbsp;Based on an algorithm by Zhang and Suen (CACM, March 1984, 236-239).
+&nbsp;&nbsp;&nbsp;Parameters:
+&nbsp;&nbsp;&nbsp;- iterations (integer)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The number of iterations the effect is performed.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- min-value: 0
+&nbsp;&nbsp;&nbsp;- colormap (Colormap)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The colormap to be used for the filter. Use function ImageFilterColorMap to create.
+&nbsp;&nbsp;&nbsp;- newColor (String)
+smear
+&nbsp;&nbsp;&nbsp;A filter which acts as a superclass for filters which need to have the whole image in memory
+&nbsp;&nbsp;&nbsp;to do their stuff.
+&nbsp;&nbsp;&nbsp;Parameters:
+&nbsp;&nbsp;&nbsp;- angle (numeric)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Specifies the angle of the texture.
+&nbsp;&nbsp;&nbsp;- density (numeric)
+&nbsp;&nbsp;&nbsp;- distance (integer)
+&nbsp;&nbsp;&nbsp;- shape (integer)
+&nbsp;&nbsp;&nbsp;- scatter (numeric)
+&nbsp;&nbsp;&nbsp;- mix (numeric)
+&nbsp;&nbsp;&nbsp;- fadeout (integer)
+&nbsp;&nbsp;&nbsp;- background (boolean)
+solarize
+&nbsp;&nbsp;&nbsp;A filter which solarizes an image.
+&nbsp;&nbsp;&nbsp;Parameters:
+&nbsp;&nbsp;&nbsp;- dimensions (Array)
+sparkle
+&nbsp;&nbsp;&nbsp;An abstract superclass for point filters. The interface is the same as the old RGBImageFilter.
+&nbsp;&nbsp;&nbsp;Parameters:
+&nbsp;&nbsp;&nbsp;- radius (integer)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The radius of the effect.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- min-value: 0
+&nbsp;&nbsp;&nbsp;- amount (integer)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The amount of sparkle.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- min-value: 0
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- max-value: 1
+&nbsp;&nbsp;&nbsp;- randomness (integer)
+&nbsp;&nbsp;&nbsp;- rays (integer)
+&nbsp;&nbsp;&nbsp;- color (String)
+&nbsp;&nbsp;&nbsp;- dimensions (Array)
+sphere
+&nbsp;&nbsp;&nbsp;A filter which simulates a lens placed over an image.
+&nbsp;&nbsp;&nbsp;Parameters:
+&nbsp;&nbsp;&nbsp;- radius (numeric)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The radius of the effect.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- min-value: 0
+&nbsp;&nbsp;&nbsp;- centreX (numeric)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The centre of the effect in the X direction as a proportion of the image size.
+&nbsp;&nbsp;&nbsp;- centreY (numeric)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The centre of the effect in the Y direction as a proportion of the image size.
+&nbsp;&nbsp;&nbsp;- refractionIndex (numeric)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The index of refaction.
+&nbsp;&nbsp;&nbsp;- edgeAction (String)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The action to perfomr for pixels off the image edges.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;valid values are:
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- clamp (default): Clamp pixels off the edge to the nearest edge.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- wrap: Wrap pixels off the edge to the opposite edge.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- zero: Treat pixels off the edge as zero
+&nbsp;&nbsp;&nbsp;- interpolation (String)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The type of interpolation to perform.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;valid values are:
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- bilinear (default): Use bilinear interpolation.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- nearest_neighbour: Use nearest-neighbour interpolation.
+stamp
+&nbsp;&nbsp;&nbsp;A filter which produces a rubber-stamp type of effect by performing a thresholded blur.
+&nbsp;&nbsp;&nbsp;Parameters:
+&nbsp;&nbsp;&nbsp;- radius (numeric)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The radius of the effect.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- min-value: 0
+&nbsp;&nbsp;&nbsp;- softness (numeric)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The softness of the effect in the range 0..1.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- min-value: 0
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- max-value: 1
+&nbsp;&nbsp;&nbsp;- white (String)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The color to be used for pixels above the upper threshold.
+&nbsp;&nbsp;&nbsp;- black (String)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The color to be used for pixels below the lower threshold.
+&nbsp;&nbsp;&nbsp;- threshold (numeric)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The threshold value.
+&nbsp;&nbsp;&nbsp;- dimensions (Array)
+swim
+&nbsp;&nbsp;&nbsp;A filter which distorts an image as if it were underwater.
+&nbsp;&nbsp;&nbsp;Parameters:
+&nbsp;&nbsp;&nbsp;- amount (numeric)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The amount of swim.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- min-value: 0
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- max-value: 100+
+&nbsp;&nbsp;&nbsp;- turbulence (numeric)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Specifies the turbulence of the texture.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- min-value: 0
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- max-value: 1
+&nbsp;&nbsp;&nbsp;- stretch (numeric)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Specifies the stretch factor of the distortion.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- min-value: 1
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- max-value: 50+
+&nbsp;&nbsp;&nbsp;- angle (numeric)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Specifies the angle of the effect.
+&nbsp;&nbsp;&nbsp;- time (numeric)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Specifies the time. Use this to animate the effect.
+&nbsp;&nbsp;&nbsp;- scale (numeric)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Specifies the scale of the distortion.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- min-value: 1
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- max-value: 300+
+&nbsp;&nbsp;&nbsp;- edgeAction (String)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The action to perfomr for pixels off the image edges.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;valid values are:
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- clamp (default): Clamp pixels off the edge to the nearest edge.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- wrap: Wrap pixels off the edge to the opposite edge.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- zero: Treat pixels off the edge as zero
+&nbsp;&nbsp;&nbsp;- interpolation (String)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The type of interpolation to perform.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;valid values are:
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- bilinear (default): Use bilinear interpolation.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- nearest_neighbour: Use nearest-neighbour interpolation.
+texture
+&nbsp;&nbsp;&nbsp;An abstract superclass for point filters. The interface is the same as the old RGBImageFilter.
+&nbsp;&nbsp;&nbsp;Parameters:
+&nbsp;&nbsp;&nbsp;- amount (numeric)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The amount of texture.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- min-value: 0
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- max-value: 1
+&nbsp;&nbsp;&nbsp;- turbulence (numeric)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Specifies the turbulence of the texture.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- min-value: 0
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- max-value: 1
+&nbsp;&nbsp;&nbsp;- stretch (numeric)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Specifies the stretch factor of the texture.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- min-value: 1
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- max-value: 50+
+&nbsp;&nbsp;&nbsp;- angle (numeric)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Specifies the angle of the texture.
+&nbsp;&nbsp;&nbsp;- colormap (Colormap)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The colormap to be used for the filter. Use function ImageFilterColorMap to create.
+&nbsp;&nbsp;&nbsp;- operation (integer)
+&nbsp;&nbsp;&nbsp;- scale (numeric)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Specifies the scale of the texture.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- min-value: 1
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- max-value: 300+
+&nbsp;&nbsp;&nbsp;- dimensions (Array)
+threshold
+&nbsp;&nbsp;&nbsp;A filter which performs a threshold operation on an image.
+&nbsp;&nbsp;&nbsp;Parameters:
+&nbsp;&nbsp;&nbsp;- white (integer)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The color to be used for pixels above the upper threshold.
+&nbsp;&nbsp;&nbsp;- black (integer)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The color to be used for pixels below the lower threshold.
+&nbsp;&nbsp;&nbsp;- lowerThreshold (integer)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The lower threshold value.
+&nbsp;&nbsp;&nbsp;- upperThreshold (integer)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The upper threshold value.
+&nbsp;&nbsp;&nbsp;- dimensions (Array)
+twirl
+&nbsp;&nbsp;&nbsp;A Filter which distorts an image by twisting it from the centre out.
+&nbsp;&nbsp;&nbsp;The twisting is centred at the centre of the image and extends out to the smallest of
+&nbsp;&nbsp;&nbsp;the width and height. Pixels outside this radius are unaffected.
+&nbsp;&nbsp;&nbsp;Parameters:
+&nbsp;&nbsp;&nbsp;- radius (numeric)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The radius of the effect.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- min-value: 0
+&nbsp;&nbsp;&nbsp;- angle (numeric)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The angle of twirl in radians. 0 means no distortion.
+&nbsp;&nbsp;&nbsp;- centreX (numeric)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The centre of the effect in the X direction as a proportion of the image size.
+&nbsp;&nbsp;&nbsp;- centreY (numeric)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The centre of the effect in the Y direction as a proportion of the image size.
+&nbsp;&nbsp;&nbsp;- edgeAction (String)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The action to perfomr for pixels off the image edges.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;valid values are:
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- clamp (default): Clamp pixels off the edge to the nearest edge.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- wrap: Wrap pixels off the edge to the opposite edge.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- zero: Treat pixels off the edge as zero
+&nbsp;&nbsp;&nbsp;- interpolation (String)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The type of interpolation to perform.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;valid values are:
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- bilinear (default): Use bilinear interpolation.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- nearest_neighbour: Use nearest-neighbour interpolation.
+unsharp
+&nbsp;&nbsp;&nbsp;A filter which subtracts Gaussian blur from an image, sharpening it.
+&nbsp;&nbsp;&nbsp;Parameters:
+&nbsp;&nbsp;&nbsp;- amount (numeric)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The amount of sharpening.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- min-value: 0
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- max-value: 1
+&nbsp;&nbsp;&nbsp;- threshold (integer)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The threshold value.
+&nbsp;&nbsp;&nbsp;- radius (numeric)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The radius of the kernel, and hence the amount of blur. The bigger the radius, the longer this filter will take.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- min-value: 0
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- max-value: 100+
+&nbsp;&nbsp;&nbsp;- edgeAction (String)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The action to perfomr for pixels off the image edges.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;valid values are:
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- clamp (default): Clamp pixels off the edge to the nearest edge.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- wrap: Wrap pixels off the edge to the opposite edge.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- zero: Treat pixels off the edge as zero
+&nbsp;&nbsp;&nbsp;- useAlpha (boolean)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Set whether to convolve the alpha channel.
+&nbsp;&nbsp;&nbsp;- premultiplyAlpha (boolean)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Set whether to premultiply the alpha channel.
+water
+&nbsp;&nbsp;&nbsp;A filter which produces a water ripple distortion.
+&nbsp;&nbsp;&nbsp;Parameters:
+&nbsp;&nbsp;&nbsp;- radius (numeric)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The radius of the effect.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- min-value: 0
+&nbsp;&nbsp;&nbsp;- centreX (numeric)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The centre of the effect in the X direction as a proportion of the image size.
+&nbsp;&nbsp;&nbsp;- centreY (numeric)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The centre of the effect in the Y direction as a proportion of the image size.
+&nbsp;&nbsp;&nbsp;- wavelength (numeric)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The wavelength of the ripples.
+&nbsp;&nbsp;&nbsp;- amplitude (numeric)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The amplitude of the ripples.
+&nbsp;&nbsp;&nbsp;- phase (numeric)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The phase of the ripples.
+&nbsp;&nbsp;&nbsp;- edgeAction (String)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The action to perfomr for pixels off the image edges.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;valid values are:
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- clamp (default): Clamp pixels off the edge to the nearest edge.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- wrap: Wrap pixels off the edge to the opposite edge.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- zero: Treat pixels off the edge as zero
+&nbsp;&nbsp;&nbsp;- interpolation (String)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The type of interpolation to perform.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;valid values are:
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- bilinear (default): Use bilinear interpolation.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- nearest_neighbour: Use nearest-neighbour interpolation.
+weave
+&nbsp;&nbsp;&nbsp;An abstract superclass for point filters. The interface is the same as the old RGBImageFilter.
+&nbsp;&nbsp;&nbsp;Parameters:
+&nbsp;&nbsp;&nbsp;- useImageColors (boolean)
+&nbsp;&nbsp;&nbsp;- xGap (numeric)
+&nbsp;&nbsp;&nbsp;- xWidth (numeric)
+&nbsp;&nbsp;&nbsp;- yWidth (numeric)
+&nbsp;&nbsp;&nbsp;- yGap (numeric)
+&nbsp;&nbsp;&nbsp;- crossings ([[I)
+&nbsp;&nbsp;&nbsp;- roundThreads (boolean)
+&nbsp;&nbsp;&nbsp;- shadeCrossings (boolean)
+&nbsp;&nbsp;&nbsp;- dimensions (Array)
+wood
+&nbsp;&nbsp;&nbsp;A filter which produces a simulated wood texture. This is a bit of a hack, but might be usefult to some people.
+&nbsp;&nbsp;&nbsp;Parameters:
+&nbsp;&nbsp;&nbsp;- turbulence (numeric)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Specifies the turbulence of the texture.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- min-value: 0
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- max-value: 1
+&nbsp;&nbsp;&nbsp;- stretch (numeric)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Specifies the stretch factor of the texture.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- min-value: 1
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- max-value: 50+
+&nbsp;&nbsp;&nbsp;- angle (numeric)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Specifies the angle of the texture.
+&nbsp;&nbsp;&nbsp;- colormap (Colormap)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The colormap to be used for the filter. Use function ImageFilterColorMap to create.
+&nbsp;&nbsp;&nbsp;- gain (numeric)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Specifies the gain of the texture.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- min-value: 0
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- max-value: 1
+&nbsp;&nbsp;&nbsp;- rings (numeric)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Specifies the rings value.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- min-value: 0
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- max-value: 1
+&nbsp;&nbsp;&nbsp;- fibres (numeric)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Specifies the amount of fibres in the texture.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- min-value: 0
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- max-value: 1
+&nbsp;&nbsp;&nbsp;- scale (numeric)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Specifies the scale of the texture.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- min-value: 1
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- max-value: 300+
+&nbsp;&nbsp;&nbsp;- dimensions (Array)
+</div>
+<h4>Categories</h4>
+<script>
+$(function(){
+$("#btnAddCat").click(function(){
+$("#addItem").toggle();
+});
+})();
+$(".ttip").tooltip();
+</script>
+<button type="submit" class="btn" id="btnAddCat">Add Category</button>
+<div class="hide well" id="addItem">
+<form action="/index.cfm/category/add" class="form-inline">
+<input type="hidden" name="type" value="function">
+<input type="hidden" name="name" value="imagefilter">
+<select class="form-small" name="category">
+<option>AJAX functions</option>
+<option>Array functions</option>
+<option>Cache functions</option>
+<option>Conversion functions</option>
+<option>Date and time functions</option>
+<option>Data output functions</option>
+<option>Debugging functions</option>
+<option>Decision functions</option>
+<option>Display and formatting functions</option>
+<option>Dynamic evaluation functions</option>
+<option>Exception handling functions</option>
+<option>Extensibility functions</option>
+<option>Flow control functions</option>
+<option>Full-text search functions</option>
+<option>Image functions</option>
+<option>International functions</option>
+<option>List functions</option>
+<option>Mathematical functions</option>
+<option>ORM functions</option>
+<option>Other functions</option>
+<option>Query functions</option>
+<option>Security functions</option>
+<option>Spreadsheet functions</option>
+<option>String functions</option>
+<option>Structure functions</option>
+<option>System functions</option>
+<option>Transaction functions</option>
+<option>XML functions</option>
+</select>
+<button type="submit" class="btn">Add</button>
+</form>
+</div>
+<h4>Example</h4>
+<pre class="prettyprint"><span class="syntaxFunc">imagefilter(</span><span class="syntaxType">any</span> <span class="syntaxText">name</span><span class="syntaxFunc">,</span><span class="syntaxType">string</span> <span class="syntaxText">filtername</span><span class="syntaxFunc">,</span><span class="syntaxFunc">[</span><span class="syntaxType">struct</span> <span class="syntaxText">parameters</span><span class="syntaxFunc">]):</span><span class="syntaxType">void</span></pre>
+<h3 class="muted">Previous Versions</h3>
+<p class="muted">No previous version information available</p>
+<h2>Arguments</h2>
+<div class="text">
+The arguments for this function are set. You can not use other arguments except the following ones.
+</div>
+<table class="table table-striped table table-bordered">
+<thead>
+<tr>
+<th width="21%">Name</th>
+<th width="7%">Type</th>
+<th width="7%">Required</th>
+<th width="65%">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>name</td>
+<td>any&nbsp;</td>
+<td>Yes</td>
+<td>The image on which this operation is performed.&nbsp;</td>
+</tr>
+<tr>
+<td>filtername</td>
+<td>string&nbsp;</td>
+<td>Yes</td>
+<td>the name of the filter executed (average,block,blur ...)&nbsp;</td>
+</tr>
+<tr>
+<td>parameters</td>
+<td>struct&nbsp;</td>
+<td>No</td>
+<td>parameters for the filter defined with argument filtername&nbsp;</td>
+</tr>
+</tbody>
+</table>
+</section>
+<div class="well">
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+/* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+var disqus_shortname = 'railodocs'; // required: replace example with your forum shortname
+var disqus_identifier = "function_imagefilter"; //Tag identifier
+/* * * DON'T EDIT BELOW THIS LINE * * */
+(function() {
+var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</div>
+</div>
+</div> 
+</div> 
+<footer class="footer">
+<hr>
+<div class="container">
+<p>&copy; <a href="http://www.getrailo.com" target="_new">The Railo Company Limited</a> &amp; 
+<a href="http://www.twitter.com/markdrew/" target="_new">@markdrew</a> 2013 
+Version: <a href="current.html#" name="" class="btn btn-mini" id="beta" data-toggle="popover" data-placement="top" 
+data-content="Since this site is in beta, you might find errors and what have you. We are constantly working to improve the situation, so send us your feedback!" title="" data-original-title="About Beta Version">Beta</a>
+</p>
+</div>
+</footer>
+</body>
+</html>

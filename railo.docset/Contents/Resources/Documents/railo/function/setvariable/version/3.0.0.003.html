@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="description" content="Documentation Viewer for Railo Server">
+<meta name="author" content="Mark Drew,@markdrew">
+<title>Railo Documentation Viewer, by The Railo Company</title>
+<!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+<!--[if lt IE 9]>
+<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
+<link href="../../../../assets/css/bootstrap.css" rel="stylesheet">
+<link href="../../../../assets/css/docs.css" rel="stylesheet">
+<link href="../../../../assets/css/jquery-ui.css" rel="stylesheet" />
+<script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+<script src="../../../../assets/js/bootstrap.min.js"></script>
+<script src="https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js"></script>
+<script src="http://code.jquery.com/ui/1.10.2/jquery-ui.js"></script>
+<script>
+//Add functionality to the String object
+if (typeof String.prototype.startsWith != 'function') {
+String.prototype.startsWith = function (str){
+return this.indexOf(str) == 0;
+};
+}
+$(function() {
+var availableTags = ["abs","acos","addsoaprequestheader","addsoapresponseheader","ajaxlink","ajaxonload","applicationstarttime","applicationstop","array","arrayappend","arrayavg","arrayclear","arraycontains","arraycontainsnocase","arraydelete","arraydeleteat","arrayeach","arrayfilter","arrayfind","arrayfindall","arrayfindallnocase","arrayfindnocase","arrayfirst","arrayindexexists","arrayinsertat","arrayisdefined","arrayisempty","arraylast","arraylen","arraymax","arraymerge","arraymid","arraymin","arraynew","arrayprepend","arrayresize","arrayreverse","arrayset","arrayslice","arraysort","arraysum","arrayswap","arraytolist","arraytostruct","asc","asin","atn","beat","binarydecode","binaryencode","bitand","bitmaskclear","bitmaskread","bitmaskset","bitnot","bitor","bitshln","bitshrn","bitxor","cacheclear","cachecount","cachedelete","cacheget","cachegetall","cachegetallids","cachegetdefaultcachename","cachegetmetadata","cachegetproperties","cacheidexists","cachekeyexists","cacheput","cacheremove","cacheremoveall","cachesetproperties","callstackdump","callstackget","canonicalize","ceiling","cfabort","cfadmin","cfajaximport","cfajaxproxy","cfapplet","cfapplication","cfargument","cfassociate","cfauthenticate","cfbreak","cfcache","cfcase","cfcatch","cfchart","cfchartdata","cfchartseries","cfcol","cfcollection","cfcomponent","cfcontent","cfcontinue","cfcookie","cfdbinfo","cfdefaultcase","cfdirectory","cfdiv","cfdocument","cfdocumentitem","cfdocumentsection","cfdump","cfelse","cfelseif","cferror","cfexecute","cfexit","cffeed","cffile","cffinally","cfflush","cfform","cfforward","cfftp","cffunction","cfgraph","cfgraphdata","cfheader","cfhtmlhead","cfhttp","cfhttpparam","cfif","cfimage","cfimap","cfimport","cfinclude","cfindex","cfinput","cfinsert","cfinterface","cfinvoke","cfinvokeargument","cflayout","cflayoutarea","cfldap","cflocation","cflock","cflog","cflogin","cfloginuser","cflogout","cfloop","cfmail","cfmailparam","cfmailpart","cfmap","cfmapitem","cfmediaplayer","cfmodule","cfobject","cfobjectcache","cfoutput","cfpageencoding","cfparam","cfpdf","cfpdfparam","cfpop","cfprocessingdirective","cfprocparam","cfprocresult","cfproperty","cfquery","cfqueryparam","cfregistry","cfrethrow","cfretry","cfreturn","cfsavecontent","cfschedule","cfscript","cfscriptjava","cfsearch","cfselect","cfservlet","cfservletparam","cfset","cfsetting","cfsilent","cfsleep","cfslider","cfstopwatch","cfstoredproc","cfswitch","cftable","cftextinput","cfthread","cfthrow","cftimer","cftrace","cftransaction","cftry","cfupdate","cfusion_decrypt","cfusion_encrypt","cfvideo","cfvideoplayer","cfvideoplayerparam","cfwddx","cfwhile","cfwindow","cfxml","cfzip","cfzipparam","charsetdecode","charsetencode","chr","cjustify","compare","comparenocase","componentcacheclear","componentcachelist","componentinfo","compress","contractpath","cos","createdate","createdatetime","createdynamicproxy","createguid","createobject","createodbcdate","createodbcdatetime","createodbctime","createtime","createtimespan","createuniqueid","createuuid","csrfgeneratetoken","csrfverifytoken","ctcacheclear","ctcachelist","datasourceflushmetacache","dateadd","datecompare","dateconvert","datediff","dateformat","datepart","datetimeformat","day","dayofweek","dayofweekasstring","dayofweekshortasstring","dayofyear","daysinmonth","daysinyear","de","decimalformat","decodefromurl","decrementvalue","decrypt","decryptbinary","deleteclientvariable","deserializejson","directorycopy","directorycreate","directorydelete","directoryexists","directorylist","directoryrename","dollarformat","dump","dumpstruct","duplicate","each","echo","empty","encodeforcss","encodefordn","encodeforhtml","encodeforhtmlattribute","encodeforjavascript","encodeforldap","encodeforurl","encodeforxml","encodeforxmlattribute","encodeforxpath","encrypt","encryptbinary","entitydelete","entityload","entityloadbyexample","entityloadbypk","entitymerge","entitynamearray","entitynamelist","entitynew","entityreload","entitysave","entitytoquery","esapidecode","esapiencode","evaluate","evaluatecomponent","evaluatejava","exp","expandpath","extract","fileappend","fileclose","filecopy","filedelete","fileexists","filegetmimetype","fileiseof","filemove","fileopen","fileread","filereadbinary","filereadline","fileseek","filesetaccessmode","filesetattribute","filesetlastmodified","fileskipbytes","fileupload","fileuploadall","filewrite","filewriteline","find","findnocase","findoneof","firstdayofmonth","fix","formatbasen","generatesecretkey","getapplicationmetadata","getapplicationsettings","getauthuser","getbasetagdata","getbasetaglist","getbasetemplatepath","getclasspath","getclientvariableslist","getcomponentmetadata","getcontextroot","getcpuusage","getcurrentcontext","getcurrenttemplatepath","getdirectoryfrompath","getencoding","getfilefrompath","getfileinfo","getfreespace","getfunctioncalledname","getfunctiondata","getfunctionlist","gethttprequestdata","gethttptimestring","getk2serverdoccount","getk2serverdoccountlimit","getlocale","getlocaledisplayname","getlocalhostip","getmemoryusage","getmetadata","getmetricdata","getnumericdate","getpagecontext","getprofilesections","getprofilestring","getrailoid","getreadableimageformats","getsoaprequest","getsoaprequestheader","getsoapresponse","getsoapresponseheader","getsystemfreememory","getsystemtotalmemory","gettagdata","gettaglist","gettempdirectory","gettempfile","gettemplatepath","gettickcount","gettimezone","gettimezoneinfo","gettoken","gettotalspace","getuserroles","getvariable","getvfsmetadata","getwriteableimageformats","hash","hmac","hour","htmlcodeformat","htmleditformat","htmlparse","iif","imageaddborder","imageblur","imageclearrect","imagecopy","imagecrop","imagedrawarc","imagedrawbeveledrect","imagedrawcubiccurve","imagedrawimage","imagedrawline","imagedrawlines","imagedrawoval","imagedrawpoint","imagedrawquadraticcurve","imagedrawrect","imagedrawroundrect","imagedrawtext","imagefilter","imagefiltercolormap","imagefiltercurves","imagefilterkernel","imagefilterwarpgrid","imageflip","imagefonts","imageformats","imagegetblob","imagegetbufferedimage","imagegetexifmetadata","imagegetexiftag","imagegetheight","imagegetiptctag","imagegetwidth","imagegrayscale","imageinfo","imagenegative","imagenew","imageoverlay","imagepaste","imageread","imagereadbase64","imageresize","imagerotate","imagerotatedrawingaxis","imagescaletofit","imagesetantialiasing","imagesetbackgroundcolor","imagesetdrawingalpha","imagesetdrawingcolor","imagesetdrawingstroke","imagesetdrawingtransparency","imagesharpen","imageshear","imagesheardrawingaxis","imagetranslate","imagetranslatedrawingaxis","imagewrite","imagewritebase64","imagexordrawingmode","incrementvalue","inputbasen","insert","int","intergralcontext","invoke","isarray","isbinary","isboolean","isclosure","iscustomfunction","isdate","isdebugmode","isdefined","isempty","isimage","isimagefile","isinstanceof","isipinrange","isipv6","isjson","isk2serverabroker","isk2serverdoccountexceeded","isk2serveronline","isleapyear","islocalhost","isnotmap","isnull","isnumeric","isnumericdate","isobject","ispdfobject","isquery","issimplevalue","issoaprequest","isstruct","isuserinanyrole","isuserinrole","isuserloggedin","isvalid","isvideofile","iswddx","isxml","isxmlattribute","isxmldoc","isxmlelem","isxmlnode","isxmlroot","iszipfile","javacast","jsstringformat","lcase","left","len","listappend","listavg","listchangedelims","listcompact","listcontains","listcontainsnocase","listdeleteat","listfilter","listfind","listfindnocase","listfirst","listgetat","listindexexists","listinsertat","listitemtrim","listlast","listlen","listprepend","listqualify","listremoveduplicates","listrest","listsetat","listsort","listtoarray","listtrim","listvaluecount","listvaluecountnocase","ljustify","location","log","log10","lscurrencyformat","lsdateformat","lsdatetimeformat","lsdayofweek","lseurocurrencyformat","lsiscurrency","lsisdate","lsisnumeric","lsnumberformat","lsparsecurrency","lsparsedatetime","lsparseeurocurrency","lsparsenumber","lstimeformat","lsweek","ltrim","max","metaphone","mid","millisecond","min","minute","month","monthasstring","monthshortasstring","newline","now","nowserver","nullvalue","numberformat","objectequals","objectload","objectsave","ormclearsession","ormclosesession","ormevictcollection","ormevictentity","ormevictqueries","ormexecutequery","ormflush","ormgetsession","ormgetsessionfactory","ormreload","pagepoolclear","pagepoollist","paragraphformat","parameterexists","parsedatetime","parsenumber","pi","precisionevaluate","preservesinglequotes","quarter","query","queryaddcolumn","queryaddrow","querycolumnarray","querycolumncount","querycolumndata","querycolumnexists","querycolumnlist","querydeletecolumn","querydeleterow","querygetcell","querynew","queryrecordcount","querysetcell","queryslice","querysort","quotedvaluelist","rand","randomize","randrange","refind","refindnocase","releasecomobject","rematch","rematchnocase","removechars","repeatstring","replace","replacelist","replacenocase","rereplace","rereplacenocase","restdeleteapplication","restinitapplication","restsetresponse","reverse","right","rjustify","round","rtrim","second","sendgatewaymessage","serialize","serializejson","sessioninvalidate","sessionrotate","sessionstarttime","setencoding","setlocale","setprofilestring","settimezone","setvariable","sgn","sin","sizeof","sleep","soundex","spanexcluding","spanincluding","spreadsheetnew","spreadsheetsetcellvalue","spreadsheetwrite","sqr","sslcertificateinstall","sslcertificatelist","storeaddacl","storegetacl","storesetacl","stringlen","stripcr","struct","structappend","structclear","structcopy","structcount","structdelete","structeach","structfilter","structfind","structfindkey","structfindvalue","structget","structinsert","structisempty","structkeyarray","structkeyexists","structkeylist","structkeytranslate","structnew","structsort","structupdate","systemcacheclear","systemoutput","tan","threadjoin","threadterminate","throw","timeformat","tobase64","tobinary","tonumeric","toscript","tostring","trace","transactioncommit","transactionrollback","transactionsetsavepoint","trim","truefalseformat","ucase","ucfirst","unserializejava","urldecode","urlencode","urlencodedformat","urlsessionformat","val","valuearray","valuelist","verifyclient","week","wrap","writedump","writelog","writeoutput","xmlchildpos","xmlelemnew","xmlformat","xmlgetnodetype","xmlnew","xmlparse","xmlsearch","xmltransform","xmlvalidate","year","yesnoformat"];
+$( "#tags" ).autocomplete({
+source: availableTags,
+select: function( event, ui ) {
+if(ui.item.value.startsWith("cf")){
+window.location = "/tag/" + ui.item.value;
+}
+else {
+window.location = "/function/" + ui.item.value; 
+}
+}
+});
+//Start the popover!
+//Check if we have shown them a popup! 
+//$('#beta').popover('show');
+$('#beta').popover()
+});
+</script>
+</head>
+<body>
+<div class="navbar navbar-fixed-top navbar-inverse">
+<div class="navbar-inner">
+<div class="container">
+<a class="brand" href="../../../../index.cfm.html">Railo Docs</a>
+<ul class="nav">
+<li class=""><a href="../../../../index.cfm.html">Home</a></li>
+<li class=""><a href="../../../tags.html">Tags</a></li>
+<li class="active"><a href="../../../functions.html">Functions</a></li>
+<li class=""><a href="../../../objects.html">Objects</a></li>
+</ul>
+<form class="navbar-form pull-left" action="/index.cfm/search" method="GET">
+<input type="hidden" name="action" value="current.search">
+<input type="text" id="tags" placeholder="Tag or Function" name="q">
+</form>
+</div> 
+</div> 
+</div> 
+<div class="container">
+<div class="row-fluid">
+<div class="span3">
+<div class="well">
+<h5>4.1.1.000 (Endal)</h5>
+<ul class="nav nav-list">
+<li><a href="../../../tags/version/3.0.0.003.html"><i class="icon-chevron-right"></i> Tags</a></li>
+<li><a href="../../../functions/version/3.0.0.003.html"><i class="icon-chevron-right"></i> Functions</a></li>
+<li><a href="../../../objects.html"><i class="icon-chevron-right"></i> Objects</a></li>
+</ul>
+<h5>Categories:</h5>
+<ul class="nav nav-list">
+<li><a href="../../../category/popular.html"><i class="icon-chevron-right"></i> Popular Searches</a></li>
+<li><a href="../../../category/tags.html"><i class="icon-chevron-right"></i> Tags</a></li>
+<li><a href="../../../category/functions.html"><i class="icon-chevron-right"></i> Functions</a></li>
+</ul>
+<h5>Previous Major Versions:</h5>
+<ul class="nav nav-list">
+<li>
+<a href="../../../previous/versionlist/majorversion/3.html"><i class="icon-chevron-right"></i> 3.x</a>
+</li>
+<li>
+<a href="../../../previous/versionlist/majorversion/2.html"><i class="icon-chevron-right"></i> 2.x</a>
+</li>
+<li>
+<a href="../../../previous/versionlist/majorversion/1.html"><i class="icon-chevron-right"></i> 1.x</a>
+</li>
+</ul>
+</div> 
+</div>
+<div class="span9">
+<section id="function_description">
+<div class="page-header">
+<h1>SetVariable 
+<br><small>Since Railo version: 2.0.0.008</small> 
+</h1>
+</div>
+<div class="text">
+</div>
+<h4>Categories</h4>
+<script>
+$(function(){
+$("#btnAddCat").click(function(){
+$("#addItem").toggle();
+});
+})();
+$(".ttip").tooltip();
+</script>
+<button type="submit" class="btn" id="btnAddCat">Add Category</button>
+<div class="hide well" id="addItem">
+<form action="/index.cfm/category/add" class="form-inline">
+<input type="hidden" name="type" value="function">
+<input type="hidden" name="name" value="setvariable">
+<select class="form-small" name="category">
+<option>AJAX functions</option>
+<option>Array functions</option>
+<option>Cache functions</option>
+<option>Conversion functions</option>
+<option>Date and time functions</option>
+<option>Data output functions</option>
+<option>Debugging functions</option>
+<option>Decision functions</option>
+<option>Display and formatting functions</option>
+<option>Dynamic evaluation functions</option>
+<option>Exception handling functions</option>
+<option>Extensibility functions</option>
+<option>Flow control functions</option>
+<option>Full-text search functions</option>
+<option>Image functions</option>
+<option>International functions</option>
+<option>List functions</option>
+<option>Mathematical functions</option>
+<option>ORM functions</option>
+<option>Other functions</option>
+<option>Query functions</option>
+<option>Security functions</option>
+<option>Spreadsheet functions</option>
+<option>String functions</option>
+<option>Structure functions</option>
+<option>System functions</option>
+<option>Transaction functions</option>
+<option>XML functions</option>
+</select>
+<button type="submit" class="btn">Add</button>
+</form>
+</div>
+<h4>Example</h4>
+<pre class="prettyprint"><span class="syntaxFunc">setvariable(</span><span class="syntaxFunc">):</span><span class="syntaxType">object</span></pre>
+<form action="/index.cfm/function/setvariable">
+<div class="input-append">
+<select name="version">
+<option value="current">Current</option>
+<option value="3.2.0.004" >3.2.0.004</option> 
+<option value="3.2.0.003" >3.2.0.003</option> 
+<option value="3.2.0.002" >3.2.0.002</option> 
+<option value="3.1.2.020" >3.1.2.020</option> 
+<option value="3.1.2.001" >3.1.2.001</option> 
+<option value="3.0.1.005" >3.0.1.005</option> 
+<option value="3.0.0.003" selected>3.0.0.003</option> 
+<option value="2.0.0.008" >2.0.0.008</option> 
+</select>
+<button type="submit" class="btn">View</button>
+</div>
+</form>
+<h2>Arguments</h2>
+</section>
+<div class="well">
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+/* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+var disqus_shortname = 'railodocs'; // required: replace example with your forum shortname
+var disqus_identifier = "function_setvariable"; //Tag identifier
+/* * * DON'T EDIT BELOW THIS LINE * * */
+(function() {
+var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</div>
+</div>
+</div> 
+</div> 
+<footer class="footer">
+<hr>
+<div class="container">
+<p>&copy; <a href="http://www.getrailo.com" target="_new">The Railo Company Limited</a> &amp; 
+<a href="http://www.twitter.com/markdrew/" target="_new">@markdrew</a> 2013 
+Version: <a href="3.0.0.003.html#" name="" class="btn btn-mini" id="beta" data-toggle="popover" data-placement="top" 
+data-content="Since this site is in beta, you might find errors and what have you. We are constantly working to improve the situation, so send us your feedback!" title="" data-original-title="About Beta Version">Beta</a>
+</p>
+</div>
+</footer>
+</body>
+</html>

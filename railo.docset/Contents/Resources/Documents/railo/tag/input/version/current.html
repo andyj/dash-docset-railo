@@ -1,0 +1,907 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="description" content="Documentation Viewer for Railo Server">
+<meta name="author" content="Mark Drew,@markdrew">
+<title>Railo Documentation Viewer, by The Railo Company</title>
+<!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+<!--[if lt IE 9]>
+<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
+<link href="../../../../assets/css/bootstrap.css" rel="stylesheet">
+<link href="../../../../assets/css/docs.css" rel="stylesheet">
+<link href="../../../../assets/css/jquery-ui.css" rel="stylesheet" />
+<script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+<script src="../../../../assets/js/bootstrap.min.js"></script>
+<script src="https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js"></script>
+<script src="http://code.jquery.com/ui/1.10.2/jquery-ui.js"></script>
+<script>
+//Add functionality to the String object
+if (typeof String.prototype.startsWith != 'function') {
+String.prototype.startsWith = function (str){
+return this.indexOf(str) == 0;
+};
+}
+$(function() {
+var availableTags = ["abs","acos","addsoaprequestheader","addsoapresponseheader","ajaxlink","ajaxonload","applicationstarttime","applicationstop","array","arrayappend","arrayavg","arrayclear","arraycontains","arraycontainsnocase","arraydelete","arraydeleteat","arrayeach","arrayfilter","arrayfind","arrayfindall","arrayfindallnocase","arrayfindnocase","arrayfirst","arrayindexexists","arrayinsertat","arrayisdefined","arrayisempty","arraylast","arraylen","arraymax","arraymerge","arraymid","arraymin","arraynew","arrayprepend","arrayresize","arrayreverse","arrayset","arrayslice","arraysort","arraysum","arrayswap","arraytolist","arraytostruct","asc","asin","atn","beat","binarydecode","binaryencode","bitand","bitmaskclear","bitmaskread","bitmaskset","bitnot","bitor","bitshln","bitshrn","bitxor","cacheclear","cachecount","cachedelete","cacheget","cachegetall","cachegetallids","cachegetdefaultcachename","cachegetmetadata","cachegetproperties","cacheidexists","cachekeyexists","cacheput","cacheremove","cacheremoveall","cachesetproperties","callstackdump","callstackget","canonicalize","ceiling","cfabort","cfadmin","cfajaximport","cfajaxproxy","cfapplet","cfapplication","cfargument","cfassociate","cfauthenticate","cfbreak","cfcache","cfcase","cfcatch","cfchart","cfchartdata","cfchartseries","cfcol","cfcollection","cfcomponent","cfcontent","cfcontinue","cfcookie","cfdbinfo","cfdefaultcase","cfdirectory","cfdiv","cfdocument","cfdocumentitem","cfdocumentsection","cfdump","cfelse","cfelseif","cferror","cfexecute","cfexit","cffeed","cffile","cffinally","cfflush","cfform","cfforward","cfftp","cffunction","cfgraph","cfgraphdata","cfheader","cfhtmlhead","cfhttp","cfhttpparam","cfif","cfimage","cfimap","cfimport","cfinclude","cfindex","cfinput","cfinsert","cfinterface","cfinvoke","cfinvokeargument","cflayout","cflayoutarea","cfldap","cflocation","cflock","cflog","cflogin","cfloginuser","cflogout","cfloop","cfmail","cfmailparam","cfmailpart","cfmap","cfmapitem","cfmediaplayer","cfmodule","cfobject","cfobjectcache","cfoutput","cfpageencoding","cfparam","cfpdf","cfpdfparam","cfpop","cfprocessingdirective","cfprocparam","cfprocresult","cfproperty","cfquery","cfqueryparam","cfregistry","cfrethrow","cfretry","cfreturn","cfsavecontent","cfschedule","cfscript","cfscriptjava","cfsearch","cfselect","cfservlet","cfservletparam","cfset","cfsetting","cfsilent","cfsleep","cfslider","cfstopwatch","cfstoredproc","cfswitch","cftable","cftextinput","cfthread","cfthrow","cftimer","cftrace","cftransaction","cftry","cfupdate","cfusion_decrypt","cfusion_encrypt","cfvideo","cfvideoplayer","cfvideoplayerparam","cfwddx","cfwhile","cfwindow","cfxml","cfzip","cfzipparam","charsetdecode","charsetencode","chr","cjustify","compare","comparenocase","componentcacheclear","componentcachelist","componentinfo","compress","contractpath","cos","createdate","createdatetime","createdynamicproxy","createguid","createobject","createodbcdate","createodbcdatetime","createodbctime","createtime","createtimespan","createuniqueid","createuuid","csrfgeneratetoken","csrfverifytoken","ctcacheclear","ctcachelist","datasourceflushmetacache","dateadd","datecompare","dateconvert","datediff","dateformat","datepart","datetimeformat","day","dayofweek","dayofweekasstring","dayofweekshortasstring","dayofyear","daysinmonth","daysinyear","de","decimalformat","decodefromurl","decrementvalue","decrypt","decryptbinary","deleteclientvariable","deserializejson","directorycopy","directorycreate","directorydelete","directoryexists","directorylist","directoryrename","dollarformat","dump","dumpstruct","duplicate","each","echo","empty","encodeforcss","encodefordn","encodeforhtml","encodeforhtmlattribute","encodeforjavascript","encodeforldap","encodeforurl","encodeforxml","encodeforxmlattribute","encodeforxpath","encrypt","encryptbinary","entitydelete","entityload","entityloadbyexample","entityloadbypk","entitymerge","entitynamearray","entitynamelist","entitynew","entityreload","entitysave","entitytoquery","esapidecode","esapiencode","evaluate","evaluatecomponent","evaluatejava","exp","expandpath","extract","fileappend","fileclose","filecopy","filedelete","fileexists","filegetmimetype","fileiseof","filemove","fileopen","fileread","filereadbinary","filereadline","fileseek","filesetaccessmode","filesetattribute","filesetlastmodified","fileskipbytes","fileupload","fileuploadall","filewrite","filewriteline","find","findnocase","findoneof","firstdayofmonth","fix","formatbasen","generatesecretkey","getapplicationmetadata","getapplicationsettings","getauthuser","getbasetagdata","getbasetaglist","getbasetemplatepath","getclasspath","getclientvariableslist","getcomponentmetadata","getcontextroot","getcpuusage","getcurrentcontext","getcurrenttemplatepath","getdirectoryfrompath","getencoding","getfilefrompath","getfileinfo","getfreespace","getfunctioncalledname","getfunctiondata","getfunctionlist","gethttprequestdata","gethttptimestring","getk2serverdoccount","getk2serverdoccountlimit","getlocale","getlocaledisplayname","getlocalhostip","getmemoryusage","getmetadata","getmetricdata","getnumericdate","getpagecontext","getprofilesections","getprofilestring","getrailoid","getreadableimageformats","getsoaprequest","getsoaprequestheader","getsoapresponse","getsoapresponseheader","getsystemfreememory","getsystemtotalmemory","gettagdata","gettaglist","gettempdirectory","gettempfile","gettemplatepath","gettickcount","gettimezone","gettimezoneinfo","gettoken","gettotalspace","getuserroles","getvariable","getvfsmetadata","getwriteableimageformats","hash","hmac","hour","htmlcodeformat","htmleditformat","htmlparse","iif","imageaddborder","imageblur","imageclearrect","imagecopy","imagecrop","imagedrawarc","imagedrawbeveledrect","imagedrawcubiccurve","imagedrawimage","imagedrawline","imagedrawlines","imagedrawoval","imagedrawpoint","imagedrawquadraticcurve","imagedrawrect","imagedrawroundrect","imagedrawtext","imagefilter","imagefiltercolormap","imagefiltercurves","imagefilterkernel","imagefilterwarpgrid","imageflip","imagefonts","imageformats","imagegetblob","imagegetbufferedimage","imagegetexifmetadata","imagegetexiftag","imagegetheight","imagegetiptctag","imagegetwidth","imagegrayscale","imageinfo","imagenegative","imagenew","imageoverlay","imagepaste","imageread","imagereadbase64","imageresize","imagerotate","imagerotatedrawingaxis","imagescaletofit","imagesetantialiasing","imagesetbackgroundcolor","imagesetdrawingalpha","imagesetdrawingcolor","imagesetdrawingstroke","imagesetdrawingtransparency","imagesharpen","imageshear","imagesheardrawingaxis","imagetranslate","imagetranslatedrawingaxis","imagewrite","imagewritebase64","imagexordrawingmode","incrementvalue","inputbasen","insert","int","intergralcontext","invoke","isarray","isbinary","isboolean","isclosure","iscustomfunction","isdate","isdebugmode","isdefined","isempty","isimage","isimagefile","isinstanceof","isipinrange","isipv6","isjson","isk2serverabroker","isk2serverdoccountexceeded","isk2serveronline","isleapyear","islocalhost","isnotmap","isnull","isnumeric","isnumericdate","isobject","ispdfobject","isquery","issimplevalue","issoaprequest","isstruct","isuserinanyrole","isuserinrole","isuserloggedin","isvalid","isvideofile","iswddx","isxml","isxmlattribute","isxmldoc","isxmlelem","isxmlnode","isxmlroot","iszipfile","javacast","jsstringformat","lcase","left","len","listappend","listavg","listchangedelims","listcompact","listcontains","listcontainsnocase","listdeleteat","listfilter","listfind","listfindnocase","listfirst","listgetat","listindexexists","listinsertat","listitemtrim","listlast","listlen","listprepend","listqualify","listremoveduplicates","listrest","listsetat","listsort","listtoarray","listtrim","listvaluecount","listvaluecountnocase","ljustify","location","log","log10","lscurrencyformat","lsdateformat","lsdatetimeformat","lsdayofweek","lseurocurrencyformat","lsiscurrency","lsisdate","lsisnumeric","lsnumberformat","lsparsecurrency","lsparsedatetime","lsparseeurocurrency","lsparsenumber","lstimeformat","lsweek","ltrim","max","metaphone","mid","millisecond","min","minute","month","monthasstring","monthshortasstring","newline","now","nowserver","nullvalue","numberformat","objectequals","objectload","objectsave","ormclearsession","ormclosesession","ormevictcollection","ormevictentity","ormevictqueries","ormexecutequery","ormflush","ormgetsession","ormgetsessionfactory","ormreload","pagepoolclear","pagepoollist","paragraphformat","parameterexists","parsedatetime","parsenumber","pi","precisionevaluate","preservesinglequotes","quarter","query","queryaddcolumn","queryaddrow","querycolumnarray","querycolumncount","querycolumndata","querycolumnexists","querycolumnlist","querydeletecolumn","querydeleterow","querygetcell","querynew","queryrecordcount","querysetcell","queryslice","querysort","quotedvaluelist","rand","randomize","randrange","refind","refindnocase","releasecomobject","rematch","rematchnocase","removechars","repeatstring","replace","replacelist","replacenocase","rereplace","rereplacenocase","restdeleteapplication","restinitapplication","restsetresponse","reverse","right","rjustify","round","rtrim","second","sendgatewaymessage","serialize","serializejson","sessioninvalidate","sessionrotate","sessionstarttime","setencoding","setlocale","setprofilestring","settimezone","setvariable","sgn","sin","sizeof","sleep","soundex","spanexcluding","spanincluding","spreadsheetnew","spreadsheetsetcellvalue","spreadsheetwrite","sqr","sslcertificateinstall","sslcertificatelist","storeaddacl","storegetacl","storesetacl","stringlen","stripcr","struct","structappend","structclear","structcopy","structcount","structdelete","structeach","structfilter","structfind","structfindkey","structfindvalue","structget","structinsert","structisempty","structkeyarray","structkeyexists","structkeylist","structkeytranslate","structnew","structsort","structupdate","systemcacheclear","systemoutput","tan","threadjoin","threadterminate","throw","timeformat","tobase64","tobinary","tonumeric","toscript","tostring","trace","transactioncommit","transactionrollback","transactionsetsavepoint","trim","truefalseformat","ucase","ucfirst","unserializejava","urldecode","urlencode","urlencodedformat","urlsessionformat","val","valuearray","valuelist","verifyclient","week","wrap","writedump","writelog","writeoutput","xmlchildpos","xmlelemnew","xmlformat","xmlgetnodetype","xmlnew","xmlparse","xmlsearch","xmltransform","xmlvalidate","year","yesnoformat"];
+$( "#tags" ).autocomplete({
+source: availableTags,
+select: function( event, ui ) {
+if(ui.item.value.startsWith("cf")){
+window.location = "/tag/" + ui.item.value;
+}
+else {
+window.location = "/function/" + ui.item.value; 
+}
+}
+});
+//Start the popover!
+//Check if we have shown them a popup! 
+//$('#beta').popover('show');
+$('#beta').popover()
+});
+</script>
+</head>
+<body>
+<div class="navbar navbar-fixed-top navbar-inverse">
+<div class="navbar-inner">
+<div class="container">
+<a class="brand" href="../../../../index.cfm.html">Railo Docs</a>
+<ul class="nav">
+<li class=""><a href="../../../../index.cfm.html">Home</a></li>
+<li class="active"><a href="../../../tags.html">Tags</a></li>
+<li class=""><a href="../../../functions.html">Functions</a></li>
+<li class=""><a href="../../../objects.html">Objects</a></li>
+</ul>
+<form class="navbar-form pull-left" action="/index.cfm/search" method="GET">
+<input type="hidden" name="action" value="current.search">
+<input type="text" id="tags" placeholder="Tag or Function" name="q">
+</form>
+</div> 
+</div> 
+</div> 
+<div class="container">
+<div class="row-fluid">
+<div class="span3">
+<div class="well">
+<h5>4.1.1.000 (Endal)</h5>
+<ul class="nav nav-list">
+<li><a href="../../../tags/version/current.html"><i class="icon-chevron-right"></i> Tags</a></li>
+<li><a href="../../../functions/version/current.html"><i class="icon-chevron-right"></i> Functions</a></li>
+<li><a href="../../../objects.html"><i class="icon-chevron-right"></i> Objects</a></li>
+</ul>
+<h5>Categories:</h5>
+<ul class="nav nav-list">
+<li><a href="../../../category/popular.html"><i class="icon-chevron-right"></i> Popular Searches</a></li>
+<li><a href="../../../category/tags.html"><i class="icon-chevron-right"></i> Tags</a></li>
+<li><a href="../../../category/functions.html"><i class="icon-chevron-right"></i> Functions</a></li>
+</ul>
+<h5>Previous Major Versions:</h5>
+<ul class="nav nav-list">
+<li>
+<a href="../../../previous/versionlist/majorversion/3.html"><i class="icon-chevron-right"></i> 3.x</a>
+</li>
+<li>
+<a href="../../../previous/versionlist/majorversion/2.html"><i class="icon-chevron-right"></i> 2.x</a>
+</li>
+<li>
+<a href="../../../previous/versionlist/majorversion/1.html"><i class="icon-chevron-right"></i> 1.x</a>
+</li>
+</ul>
+</div> 
+</div>
+<div class="span9">
+<style>
+.syntaxAttr={color:maroon;}
+</style>
+<section id="function_description">
+<div class="page-header">
+<h1>cfInput</h1>
+</div>
+<div class="text">
+Used inside cfform to place radio buttons, checkboxes, or text boxes. Provides input
+validation for the specified control type.
+</div>
+<h4>Categories</h4>
+<script>
+$(function(){
+$("#btnAddCat").click(function(){
+$("#addItem").toggle();
+});
+})();
+$(".ttip").tooltip();
+</script>
+<button type="submit" class="btn" id="btnAddCat">Add Category</button>
+<div class="hide well" id="addItem">
+<form action="/index.cfm/category/add" class="form-inline">
+<input type="hidden" name="type" value="tag">
+<input type="hidden" name="name" value="input">
+<select class="form-small" name="category">
+<option>Application framework tags</option>
+<option>AJAX tags</option>
+<option>Communications tags</option>
+<option>Database manipulation tags</option>
+<option>Data output tags</option>
+<option>Debugging tags</option>
+<option>Display management tags</option>
+<option>Exception handling tags</option>
+<option>Extensibility tags</option>
+<option>File management tags</option>
+<option>Flow-control tags</option>
+<option>Forms tags</option>
+<option>Internet protocol tags</option>
+<option>Page processing tags</option>
+<option>Security tags</option>
+<option>Variable manipulation tags</option>
+<option>Other tags</option>
+</select>
+<button type="submit" class="btn">Add</button>
+</form>
+</div>
+<h3>Body</h3>
+<div class="text">This tag can&apos;t have a body.</div>
+<h4>Example</h4>
+<pre class="prettyprint"><span class="syntaxTag">&lt;cfinput</span>
+	<span class="syntaxAttr">[</span><span class="syntaxAttr">accept</span>=<span class="syntaxText">"<i>string</i>"</span><span class="syntaxAttr">]</span>
+	<span class="syntaxAttr">[</span><span class="syntaxAttr">accesskey</span>=<span class="syntaxText">"<i>string</i>"</span><span class="syntaxAttr">]</span>
+	<span class="syntaxAttr">[</span><span class="syntaxAttr">align</span>=<span class="syntaxText">"<i>string</i>"</span><span class="syntaxAttr">]</span>
+	<span class="syntaxAttr">[</span><span class="syntaxAttr">alt</span>=<span class="syntaxText">"<i>string</i>"</span><span class="syntaxAttr">]</span>
+	<span class="syntaxAttr">[</span><span class="syntaxAttr">autocomplete</span>=<span class="syntaxText">"<i>string</i>"</span><span class="syntaxAttr">]</span>
+	<span class="syntaxAttr">[</span><span class="syntaxAttr">autofocus</span>=<span class="syntaxText">"<i>string</i>"</span><span class="syntaxAttr">]</span>
+	<span class="syntaxAttr">[</span><span class="syntaxAttr">autosuggest</span>=<span class="syntaxText">"<i>string</i>"</span><span class="syntaxAttr">]</span>
+	<span class="syntaxAttr">[</span><span class="syntaxAttr">autosuggestbinddelay</span>=<span class="syntaxText">"<i>number</i>"</span><span class="syntaxAttr">]</span>
+	<span class="syntaxAttr">[</span><span class="syntaxAttr">autosuggestminlength</span>=<span class="syntaxText">"<i>number</i>"</span><span class="syntaxAttr">]</span>
+	<span class="syntaxAttr">[</span><span class="syntaxAttr">bind</span>=<span class="syntaxText">"<i>string</i>"</span><span class="syntaxAttr">]</span>
+	<span class="syntaxAttr">[</span><span class="syntaxAttr">bindattribute</span>=<span class="syntaxText">"<i>string</i>"</span><span class="syntaxAttr">]</span>
+	<span class="syntaxAttr">[</span><span class="syntaxAttr">bindonload</span>=<span class="syntaxText">"<i>boolean</i>"</span><span class="syntaxAttr">]</span>
+	<span class="syntaxAttr">[</span><span class="syntaxAttr">border</span>=<span class="syntaxText">"<i>string</i>"</span><span class="syntaxAttr">]</span>
+	<span class="syntaxAttr">[</span><span class="syntaxAttr">checked</span>=<span class="syntaxText">"<i>string</i>"</span><span class="syntaxAttr">]</span>
+	<span class="syntaxAttr">[</span><span class="syntaxAttr">class</span>=<span class="syntaxText">"<i>string</i>"</span><span class="syntaxAttr">]</span>
+	<span class="syntaxAttr">[</span><span class="syntaxAttr">datafld</span>=<span class="syntaxText">"<i>string</i>"</span><span class="syntaxAttr">]</span>
+	<span class="syntaxAttr">[</span><span class="syntaxAttr">dataformatas</span>=<span class="syntaxText">"<i>string</i>"</span><span class="syntaxAttr">]</span>
+	<span class="syntaxAttr">[</span><span class="syntaxAttr">datasrc</span>=<span class="syntaxText">"<i>string</i>"</span><span class="syntaxAttr">]</span>
+	<span class="syntaxAttr">[</span><span class="syntaxAttr">daynames</span>=<span class="syntaxText">"<i>string</i>"</span><span class="syntaxAttr">]</span>
+	<span class="syntaxAttr">[</span><span class="syntaxAttr">delimiter</span>=<span class="syntaxText">"<i>string</i>"</span><span class="syntaxAttr">]</span>
+	<span class="syntaxAttr">[</span><span class="syntaxAttr">dir</span>=<span class="syntaxText">"<i>string</i>"</span><span class="syntaxAttr">]</span>
+	<span class="syntaxAttr">[</span><span class="syntaxAttr">disabled</span>=<span class="syntaxText">"<i>string</i>"</span><span class="syntaxAttr">]</span>
+	<span class="syntaxAttr">[</span><span class="syntaxAttr">enabled</span>=<span class="syntaxText">"<i>string</i>"</span><span class="syntaxAttr">]</span>
+	<span class="syntaxAttr">[</span><span class="syntaxAttr">firstdayofweek</span>=<span class="syntaxText">"<i>number</i>"</span><span class="syntaxAttr">]</span>
+	<span class="syntaxAttr">[</span><span class="syntaxAttr">form</span>=<span class="syntaxText">"<i>string</i>"</span><span class="syntaxAttr">]</span>
+	<span class="syntaxAttr">[</span><span class="syntaxAttr">formaction</span>=<span class="syntaxText">"<i>string</i>"</span><span class="syntaxAttr">]</span>
+	<span class="syntaxAttr">[</span><span class="syntaxAttr">formenctype</span>=<span class="syntaxText">"<i>string</i>"</span><span class="syntaxAttr">]</span>
+	<span class="syntaxAttr">[</span><span class="syntaxAttr">formmethod</span>=<span class="syntaxText">"<i>string</i>"</span><span class="syntaxAttr">]</span>
+	<span class="syntaxAttr">[</span><span class="syntaxAttr">formnovalidate</span>=<span class="syntaxText">"<i>string</i>"</span><span class="syntaxAttr">]</span>
+	<span class="syntaxAttr">[</span><span class="syntaxAttr">formtarget</span>=<span class="syntaxText">"<i>string</i>"</span><span class="syntaxAttr">]</span>
+	<span class="syntaxAttr">[</span><span class="syntaxAttr">height</span>=<span class="syntaxText">"<i>string</i>"</span><span class="syntaxAttr">]</span>
+	<span class="syntaxAttr">[</span><span class="syntaxAttr">hspace</span>=<span class="syntaxText">"<i>string</i>"</span><span class="syntaxAttr">]</span>
+	<span class="syntaxAttr">[</span><span class="syntaxAttr">id</span>=<span class="syntaxText">"<i>string</i>"</span><span class="syntaxAttr">]</span>
+	<span class="syntaxAttr">[</span><span class="syntaxAttr">ismap</span>=<span class="syntaxText">"<i>string</i>"</span><span class="syntaxAttr">]</span>
+	<span class="syntaxAttr">[</span><span class="syntaxAttr">label</span>=<span class="syntaxText">"<i>string</i>"</span><span class="syntaxAttr">]</span>
+	<span class="syntaxAttr">[</span><span class="syntaxAttr">lang</span>=<span class="syntaxText">"<i>string</i>"</span><span class="syntaxAttr">]</span>
+	<span class="syntaxAttr">[</span><span class="syntaxAttr">list</span>=<span class="syntaxText">"<i>string</i>"</span><span class="syntaxAttr">]</span>
+	<span class="syntaxAttr">[</span><span class="syntaxAttr">mask</span>=<span class="syntaxText">"<i>string</i>"</span><span class="syntaxAttr">]</span>
+	<span class="syntaxAttr">[</span><span class="syntaxAttr">max</span>=<span class="syntaxText">"<i>string</i>"</span><span class="syntaxAttr">]</span>
+	<span class="syntaxAttr">[</span><span class="syntaxAttr">maxlength</span>=<span class="syntaxText">"<i>number</i>"</span><span class="syntaxAttr">]</span>
+	<span class="syntaxAttr">[</span><span class="syntaxAttr">maxresultsdisplayed</span>=<span class="syntaxText">"<i>number</i>"</span><span class="syntaxAttr">]</span>
+	<span class="syntaxAttr">[</span><span class="syntaxAttr">message</span>=<span class="syntaxText">"<i>string</i>"</span><span class="syntaxAttr">]</span>
+	<span class="syntaxAttr">[</span><span class="syntaxAttr">min</span>=<span class="syntaxText">"<i>string</i>"</span><span class="syntaxAttr">]</span>
+	<span class="syntaxAttr">[</span><span class="syntaxAttr">monthnames</span>=<span class="syntaxText">"<i>string</i>"</span><span class="syntaxAttr">]</span>
+	<span class="syntaxAttr">[</span><span class="syntaxAttr">multiple</span>=<span class="syntaxText">"<i>string</i>"</span><span class="syntaxAttr">]</span>
+	<span class="syntaxAttr">name</span>=<span class="syntaxText">"string"</span>
+	<span class="syntaxAttr">[</span><span class="syntaxAttr">notab</span>=<span class="syntaxText">"<i>string</i>"</span><span class="syntaxAttr">]</span>
+	<span class="syntaxAttr">[</span><span class="syntaxAttr">onbinderror</span>=<span class="syntaxText">"<i>string</i>"</span><span class="syntaxAttr">]</span>
+	<span class="syntaxAttr">[</span><span class="syntaxAttr">onblur</span>=<span class="syntaxText">"<i>string</i>"</span><span class="syntaxAttr">]</span>
+	<span class="syntaxAttr">[</span><span class="syntaxAttr">onchange</span>=<span class="syntaxText">"<i>string</i>"</span><span class="syntaxAttr">]</span>
+	<span class="syntaxAttr">[</span><span class="syntaxAttr">onclick</span>=<span class="syntaxText">"<i>string</i>"</span><span class="syntaxAttr">]</span>
+	<span class="syntaxAttr">[</span><span class="syntaxAttr">ondblclick</span>=<span class="syntaxText">"<i>string</i>"</span><span class="syntaxAttr">]</span>
+	<span class="syntaxAttr">[</span><span class="syntaxAttr">onerror</span>=<span class="syntaxText">"<i>string</i>"</span><span class="syntaxAttr">]</span>
+	<span class="syntaxAttr">[</span><span class="syntaxAttr">onfocus</span>=<span class="syntaxText">"<i>string</i>"</span><span class="syntaxAttr">]</span>
+	<span class="syntaxAttr">[</span><span class="syntaxAttr">onkeydown</span>=<span class="syntaxText">"<i>string</i>"</span><span class="syntaxAttr">]</span>
+	<span class="syntaxAttr">[</span><span class="syntaxAttr">onkeypress</span>=<span class="syntaxText">"<i>string</i>"</span><span class="syntaxAttr">]</span>
+	<span class="syntaxAttr">[</span><span class="syntaxAttr">onkeyup</span>=<span class="syntaxText">"<i>string</i>"</span><span class="syntaxAttr">]</span>
+	<span class="syntaxAttr">[</span><span class="syntaxAttr">onmousedown</span>=<span class="syntaxText">"<i>string</i>"</span><span class="syntaxAttr">]</span>
+	<span class="syntaxAttr">[</span><span class="syntaxAttr">onmousemove</span>=<span class="syntaxText">"<i>string</i>"</span><span class="syntaxAttr">]</span>
+	<span class="syntaxAttr">[</span><span class="syntaxAttr">onmouseout</span>=<span class="syntaxText">"<i>string</i>"</span><span class="syntaxAttr">]</span>
+	<span class="syntaxAttr">[</span><span class="syntaxAttr">onmouseover</span>=<span class="syntaxText">"<i>string</i>"</span><span class="syntaxAttr">]</span>
+	<span class="syntaxAttr">[</span><span class="syntaxAttr">onmouseup</span>=<span class="syntaxText">"<i>string</i>"</span><span class="syntaxAttr">]</span>
+	<span class="syntaxAttr">[</span><span class="syntaxAttr">onselect</span>=<span class="syntaxText">"<i>string</i>"</span><span class="syntaxAttr">]</span>
+	<span class="syntaxAttr">[</span><span class="syntaxAttr">onvalidate</span>=<span class="syntaxText">"<i>string</i>"</span><span class="syntaxAttr">]</span>
+	<span class="syntaxAttr">[</span><span class="syntaxAttr">passthrough</span>=<span class="syntaxText">"<i>any</i>"</span><span class="syntaxAttr">]</span>
+	<span class="syntaxAttr">[</span><span class="syntaxAttr">pattern</span>=<span class="syntaxText">"<i>string</i>"</span><span class="syntaxAttr">]</span>
+	<span class="syntaxAttr">[</span><span class="syntaxAttr">placeholder</span>=<span class="syntaxText">"<i>string</i>"</span><span class="syntaxAttr">]</span>
+	<span class="syntaxAttr">[</span><span class="syntaxAttr">range</span>=<span class="syntaxText">"<i>string</i>"</span><span class="syntaxAttr">]</span>
+	<span class="syntaxAttr">[</span><span class="syntaxAttr">readonly</span>=<span class="syntaxText">"<i>string</i>"</span><span class="syntaxAttr">]</span>
+	<span class="syntaxAttr">[</span><span class="syntaxAttr">required</span>=<span class="syntaxText">"<i>boolean</i>"</span><span class="syntaxAttr">]</span>
+	<span class="syntaxAttr">[</span><span class="syntaxAttr">showautosuggestloadingicon</span>=<span class="syntaxText">"<i>boolean</i>"</span><span class="syntaxAttr">]</span>
+	<span class="syntaxAttr">[</span><span class="syntaxAttr">size</span>=<span class="syntaxText">"<i>string</i>"</span><span class="syntaxAttr">]</span>
+	<span class="syntaxAttr">[</span><span class="syntaxAttr">sourcefortooltip</span>=<span class="syntaxText">"<i>string</i>"</span><span class="syntaxAttr">]</span>
+	<span class="syntaxAttr">[</span><span class="syntaxAttr">src</span>=<span class="syntaxText">"<i>string</i>"</span><span class="syntaxAttr">]</span>
+	<span class="syntaxAttr">[</span><span class="syntaxAttr">step</span>=<span class="syntaxText">"<i>string</i>"</span><span class="syntaxAttr">]</span>
+	<span class="syntaxAttr">[</span><span class="syntaxAttr">style</span>=<span class="syntaxText">"<i>string</i>"</span><span class="syntaxAttr">]</span>
+	<span class="syntaxAttr">[</span><span class="syntaxAttr">tabindex</span>=<span class="syntaxText">"<i>string</i>"</span><span class="syntaxAttr">]</span>
+	<span class="syntaxAttr">[</span><span class="syntaxAttr">title</span>=<span class="syntaxText">"<i>string</i>"</span><span class="syntaxAttr">]</span>
+	<span class="syntaxAttr">[</span><span class="syntaxAttr">tooltip</span>=<span class="syntaxText">"<i>string</i>"</span><span class="syntaxAttr">]</span>
+	<span class="syntaxAttr">[</span><span class="syntaxAttr">type</span>=<span class="syntaxText">"<i>string</i>"</span><span class="syntaxAttr">]</span>
+	<span class="syntaxAttr">[</span><span class="syntaxAttr">typeahead</span>=<span class="syntaxText">"<i>boolean</i>"</span><span class="syntaxAttr">]</span>
+	<span class="syntaxAttr">[</span><span class="syntaxAttr">usemap</span>=<span class="syntaxText">"<i>string</i>"</span><span class="syntaxAttr">]</span>
+	<span class="syntaxAttr">[</span><span class="syntaxAttr">validate</span>=<span class="syntaxText">"<i>string</i>"</span><span class="syntaxAttr">]</span>
+	<span class="syntaxAttr">[</span><span class="syntaxAttr">validateat</span>=<span class="syntaxText">"<i>string</i>"</span><span class="syntaxAttr">]</span>
+	<span class="syntaxAttr">[</span><span class="syntaxAttr">value</span>=<span class="syntaxText">"<i>string</i>"</span><span class="syntaxAttr">]</span>
+	<span class="syntaxAttr">[</span><span class="syntaxAttr">visible</span>=<span class="syntaxText">"<i>string</i>"</span><span class="syntaxAttr">]</span>
+	<span class="syntaxAttr">[</span><span class="syntaxAttr">width</span>=<span class="syntaxText">"<i>string</i>"</span><span class="syntaxAttr">]</span><span class="syntaxTag">&gt;</span>
+</pre>
+<h3>Attributes</h3>
+<div class="text">The attributes for this tag are fixed. Except for the following attributes no other attributes are allowed.
+</div>
+<table class="table table-striped table table-bordered">
+<thead>
+<tr>
+<th width="21%">Name</th>
+<th width="7%">Type</th>
+<th width="7%">Required</th>
+<th width="65%">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>accept</td>
+<td>string</td>
+<td>No</td>
+<td>passed through to input tag created, only used for type html.&nbsp;</td>
+</tr>
+<tr>
+<td>accesskey</td>
+<td>string</td>
+<td>No</td>
+<td>passed through to input tag created, only used for type html.&nbsp;</td>
+</tr>
+<tr>
+<td>align</td>
+<td>string</td>
+<td>No</td>
+<td>passed through to input tag created, only used for type html.&nbsp;</td>
+</tr>
+<tr>
+<td>alt</td>
+<td>string</td>
+<td>No</td>
+<td>passed through to input tag created, only used for type html.&nbsp;</td>
+</tr>
+<tr>
+<td>autocomplete</td>
+<td>string</td>
+<td>No</td>
+<td>HTML attribute: Specifies the types of files that can be submitted through a file upload (only for type="file")&nbsp;</td>
+</tr>
+<tr>
+<td>autofocus</td>
+<td>string</td>
+<td>No</td>
+<td>Specifies that the input field should have focus on page load (not for type="hidden")&nbsp;</td>
+</tr>
+<tr>
+<td>autosuggest</td>
+<td>string</td>
+<td>No</td>
+<td>Specifies entry completion suggestions to
+display as the user types into a text input. The
+user can select a suggestion to complete the text
+entry.
+The valid value can be either of the following:
+- A string consisting of the suggestion values
+separated by the delimiter specified by the
+delimiter attribute.
+- A bind expression that gets the suggestion
+values based on the current input text.
+Valid only for cfinput type="text".&nbsp;</td>
+</tr>
+<tr>
+<td>autosuggestbinddelay</td>
+<td>number</td>
+<td>No</td>
+<td>The minimum time between autosuggest bind
+expression invocations, in seconds. Use this
+attribute to limit the number of requests that are
+sent to the server when a user types.
+Valid only for cfinput type="text"&nbsp;</td>
+</tr>
+<tr>
+<td>autosuggestminlength</td>
+<td>number</td>
+<td>No</td>
+<td>The minimum number of characters required in
+the text box before invoking a bind expression to
+return items for suggestion.
+Valid only for cfinput type="text".&nbsp;</td>
+</tr>
+<tr>
+<td>bind</td>
+<td>string</td>
+<td>No</td>
+<td>A Flash bind expression that populates the field with
+information from other form fields.&nbsp;</td>
+</tr>
+<tr>
+<td>bindattribute</td>
+<td>string</td>
+<td>No</td>
+<td>Specifies the HTML tag attribute whose value is
+set by the bind attribute. You can only specify
+attributes in the browser's HTML DOM tree, not
+Railo-specific attributes.
+Ignored if there is no bind attribute.
+Valid only for cfinput type="text".&nbsp;</td>
+</tr>
+<tr>
+<td>bindonload</td>
+<td>boolean</td>
+<td>No</td>
+<td>A Boolean value that specifies whether to
+execute the bind attribute expression when first
+loading the form.
+Ignored if there is no bind attribute.
+Valid only for cfinput type="text".&nbsp;</td>
+</tr>
+<tr>
+<td>border</td>
+<td>string</td>
+<td>No</td>
+<td>passed through to input tag created, only used for type html.&nbsp;</td>
+</tr>
+<tr>
+<td>checked</td>
+<td>string</td>
+<td>No</td>
+<td>Selects a control. No value is required. Applies if
+type=radio or checkbox.
+Default: false&nbsp;</td>
+</tr>
+<tr>
+<td>class</td>
+<td>string</td>
+<td>No</td>
+<td>passed through to form tag created, only used for type html.&nbsp;</td>
+</tr>
+<tr>
+<td>datafld</td>
+<td>string</td>
+<td>No</td>
+<td>passed through to form tag created, only used for type html.&nbsp;</td>
+</tr>
+<tr>
+<td>dataformatas</td>
+<td>string</td>
+<td>No</td>
+<td>passed through to form tag created, only used for type html.&nbsp;</td>
+</tr>
+<tr>
+<td>datasrc</td>
+<td>string</td>
+<td>No</td>
+<td>passed through to form tag created, only used for type html.&nbsp;</td>
+</tr>
+<tr>
+<td>daynames</td>
+<td>string</td>
+<td>No</td>
+<td>A comma-delimited list that sets the names of the
+weekdays displayed in the calendar. Sunday is the
+first day and the rest of the weekday names follow in
+the normal order.
+Default is: S,M,T,W,Th,F,S&nbsp;</td>
+</tr>
+<tr>
+<td>delimiter</td>
+<td>string</td>
+<td>No</td>
+<td>The delimiter to use to separate entries in a static autosuggest list. This attribute is meaningful only if the autosuggest attribute is a string of delimited values.&nbsp;</td>
+</tr>
+<tr>
+<td>dir</td>
+<td>string</td>
+<td>No</td>
+<td>passed through to form tag created, only used for type html.&nbsp;</td>
+</tr>
+<tr>
+<td>disabled</td>
+<td>string</td>
+<td>No</td>
+<td>Disables user input, making the control read-only. To
+disable input, specify disabled without an attribute or
+disabled="true". To enable input, omit the attribute
+or specify disabled="false".&nbsp;</td>
+</tr>
+<tr>
+<td>enabled</td>
+<td>string</td>
+<td>No</td>
+<td>Flash only: Boolean value specifying whether the control is
+enabled. A disabled control appears in light gray. The
+inverse of the disabled attribute. Flash only.
+Default: true&nbsp;</td>
+</tr>
+<tr>
+<td>firstdayofweek</td>
+<td>number</td>
+<td>No</td>
+<td>Integer in the range 0-6 specifying the first day of the
+week in the calendar, 0 indicates Sunday, 6 indicates Saturday.
+Default is: 0&nbsp;</td>
+</tr>
+<tr>
+<td>form</td>
+<td>string</td>
+<td>No</td>
+<td>HTML attribute: Specifies one ore more forms the input field belongs to&nbsp;</td>
+</tr>
+<tr>
+<td>formaction</td>
+<td>string</td>
+<td>No</td>
+<td>HTML attribute: Overrides the form's action attribute. Must be a valid URL that defines where to send the data when the form is submitted (for type="submit" and type="image")&nbsp;</td>
+</tr>
+<tr>
+<td>formenctype</td>
+<td>string</td>
+<td>No</td>
+<td>HTML attribute: Overrides the form's enctype attribute. Specifies how form-data should be encoded before sending it to the server (for type="submit" and type="image")&nbsp;</td>
+</tr>
+<tr>
+<td>formmethod</td>
+<td>string</td>
+<td>No</td>
+<td>HTML attribute: Overrides the form's method attribute. Defines the HTTP method for sending data to the action URL (for type="submit" and type="image")&nbsp;</td>
+</tr>
+<tr>
+<td>formnovalidate</td>
+<td>string</td>
+<td>No</td>
+<td>HTML attribute: Overrides the form's novalidate attribute. If present the input field should not be validated when submitted&nbsp;</td>
+</tr>
+<tr>
+<td>formtarget</td>
+<td>string</td>
+<td>No</td>
+<td>HTML attribute: Overrides the form's target attribute. Specifies the target window used when the form is submitted (for type="submit" and type="image")&nbsp;</td>
+</tr>
+<tr>
+<td>height</td>
+<td>string</td>
+<td>No</td>
+<td>Applies to most Flash types, HTML image type on
+some browsers. The height of the control, in pixels. The
+displayed height might be less than the specified size.&nbsp;</td>
+</tr>
+<tr>
+<td>hspace</td>
+<td>string</td>
+<td>No</td>
+<td>passed through to form tag created, only used for type html.&nbsp;</td>
+</tr>
+<tr>
+<td>id</td>
+<td>string</td>
+<td>No</td>
+<td>passed through to form tag created, only used for type html.&nbsp;</td>
+</tr>
+<tr>
+<td>ismap</td>
+<td>string</td>
+<td>No</td>
+<td>passed through to form tag created, only used for type html.&nbsp;</td>
+</tr>
+<tr>
+<td>label</td>
+<td>string</td>
+<td>No</td>
+<td>Label to put next to the control on a Flash or XML form.
+Not used for button, hidden, image, reset, or submit types.&nbsp;</td>
+</tr>
+<tr>
+<td>lang</td>
+<td>string</td>
+<td>No</td>
+<td>passed through to form tag created, only used for type html.&nbsp;</td>
+</tr>
+<tr>
+<td>list</td>
+<td>string</td>
+<td>No</td>
+<td>HTML attribute: Refers to a datalist containing predefined options for the input field&nbsp;</td>
+</tr>
+<tr>
+<td>mask</td>
+<td>string</td>
+<td>No</td>
+<td>A mask pattern that controls the character pattern that
+users can enter, or that the form sends to Railo.
+In HTML and Flash for type=text use:
+- A = [A-Za-z]
+- X = [A-Za-z0-9]
+- 9 = [0-9]
+- ? = Any character
+- all other = the literal character
+In Flash for type=datefield use:
+- D = day; can use 0-2 mask characters.
+- M = month; can use 0-4 mask characters.
+- Y = year; can use 0, 2, or 4 characters.
+- E = day in week; can use 0-4 characters.&nbsp;</td>
+</tr>
+<tr>
+<td>max</td>
+<td>string</td>
+<td>No</td>
+<td>HTML attribute: Specifies the input field's maximum value. Use together with the "min" attribute to create a range of legal values&nbsp;</td>
+</tr>
+<tr>
+<td>maxlength</td>
+<td>number</td>
+<td>No</td>
+<td>The maximum length of text entered, if n type is Text.&nbsp;</td>
+</tr>
+<tr>
+<td>maxresultsdisplayed</td>
+<td>number</td>
+<td>No</td>
+<td>The maximum number suggestions to display in the autosuggest list.
+Valid only for cfinput type="text".&nbsp;</td>
+</tr>
+<tr>
+<td>message</td>
+<td>string</td>
+<td>No</td>
+<td>Message text to appear if validation fails.&nbsp;</td>
+</tr>
+<tr>
+<td>min</td>
+<td>string</td>
+<td>No</td>
+<td>HTML attribute: Specifies the input field's minimum value. Use together with the "max" attribute to create a range of legal values&nbsp;</td>
+</tr>
+<tr>
+<td>monthnames</td>
+<td>string</td>
+<td>No</td>
+<td>A comma-delimited list of the month names that are
+displayed at the top of the calendar.&nbsp;</td>
+</tr>
+<tr>
+<td>multiple</td>
+<td>string</td>
+<td>No</td>
+<td>HTML attribute: If present the user is allowed more than one value&nbsp;</td>
+</tr>
+<tr>
+<td>name</td>
+<td>string</td>
+<td>Yes</td>
+<td>A name for the form input element.&nbsp;</td>
+</tr>
+<tr>
+<td>notab</td>
+<td>string</td>
+<td>No</td>
+<td>passed through to form tag created, only used for type html.&nbsp;</td>
+</tr>
+<tr>
+<td>onbinderror</td>
+<td>string</td>
+<td>No</td>
+<td>The name of a JavaScript function to execute if evaluating a bind expression, including an autosuggest bind expression, results in an error. The function must take two attributes: an HTTP status code and a message.&nbsp;</td>
+</tr>
+<tr>
+<td>onblur</td>
+<td>string</td>
+<td>No</td>
+<td>passed through to form tag created, only used for type html.&nbsp;</td>
+</tr>
+<tr>
+<td>onchange</td>
+<td>string</td>
+<td>No</td>
+<td>passed through to form tag created, only used for type html.&nbsp;</td>
+</tr>
+<tr>
+<td>onclick</td>
+<td>string</td>
+<td>No</td>
+<td>passed through to form tag created, only used for type html.&nbsp;</td>
+</tr>
+<tr>
+<td>ondblclick</td>
+<td>string</td>
+<td>No</td>
+<td>passed through to form tag created, only used for type html.&nbsp;</td>
+</tr>
+<tr>
+<td>onerror</td>
+<td>string</td>
+<td>No</td>
+<td>The name of a JavaScript function you want to execute in the event of a failed validation.&nbsp;</td>
+</tr>
+<tr>
+<td>onfocus</td>
+<td>string</td>
+<td>No</td>
+<td>passed through to form tag created, only used for type html.&nbsp;</td>
+</tr>
+<tr>
+<td>onkeydown</td>
+<td>string</td>
+<td>No</td>
+<td>passed through to form tag created, only used for type html.&nbsp;</td>
+</tr>
+<tr>
+<td>onkeypress</td>
+<td>string</td>
+<td>No</td>
+<td>passed through to form tag created, only used for type html.&nbsp;</td>
+</tr>
+<tr>
+<td>onkeyup</td>
+<td>string</td>
+<td>No</td>
+<td>passed through to form tag created, only used for type html.&nbsp;</td>
+</tr>
+<tr>
+<td>onmousedown</td>
+<td>string</td>
+<td>No</td>
+<td>passed through to form tag created, only used for type html.&nbsp;</td>
+</tr>
+<tr>
+<td>onmousemove</td>
+<td>string</td>
+<td>No</td>
+<td>passed through to form tag created, only used for type html.&nbsp;</td>
+</tr>
+<tr>
+<td>onmouseout</td>
+<td>string</td>
+<td>No</td>
+<td>passed through to form tag created, only used for type html.&nbsp;</td>
+</tr>
+<tr>
+<td>onmouseover</td>
+<td>string</td>
+<td>No</td>
+<td>passed through to form tag created, only used for type html.&nbsp;</td>
+</tr>
+<tr>
+<td>onmouseup</td>
+<td>string</td>
+<td>No</td>
+<td>passed through to form tag created, only used for type html.&nbsp;</td>
+</tr>
+<tr>
+<td>onselect</td>
+<td>string</td>
+<td>No</td>
+<td>passed through to form tag created, only used for type html.&nbsp;</td>
+</tr>
+<tr>
+<td>onvalidate</td>
+<td>string</td>
+<td>No</td>
+<td>The name of a JavaScript function used to validate user input. The form object, input object,
+and input object value are passed to the specified routine, which should return true if validation
+succeeds and false otherwise. If used, the validate attribute is ignored.&nbsp;</td>
+</tr>
+<tr>
+<td>passthrough</td>
+<td>any</td>
+<td>No</td>
+<td>HTML attributes that are not explicitly supported by cfinput.
+If you specify an attribute and value,
+they are passed to the HTML code generated for the cfinput tag.&nbsp;</td>
+</tr>
+<tr>
+<td>pattern</td>
+<td>string</td>
+<td>No</td>
+<td>The JavaScript regular expression pattern to use to validate the input. Required only if you
+specify validate = "regular_expression".&nbsp;</td>
+</tr>
+<tr>
+<td>placeholder</td>
+<td>string</td>
+<td>No</td>
+<td>HTML attribute: Specifies a hint to help users fill out the input field&nbsp;</td>
+</tr>
+<tr>
+<td>range</td>
+<td>string</td>
+<td>No</td>
+<td>Enter a minimum and maximum value range, separated by a comma. Valid only for numeric data.&nbsp;</td>
+</tr>
+<tr>
+<td>readonly</td>
+<td>string</td>
+<td>No</td>
+<td>passed through to form tag created, only used for type html.&nbsp;</td>
+</tr>
+<tr>
+<td>required</td>
+<td>boolean</td>
+<td>No</td>
+<td>Enter Yes or No. Default is No.&nbsp;</td>
+</tr>
+<tr>
+<td>showautosuggestloadingicon</td>
+<td>boolean</td>
+<td>No</td>
+<td>A Boolean value that specifies whether to display an animated icon when loading an autosuggest value for a text input.&nbsp;</td>
+</tr>
+<tr>
+<td>size</td>
+<td>string</td>
+<td>No</td>
+<td>The size of the input control. Ignored if type is Radio or Checkbox.&nbsp;</td>
+</tr>
+<tr>
+<td>sourcefortooltip</td>
+<td>string</td>
+<td>No</td>
+<td>The URL of a page to display as a tool tip. The page can include HTML markup to control the format, and the tip can include images.
+If you specify this attribute, an animated icon appears with the text "Loading..." while the tip is being loaded.&nbsp;</td>
+</tr>
+<tr>
+<td>src</td>
+<td>string</td>
+<td>No</td>
+<td>Applies to Flash button, reset, submit, and image types,
+and the HTML image type. URL of an image to use on
+the button. Flash does not support GIF images.&nbsp;</td>
+</tr>
+<tr>
+<td>step</td>
+<td>string</td>
+<td>No</td>
+<td>HTML attribute: Specifies the legal number intervals for the input field&nbsp;</td>
+</tr>
+<tr>
+<td>style</td>
+<td>string</td>
+<td>No</td>
+<td>passed through to form tag created, only used for type html.&nbsp;</td>
+</tr>
+<tr>
+<td>tabindex</td>
+<td>string</td>
+<td>No</td>
+<td>passed through to form tag created, only used for type html.&nbsp;</td>
+</tr>
+<tr>
+<td>title</td>
+<td>string</td>
+<td>No</td>
+<td>passed through to form tag created, only used for type html.&nbsp;</td>
+</tr>
+<tr>
+<td>tooltip</td>
+<td>string</td>
+<td>No</td>
+<td>Flash only: Text to display when the mouse pointer hovers
+over the control.&nbsp;</td>
+</tr>
+<tr>
+<td>type</td>
+<td>string</td>
+<td>No</td>
+<td>The input control type to create:
+- button: push button.
+- checkbox: check box.
+- file: file selector; not supported in Flash.
+- hidden: invisible control.
+- image: clickable button with an image.
+- password: password entry control; hides input values.
+- radio: radio button.
+- reset: form reset button.
+- submit: form submission button.
+- text: text entry box.
+- datefield: Flash only; date entry field with an
+expanding calendar for selecting dates.&nbsp;</td>
+</tr>
+<tr>
+<td>typeahead</td>
+<td>boolean</td>
+<td>No</td>
+<td>A Boolean value that specifies whether the autosuggest feature should automatically complete a user's entry with the first result in the suggestion list.
+Valid only for cfinput type="text".&nbsp;</td>
+</tr>
+<tr>
+<td>usemap</td>
+<td>string</td>
+<td>No</td>
+<td>passed through to form tag created, only used for type html.&nbsp;</td>
+</tr>
+<tr>
+<td>validate</td>
+<td>string</td>
+<td>No</td>
+<td>date: verifies format mm/dd/yy.
+eurodate: verifies date format dd/mm/yyyy.
+time: verifies time format hh:mm:ss.
+float: verifies floating point format.
+integer: verifies integer format.
+telephone: verifies telephone format ###-###-####. The
+separator can be a blank. Area code and exchange must
+begin with digit 1 - 9.
+zipcode: verifies, in U.S. formats only, 5- or 9-digit
+format #####-####. The separator can be a blank.
+creditcard: strips blanks and dashes; verifies number using
+mod10 algorithm. Number must have 13-16 digits.
+social_security_number: verifies format ###-##-####. The
+separator can be a blank.
+regular_expression: matches input against pattern
+attribute.&nbsp;</td>
+</tr>
+<tr>
+<td>validateat</td>
+<td>string</td>
+<td>No</td>
+<td>How to do the validation; one or more of the following:
+onSubmit, onServer or onBlur.
+onBlur and onSubmit are identical in Flash forms. For
+multiple values, use a comma-delimited list.
+Default: onSubmit&nbsp;</td>
+</tr>
+<tr>
+<td>value</td>
+<td>string</td>
+<td>No</td>
+<td>An initial value for the form input element.&nbsp;</td>
+</tr>
+<tr>
+<td>visible</td>
+<td>string</td>
+<td>No</td>
+<td>Flash only: Boolean value specifying whether to show the
+control. Space that would be occupied by an invisible
+control is blank.
+Default: true&nbsp;</td>
+</tr>
+<tr>
+<td>width</td>
+<td>string</td>
+<td>No</td>
+<td>Applies to most Flash types, HTML image type on
+some browsers. The width of the control, in pixels. For
+Flash forms, Railo ignores this attribute if you also
+specify a size attribute value.&nbsp;</td>
+</tr>
+</tbody>
+</table>
+</section>
+<div class="well">
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+/* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+var disqus_shortname = 'railodocs'; // required: replace example with your forum shortname
+var disqus_identifier = "tag_input"; //Tag identifier
+/* * * DON'T EDIT BELOW THIS LINE * * */
+(function() {
+var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</div>
+</div>
+</div> 
+</div> 
+<footer class="footer">
+<hr>
+<div class="container">
+<p>&copy; <a href="http://www.getrailo.com" target="_new">The Railo Company Limited</a> &amp; 
+<a href="http://www.twitter.com/markdrew/" target="_new">@markdrew</a> 2013 
+Version: <a href="current.html#" name="" class="btn btn-mini" id="beta" data-toggle="popover" data-placement="top" 
+data-content="Since this site is in beta, you might find errors and what have you. We are constantly working to improve the situation, so send us your feedback!" title="" data-original-title="About Beta Version">Beta</a>
+</p>
+</div>
+</footer>
+</body>
+</html>
