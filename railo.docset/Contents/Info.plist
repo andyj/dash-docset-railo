@@ -10,5 +10,7 @@
 	<string>Railo</string>
 	<key>isDashDocset</key>
 	<true/>
+	<key>dashIndexFilePath</key>
+	<string>index.cfm.html</string>
 </dict>
 </plist>

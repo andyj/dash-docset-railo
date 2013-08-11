@@ -32,12 +32,12 @@ if(ui.item.value.startsWith("cf")){
 window.location = "/tag/" + ui.item.value;
 }
 else {
-window.location = "/function/" + ui.item.value; 
+window.location = "/function/" + ui.item.value;
 }
 }
 });
 //Start the popover!
-//Check if we have shown them a popup! 
+//Check if we have shown them a popup!
 //$('#beta').popover('show');
 $('#beta').popover()
 });
@@ -50,46 +50,46 @@ $('#beta').popover()
 <a class="brand" href="index.cfm.html">Railo Docs</a>
 <ul class="nav">
 <li class="active"><a href="index.cfm.html">Home</a></li>
-<li class=""><a href="index.cfm/tags.html">Tags</a></li>
-<li class=""><a href="index.cfm/functions.html">Functions</a></li>
-<li class=""><a href="index.cfm/objects.html">Objects</a></li>
+<li class=""><a href="railo/tags.html">Tags</a></li>
+<li class=""><a href="railo/functions.html">Functions</a></li>
+<li class=""><a href="railo/objects.html">Objects</a></li>
 </ul>
-<form class="navbar-form pull-left" action="/index.cfm/search" method="GET">
+<form class="navbar-form pull-left" action="/railo/search" method="GET">
 <input type="hidden" name="action" value="current.search">
 <input type="text" id="tags" placeholder="Tag or Function" name="q">
 </form>
-</div> 
-</div> 
-</div> 
+</div>
+</div>
+</div>
 <div class="container">
 <div class="row-fluid">
 <div class="span3">
 <div class="well">
 <h5>4.1.1.000 (Endal)</h5>
 <ul class="nav nav-list">
-<li><a href="index.cfm/tags/version/current.html"><i class="icon-chevron-right"></i> Tags</a></li>
-<li><a href="index.cfm/functions/version/current.html"><i class="icon-chevron-right"></i> Functions</a></li>
-<li><a href="index.cfm/objects.html"><i class="icon-chevron-right"></i> Objects</a></li>
+<li><a href="railo/tags/version/current.html"><i class="icon-chevron-right"></i> Tags</a></li>
+<li><a href="railo/functions/version/current.html"><i class="icon-chevron-right"></i> Functions</a></li>
+<li><a href="railo/objects.html"><i class="icon-chevron-right"></i> Objects</a></li>
 </ul>
 <h5>Categories:</h5>
 <ul class="nav nav-list">
-<li><a href="index.cfm/category/popular.html"><i class="icon-chevron-right"></i> Popular Searches</a></li>
-<li><a href="index.cfm/category/tags.html"><i class="icon-chevron-right"></i> Tags</a></li>
-<li><a href="index.cfm/category/functions.html"><i class="icon-chevron-right"></i> Functions</a></li>
+<li><a href="railo/category/popular.html"><i class="icon-chevron-right"></i> Popular Searches</a></li>
+<li><a href="railo/category/tags.html"><i class="icon-chevron-right"></i> Tags</a></li>
+<li><a href="railo/category/functions.html"><i class="icon-chevron-right"></i> Functions</a></li>
 </ul>
 <h5>Previous Major Versions:</h5>
 <ul class="nav nav-list">
 <li>
-<a href="index.cfm/previous/versionlist/majorversion/3.html"><i class="icon-chevron-right"></i> 3.x</a>
+<a href="railo/previous/versionlist/majorversion/3.html"><i class="icon-chevron-right"></i> 3.x</a>
 </li>
 <li>
-<a href="index.cfm/previous/versionlist/majorversion/2.html"><i class="icon-chevron-right"></i> 2.x</a>
+<a href="railo/previous/versionlist/majorversion/2.html"><i class="icon-chevron-right"></i> 2.x</a>
 </li>
 <li>
-<a href="index.cfm/previous/versionlist/majorversion/1.html"><i class="icon-chevron-right"></i> 1.x</a>
+<a href="railo/previous/versionlist/majorversion/1.html"><i class="icon-chevron-right"></i> 1.x</a>
 </li>
 </ul>
-</div> 
+</div>
 </div>
 <div class="span9"><!-- Main hero unit for a primary marketing message or call to action -->
 <div class="hero-unit">
@@ -97,14 +97,14 @@ $('#beta').popover()
 <p>This is a work-in-progress documentation viewer for Railo Server.</p>
 </div>
 </div>
-</div> 
-</div> 
+</div>
+</div>
 <footer class="footer">
 <hr>
 <div class="container">
-<p>&copy; <a href="http://www.getrailo.com" target="_new">The Railo Company Limited</a> &amp; 
-<a href="http://www.twitter.com/markdrew/" target="_new">@markdrew</a> 2013 
-Version: <a href="index.cfm.html#" name="" class="btn btn-mini" id="beta" data-toggle="popover" data-placement="top" 
+<p>&copy; <a href="http://www.getrailo.com" target="_new">The Railo Company Limited</a> &amp;
+<a href="http://www.twitter.com/markdrew/" target="_new">@markdrew</a> 2013
+Version: <a href="index.cfm.html#" name="" class="btn btn-mini" id="beta" data-toggle="popover" data-placement="top"
 data-content="Since this site is in beta, you might find errors and what have you. We are constantly working to improve the situation, so send us your feedback!" title="" data-original-title="About Beta Version">Beta</a>
 </p>
 </div>
