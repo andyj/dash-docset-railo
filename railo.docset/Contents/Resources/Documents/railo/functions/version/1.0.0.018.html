@@ -1,0 +1,1279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="description" content="Documentation Viewer for Railo Server">
+<meta name="author" content="Mark Drew,@markdrew">
+<title>Railo Documentation Viewer, by The Railo Company</title>
+<!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+<!--[if lt IE 9]>
+<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
+<link href="../../../assets/css/bootstrap.css" rel="stylesheet">
+<link href="../../../assets/css/docs.css" rel="stylesheet">
+<link href="../../../assets/css/jquery-ui.css" rel="stylesheet" />
+<script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+<script src="../../../assets/js/bootstrap.min.js"></script>
+<script src="https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js"></script>
+<script src="http://code.jquery.com/ui/1.10.2/jquery-ui.js"></script>
+<script>
+//Add functionality to the String object
+if (typeof String.prototype.startsWith != 'function') {
+String.prototype.startsWith = function (str){
+return this.indexOf(str) == 0;
+};
+}
+$(function() {
+var availableTags = ["abs","acos","addsoaprequestheader","addsoapresponseheader","ajaxlink","ajaxonload","applicationstarttime","applicationstop","array","arrayappend","arrayavg","arrayclear","arraycontains","arraycontainsnocase","arraydelete","arraydeleteat","arrayeach","arrayfilter","arrayfind","arrayfindall","arrayfindallnocase","arrayfindnocase","arrayfirst","arrayindexexists","arrayinsertat","arrayisdefined","arrayisempty","arraylast","arraylen","arraymax","arraymerge","arraymid","arraymin","arraynew","arrayprepend","arrayresize","arrayreverse","arrayset","arrayslice","arraysort","arraysum","arrayswap","arraytolist","arraytostruct","asc","asin","atn","beat","binarydecode","binaryencode","bitand","bitmaskclear","bitmaskread","bitmaskset","bitnot","bitor","bitshln","bitshrn","bitxor","cacheclear","cachecount","cachedelete","cacheget","cachegetall","cachegetallids","cachegetdefaultcachename","cachegetmetadata","cachegetproperties","cacheidexists","cachekeyexists","cacheput","cacheremove","cacheremoveall","cachesetproperties","callstackdump","callstackget","canonicalize","ceiling","cfabort","cfadmin","cfajaximport","cfajaxproxy","cfapplet","cfapplication","cfargument","cfassociate","cfauthenticate","cfbreak","cfcache","cfcase","cfcatch","cfchart","cfchartdata","cfchartseries","cfcol","cfcollection","cfcomponent","cfcontent","cfcontinue","cfcookie","cfdbinfo","cfdefaultcase","cfdirectory","cfdiv","cfdocument","cfdocumentitem","cfdocumentsection","cfdump","cfelse","cfelseif","cferror","cfexecute","cfexit","cffeed","cffile","cffinally","cfflush","cfform","cfforward","cfftp","cffunction","cfgraph","cfgraphdata","cfheader","cfhtmlhead","cfhttp","cfhttpparam","cfif","cfimage","cfimap","cfimport","cfinclude","cfindex","cfinput","cfinsert","cfinterface","cfinvoke","cfinvokeargument","cflayout","cflayoutarea","cfldap","cflocation","cflock","cflog","cflogin","cfloginuser","cflogout","cfloop","cfmail","cfmailparam","cfmailpart","cfmap","cfmapitem","cfmediaplayer","cfmodule","cfobject","cfobjectcache","cfoutput","cfpageencoding","cfparam","cfpdf","cfpdfparam","cfpop","cfprocessingdirective","cfprocparam","cfprocresult","cfproperty","cfquery","cfqueryparam","cfregistry","cfrethrow","cfretry","cfreturn","cfsavecontent","cfschedule","cfscript","cfscriptjava","cfsearch","cfselect","cfservlet","cfservletparam","cfset","cfsetting","cfsilent","cfsleep","cfslider","cfstopwatch","cfstoredproc","cfswitch","cftable","cftextinput","cfthread","cfthrow","cftimer","cftrace","cftransaction","cftry","cfupdate","cfusion_decrypt","cfusion_encrypt","cfvideo","cfvideoplayer","cfvideoplayerparam","cfwddx","cfwhile","cfwindow","cfxml","cfzip","cfzipparam","charsetdecode","charsetencode","chr","cjustify","compare","comparenocase","componentcacheclear","componentcachelist","componentinfo","compress","contractpath","cos","createdate","createdatetime","createdynamicproxy","createguid","createobject","createodbcdate","createodbcdatetime","createodbctime","createtime","createtimespan","createuniqueid","createuuid","csrfgeneratetoken","csrfverifytoken","ctcacheclear","ctcachelist","datasourceflushmetacache","dateadd","datecompare","dateconvert","datediff","dateformat","datepart","datetimeformat","day","dayofweek","dayofweekasstring","dayofweekshortasstring","dayofyear","daysinmonth","daysinyear","de","decimalformat","decodefromurl","decrementvalue","decrypt","decryptbinary","deleteclientvariable","deserializejson","directorycopy","directorycreate","directorydelete","directoryexists","directorylist","directoryrename","dollarformat","dump","dumpstruct","duplicate","each","echo","empty","encodeforcss","encodefordn","encodeforhtml","encodeforhtmlattribute","encodeforjavascript","encodeforldap","encodeforurl","encodeforxml","encodeforxmlattribute","encodeforxpath","encrypt","encryptbinary","entitydelete","entityload","entityloadbyexample","entityloadbypk","entitymerge","entitynamearray","entitynamelist","entitynew","entityreload","entitysave","entitytoquery","esapidecode","esapiencode","evaluate","evaluatecomponent","evaluatejava","exp","expandpath","extract","fileappend","fileclose","filecopy","filedelete","fileexists","filegetmimetype","fileiseof","filemove","fileopen","fileread","filereadbinary","filereadline","fileseek","filesetaccessmode","filesetattribute","filesetlastmodified","fileskipbytes","fileupload","fileuploadall","filewrite","filewriteline","find","findnocase","findoneof","firstdayofmonth","fix","formatbasen","generatesecretkey","getapplicationmetadata","getapplicationsettings","getauthuser","getbasetagdata","getbasetaglist","getbasetemplatepath","getclasspath","getclientvariableslist","getcomponentmetadata","getcontextroot","getcpuusage","getcurrentcontext","getcurrenttemplatepath","getdirectoryfrompath","getencoding","getfilefrompath","getfileinfo","getfreespace","getfunctioncalledname","getfunctiondata","getfunctionlist","gethttprequestdata","gethttptimestring","getk2serverdoccount","getk2serverdoccountlimit","getlocale","getlocaledisplayname","getlocalhostip","getmemoryusage","getmetadata","getmetricdata","getnumericdate","getpagecontext","getprofilesections","getprofilestring","getrailoid","getreadableimageformats","getsoaprequest","getsoaprequestheader","getsoapresponse","getsoapresponseheader","getsystemfreememory","getsystemtotalmemory","gettagdata","gettaglist","gettempdirectory","gettempfile","gettemplatepath","gettickcount","gettimezone","gettimezoneinfo","gettoken","gettotalspace","getuserroles","getvariable","getvfsmetadata","getwriteableimageformats","hash","hmac","hour","htmlcodeformat","htmleditformat","htmlparse","iif","imageaddborder","imageblur","imageclearrect","imagecopy","imagecrop","imagedrawarc","imagedrawbeveledrect","imagedrawcubiccurve","imagedrawimage","imagedrawline","imagedrawlines","imagedrawoval","imagedrawpoint","imagedrawquadraticcurve","imagedrawrect","imagedrawroundrect","imagedrawtext","imagefilter","imagefiltercolormap","imagefiltercurves","imagefilterkernel","imagefilterwarpgrid","imageflip","imagefonts","imageformats","imagegetblob","imagegetbufferedimage","imagegetexifmetadata","imagegetexiftag","imagegetheight","imagegetiptctag","imagegetwidth","imagegrayscale","imageinfo","imagenegative","imagenew","imageoverlay","imagepaste","imageread","imagereadbase64","imageresize","imagerotate","imagerotatedrawingaxis","imagescaletofit","imagesetantialiasing","imagesetbackgroundcolor","imagesetdrawingalpha","imagesetdrawingcolor","imagesetdrawingstroke","imagesetdrawingtransparency","imagesharpen","imageshear","imagesheardrawingaxis","imagetranslate","imagetranslatedrawingaxis","imagewrite","imagewritebase64","imagexordrawingmode","incrementvalue","inputbasen","insert","int","intergralcontext","invoke","isarray","isbinary","isboolean","isclosure","iscustomfunction","isdate","isdebugmode","isdefined","isempty","isimage","isimagefile","isinstanceof","isipinrange","isipv6","isjson","isk2serverabroker","isk2serverdoccountexceeded","isk2serveronline","isleapyear","islocalhost","isnotmap","isnull","isnumeric","isnumericdate","isobject","ispdfobject","isquery","issimplevalue","issoaprequest","isstruct","isuserinanyrole","isuserinrole","isuserloggedin","isvalid","isvideofile","iswddx","isxml","isxmlattribute","isxmldoc","isxmlelem","isxmlnode","isxmlroot","iszipfile","javacast","jsstringformat","lcase","left","len","listappend","listavg","listchangedelims","listcompact","listcontains","listcontainsnocase","listdeleteat","listfilter","listfind","listfindnocase","listfirst","listgetat","listindexexists","listinsertat","listitemtrim","listlast","listlen","listprepend","listqualify","listremoveduplicates","listrest","listsetat","listsort","listtoarray","listtrim","listvaluecount","listvaluecountnocase","ljustify","location","log","log10","lscurrencyformat","lsdateformat","lsdatetimeformat","lsdayofweek","lseurocurrencyformat","lsiscurrency","lsisdate","lsisnumeric","lsnumberformat","lsparsecurrency","lsparsedatetime","lsparseeurocurrency","lsparsenumber","lstimeformat","lsweek","ltrim","max","metaphone","mid","millisecond","min","minute","month","monthasstring","monthshortasstring","newline","now","nowserver","nullvalue","numberformat","objectequals","objectload","objectsave","ormclearsession","ormclosesession","ormevictcollection","ormevictentity","ormevictqueries","ormexecutequery","ormflush","ormgetsession","ormgetsessionfactory","ormreload","pagepoolclear","pagepoollist","paragraphformat","parameterexists","parsedatetime","parsenumber","pi","precisionevaluate","preservesinglequotes","quarter","query","queryaddcolumn","queryaddrow","querycolumnarray","querycolumncount","querycolumndata","querycolumnexists","querycolumnlist","querydeletecolumn","querydeleterow","querygetcell","querynew","queryrecordcount","querysetcell","queryslice","querysort","quotedvaluelist","rand","randomize","randrange","refind","refindnocase","releasecomobject","rematch","rematchnocase","removechars","repeatstring","replace","replacelist","replacenocase","rereplace","rereplacenocase","restdeleteapplication","restinitapplication","restsetresponse","reverse","right","rjustify","round","rtrim","second","sendgatewaymessage","serialize","serializejson","sessioninvalidate","sessionrotate","sessionstarttime","setencoding","setlocale","setprofilestring","settimezone","setvariable","sgn","sin","sizeof","sleep","soundex","spanexcluding","spanincluding","spreadsheetnew","spreadsheetsetcellvalue","spreadsheetwrite","sqr","sslcertificateinstall","sslcertificatelist","storeaddacl","storegetacl","storesetacl","stringlen","stripcr","struct","structappend","structclear","structcopy","structcount","structdelete","structeach","structfilter","structfind","structfindkey","structfindvalue","structget","structinsert","structisempty","structkeyarray","structkeyexists","structkeylist","structkeytranslate","structnew","structsort","structupdate","systemcacheclear","systemoutput","tan","threadjoin","threadterminate","throw","timeformat","tobase64","tobinary","tonumeric","toscript","tostring","trace","transactioncommit","transactionrollback","transactionsetsavepoint","trim","truefalseformat","ucase","ucfirst","unserializejava","urldecode","urlencode","urlencodedformat","urlsessionformat","val","valuearray","valuelist","verifyclient","week","wrap","writedump","writelog","writeoutput","xmlchildpos","xmlelemnew","xmlformat","xmlgetnodetype","xmlnew","xmlparse","xmlsearch","xmltransform","xmlvalidate","year","yesnoformat"];
+$( "#tags" ).autocomplete({
+source: availableTags,
+select: function( event, ui ) {
+if(ui.item.value.startsWith("cf")){
+window.location = "/tag/" + ui.item.value;
+}
+else {
+window.location = "/function/" + ui.item.value; 
+}
+}
+});
+//Start the popover!
+//Check if we have shown them a popup! 
+//$('#beta').popover('show');
+$('#beta').popover()
+});
+</script>
+</head>
+<body>
+<div class="navbar navbar-fixed-top navbar-inverse">
+<div class="navbar-inner">
+<div class="container">
+<a class="brand" href="../../../index.cfm.html">Railo Docs</a>
+<ul class="nav">
+<li class=""><a href="../../../index.cfm.html">Home</a></li>
+<li class=""><a href="../../tags.html">Tags</a></li>
+<li class="active"><a href="../../functions.html">Functions</a></li>
+<li class=""><a href="../../objects.html">Objects</a></li>
+</ul>
+<form class="navbar-form pull-left" action="/index.cfm/search" method="GET">
+<input type="hidden" name="action" value="current.search">
+<input type="text" id="tags" placeholder="Tag or Function" name="q">
+</form>
+</div> 
+</div> 
+</div> 
+<div class="container">
+<div class="row-fluid">
+<div class="span3">
+<div class="well">
+<h5>4.1.1.000 (Endal)</h5>
+<ul class="nav nav-list">
+<li><a href="../../tags/version/1.0.0.018.html"><i class="icon-chevron-right"></i> Tags</a></li>
+<li><a href="1.0.0.018.html"><i class="icon-chevron-right"></i> Functions</a></li>
+<li><a href="../../objects.html"><i class="icon-chevron-right"></i> Objects</a></li>
+</ul>
+<h5>Categories:</h5>
+<ul class="nav nav-list">
+<li><a href="../../category/popular.html"><i class="icon-chevron-right"></i> Popular Searches</a></li>
+<li><a href="../../category/tags.html"><i class="icon-chevron-right"></i> Tags</a></li>
+<li><a href="../../category/functions.html"><i class="icon-chevron-right"></i> Functions</a></li>
+</ul>
+<h5>Previous Major Versions:</h5>
+<ul class="nav nav-list">
+<li>
+<a href="../../previous/versionlist/majorversion/3.html"><i class="icon-chevron-right"></i> 3.x</a>
+</li>
+<li>
+<a href="../../previous/versionlist/majorversion/2.html"><i class="icon-chevron-right"></i> 2.x</a>
+</li>
+<li>
+<a href="../../previous/versionlist/majorversion/1.html"><i class="icon-chevron-right"></i> 1.x</a>
+</li>
+</ul>
+</div> 
+</div>
+<div class="span9"> 
+<section id="functions">
+<div class="page-header">
+<h1>Functions </h1>
+</div>
+<div class="row-fluid">
+<div class="span12">
+<h3>Current Functions for Railo Server</h3>
+<form class="form-inline">
+<div class="input-append">
+<label class="control-label" for="version">Version: </label>
+<select name="version">
+<option value="current">Current</option>
+<option value="3.2.0.005" >3.2.0.005</option> 
+<option value="3.2.0.004" >3.2.0.004</option> 
+<option value="3.2.0.003" >3.2.0.003</option> 
+<option value="3.2.0.002" >3.2.0.002</option> 
+<option value="3.2.0.001" >3.2.0.001</option> 
+<option value="3.2.0.000" >3.2.0.000</option> 
+<option value="3.1.2.021" >3.1.2.021</option> 
+<option value="3.1.2.020" >3.1.2.020</option> 
+<option value="3.1.2.019" >3.1.2.019</option> 
+<option value="3.1.2.018" >3.1.2.018</option> 
+<option value="3.1.2.017" >3.1.2.017</option> 
+<option value="3.1.2.016" >3.1.2.016</option> 
+<option value="3.1.2.014" >3.1.2.014</option> 
+<option value="3.1.2.013" >3.1.2.013</option> 
+<option value="3.1.2.012" >3.1.2.012</option> 
+<option value="3.1.2.010" >3.1.2.010</option> 
+<option value="3.1.2.009" >3.1.2.009</option> 
+<option value="3.1.2.008" >3.1.2.008</option> 
+<option value="3.1.2.007" >3.1.2.007</option> 
+<option value="3.1.2.006" >3.1.2.006</option> 
+<option value="3.1.2.005" >3.1.2.005</option> 
+<option value="3.1.2.004" >3.1.2.004</option> 
+<option value="3.1.2.003" >3.1.2.003</option> 
+<option value="3.1.2.002" >3.1.2.002</option> 
+<option value="3.1.2.001" >3.1.2.001</option> 
+<option value="3.1.0.000" >3.1.0.000</option> 
+<option value="3.0.3.004" >3.0.3.004</option> 
+<option value="3.0.3.003" >3.0.3.003</option> 
+<option value="3.0.3.002" >3.0.3.002</option> 
+<option value="3.0.3.001" >3.0.3.001</option> 
+<option value="3.0.3.000" >3.0.3.000</option> 
+<option value="3.0.2.012" >3.0.2.012</option> 
+<option value="3.0.2.011" >3.0.2.011</option> 
+<option value="3.0.2.010" >3.0.2.010</option> 
+<option value="3.0.2.009" >3.0.2.009</option> 
+<option value="3.0.2.008" >3.0.2.008</option> 
+<option value="3.0.2.007" >3.0.2.007</option> 
+<option value="3.0.2.006" >3.0.2.006</option> 
+<option value="3.0.2.005" >3.0.2.005</option> 
+<option value="3.0.2.004" >3.0.2.004</option> 
+<option value="3.0.2.003" >3.0.2.003</option> 
+<option value="3.0.2.002" >3.0.2.002</option> 
+<option value="3.0.2.001" >3.0.2.001</option> 
+<option value="3.0.2.000" >3.0.2.000</option> 
+<option value="3.0.1.006" >3.0.1.006</option> 
+<option value="3.0.1.005" >3.0.1.005</option> 
+<option value="3.0.1.004" >3.0.1.004</option> 
+<option value="3.0.1.003" >3.0.1.003</option> 
+<option value="3.0.1.002" >3.0.1.002</option> 
+<option value="3.0.1.001" >3.0.1.001</option> 
+<option value="3.0.1.000" >3.0.1.000</option> 
+<option value="3.0.0.003" >3.0.0.003</option> 
+<option value="2.0.2.002" >2.0.2.002</option> 
+<option value="2.0.2.001" >2.0.2.001</option> 
+<option value="2.0.2.000" >2.0.2.000</option> 
+<option value="2.0.1.012" >2.0.1.012</option> 
+<option value="2.0.1.011" >2.0.1.011</option> 
+<option value="2.0.1.010" >2.0.1.010</option> 
+<option value="2.0.1.009" >2.0.1.009</option> 
+<option value="2.0.1.008" >2.0.1.008</option> 
+<option value="2.0.1.007" >2.0.1.007</option> 
+<option value="2.0.1.006" >2.0.1.006</option> 
+<option value="2.0.1.005" >2.0.1.005</option> 
+<option value="2.0.1.004" >2.0.1.004</option> 
+<option value="2.0.1.003" >2.0.1.003</option> 
+<option value="2.0.1.002" >2.0.1.002</option> 
+<option value="2.0.1.001" >2.0.1.001</option> 
+<option value="2.0.1.000" >2.0.1.000</option> 
+<option value="2.0.0.045" >2.0.0.045</option> 
+<option value="2.0.0.044" >2.0.0.044</option> 
+<option value="2.0.0.043" >2.0.0.043</option> 
+<option value="2.0.0.042" >2.0.0.042</option> 
+<option value="2.0.0.041" >2.0.0.041</option> 
+<option value="2.0.0.040" >2.0.0.040</option> 
+<option value="2.0.0.039" >2.0.0.039</option> 
+<option value="2.0.0.038" >2.0.0.038</option> 
+<option value="2.0.0.037" >2.0.0.037</option> 
+<option value="2.0.0.036" >2.0.0.036</option> 
+<option value="2.0.0.035" >2.0.0.035</option> 
+<option value="2.0.0.034" >2.0.0.034</option> 
+<option value="2.0.0.033" >2.0.0.033</option> 
+<option value="2.0.0.032" >2.0.0.032</option> 
+<option value="2.0.0.031" >2.0.0.031</option> 
+<option value="2.0.0.030" >2.0.0.030</option> 
+<option value="2.0.0.029" >2.0.0.029</option> 
+<option value="2.0.0.028" >2.0.0.028</option> 
+<option value="2.0.0.027" >2.0.0.027</option> 
+<option value="2.0.0.026" >2.0.0.026</option> 
+<option value="2.0.0.025" >2.0.0.025</option> 
+<option value="2.0.0.024" >2.0.0.024</option> 
+<option value="2.0.0.023" >2.0.0.023</option> 
+<option value="2.0.0.022" >2.0.0.022</option> 
+<option value="2.0.0.021" >2.0.0.021</option> 
+<option value="2.0.0.020" >2.0.0.020</option> 
+<option value="2.0.0.019" >2.0.0.019</option> 
+<option value="2.0.0.018" >2.0.0.018</option> 
+<option value="2.0.0.017" >2.0.0.017</option> 
+<option value="2.0.0.016" >2.0.0.016</option> 
+<option value="2.0.0.015" >2.0.0.015</option> 
+<option value="2.0.0.014" >2.0.0.014</option> 
+<option value="2.0.0.013" >2.0.0.013</option> 
+<option value="2.0.0.012" >2.0.0.012</option> 
+<option value="2.0.0.011" >2.0.0.011</option> 
+<option value="2.0.0.010" >2.0.0.010</option> 
+<option value="2.0.0.009" >2.0.0.009</option> 
+<option value="2.0.0.008" >2.0.0.008</option> 
+<option value="1.0.0.018" >1.0.0.018</option> 
+</select>
+<button type="submit" class="btn">View</button>
+</div>
+</form>
+</div>
+</div>
+<div class="row-fluid">
+<div class="span12">
+<a href="1.0.0.018.html#_">_</a>
+- 
+<a href="1.0.0.018.html#A">A</a>
+- 
+<a href="1.0.0.018.html#B">B</a>
+- 
+<a href="1.0.0.018.html#C">C</a>
+- 
+<a href="1.0.0.018.html#D">D</a>
+- 
+<a href="1.0.0.018.html#E">E</a>
+- 
+<a href="1.0.0.018.html#F">F</a>
+- 
+<a href="1.0.0.018.html#G">G</a>
+- 
+<a href="1.0.0.018.html#H">H</a>
+- 
+<a href="1.0.0.018.html#I">I</a>
+- 
+<a href="1.0.0.018.html#J">J</a>
+- 
+<a href="1.0.0.018.html#K">K</a>
+- 
+<a href="1.0.0.018.html#L">L</a>
+- 
+<a href="1.0.0.018.html#M">M</a>
+- 
+<a href="1.0.0.018.html#N">N</a>
+- 
+<a href="1.0.0.018.html#O">O</a>
+- 
+<a href="1.0.0.018.html#P">P</a>
+- 
+<a href="1.0.0.018.html#Q">Q</a>
+- 
+<a href="1.0.0.018.html#R">R</a>
+- 
+<a href="1.0.0.018.html#S">S</a>
+- 
+<a href="1.0.0.018.html#T">T</a>
+- 
+<a href="1.0.0.018.html#U">U</a>
+- 
+<a href="1.0.0.018.html#V">V</a>
+- 
+<a href="1.0.0.018.html#W">W</a>
+- 
+<a href="1.0.0.018.html#X">X</a>
+- 
+<a href="1.0.0.018.html#Y">Y</a>
+- 
+<a href="1.0.0.018.html#Z">Z</a>
+</div>
+</div>
+<div class="row-fluid">
+<div class="span6">
+<h4><a name="_">_</a></h4>
+<ul>
+</ul>
+<h4><a name="A">A</a></h4>
+<ul>
+<li>
+<a href="../../function/abs/version/1.0.0.018.html">Abs</a> 
+</li>
+<li>
+<a href="../../function/acos/version/1.0.0.018.html">Acos</a> 
+</li>
+<li>
+<a href="../../function/array/version/1.0.0.018.html">Array</a> 
+</li>
+<li>
+<a href="../../function/arrayappend/version/1.0.0.018.html">ArrayAppend</a> 
+</li>
+<li>
+<a href="../../function/arrayclear/version/1.0.0.018.html">ArrayClear</a> 
+</li>
+<li>
+<a href="../../function/arraydeleteat/version/1.0.0.018.html">ArrayDeleteat</a> 
+</li>
+<li>
+<a href="../../function/arrayfind/version/1.0.0.018.html">ArrayFind</a> 
+</li>
+<li>
+<a href="../../function/arrayfirst/version/1.0.0.018.html">ArrayFirst</a> 
+</li>
+<li>
+<a href="../../function/arrayindexexists/version/1.0.0.018.html">ArrayIndexExists</a> 
+</li>
+<li>
+<a href="../../function/arrayinsertat/version/1.0.0.018.html">ArrayInsertAt</a> 
+</li>
+<li>
+<a href="../../function/arrayisempty/version/1.0.0.018.html">ArrayIsEmpty</a> 
+</li>
+<li>
+<a href="../../function/arraylast/version/1.0.0.018.html">ArrayLast</a> 
+</li>
+<li>
+<a href="../../function/arraylen/version/1.0.0.018.html">ArrayLen</a> 
+</li>
+<li>
+<a href="../../function/arraymax/version/1.0.0.018.html">Arraymax</a> 
+</li>
+<li>
+<a href="../../function/arraymin/version/1.0.0.018.html">Arraymin</a> 
+</li>
+<li>
+<a href="../../function/arraynew/version/1.0.0.018.html">ArrayNew</a> 
+</li>
+<li>
+<a href="../../function/arrayprepend/version/1.0.0.018.html">ArrayPrepend</a> 
+</li>
+<li>
+<a href="../../function/arrayresize/version/1.0.0.018.html">ArrayreSize</a> 
+</li>
+<li>
+<a href="../../function/arrayreverse/version/1.0.0.018.html">ArrayReverse</a> 
+</li>
+<li>
+<a href="../../function/arrayset/version/1.0.0.018.html">Arrayset</a> 
+</li>
+<li>
+<a href="../../function/arrayslice/version/1.0.0.018.html">ArraySlice</a> 
+</li>
+<li>
+<a href="../../function/arraysum/version/1.0.0.018.html">Arraysum</a> 
+</li>
+<li>
+<a href="../../function/arrayswap/version/1.0.0.018.html">ArraySwap</a> 
+</li>
+<li>
+<a href="../../function/arraytolist/version/1.0.0.018.html">ArraytoList</a> 
+</li>
+<li>
+<a href="../../function/arraytostruct/version/1.0.0.018.html">ArraytoStruct</a> 
+</li>
+<li>
+<a href="../../function/asc/version/1.0.0.018.html">Asc</a> 
+</li>
+<li>
+<a href="../../function/atn/version/1.0.0.018.html">Atn</a> 
+</li>
+</ul>
+<h4><a name="B">B</a></h4>
+<ul>
+<li>
+<a href="../../function/binarydecode/version/1.0.0.018.html">BinaryDecode</a> 
+</li>
+<li>
+<a href="../../function/binaryencode/version/1.0.0.018.html">BinaryEncode</a> 
+</li>
+<li>
+<a href="../../function/bitand/version/1.0.0.018.html">BitAnd</a> 
+</li>
+<li>
+<a href="../../function/bitmaskclear/version/1.0.0.018.html">BitMaskClear</a> 
+</li>
+<li>
+<a href="../../function/bitmaskread/version/1.0.0.018.html">BitMaskRead</a> 
+</li>
+<li>
+<a href="../../function/bitmaskset/version/1.0.0.018.html">BitMaskset</a> 
+</li>
+<li>
+<a href="../../function/bitnot/version/1.0.0.018.html">BitNot</a> 
+</li>
+<li>
+<a href="../../function/bitshln/version/1.0.0.018.html">BitShLn</a> 
+</li>
+<li>
+<a href="../../function/bitxor/version/1.0.0.018.html">BitXOr</a> 
+</li>
+</ul>
+<h4><a name="C">C</a></h4>
+<ul>
+<li>
+<a href="../../function/charsetencode/version/1.0.0.018.html">CharsetEncode</a> 
+</li>
+<li>
+<a href="../../function/chr/version/1.0.0.018.html">Chr</a> 
+</li>
+<li>
+<a href="../../function/cjustify/version/1.0.0.018.html">CJustify</a> 
+</li>
+<li>
+<a href="../../function/compare/version/1.0.0.018.html">Compare</a> 
+</li>
+<li>
+<a href="../../function/comparenocase/version/1.0.0.018.html">CompareNoCase</a> 
+</li>
+<li>
+<a href="../../function/componentinfo/version/1.0.0.018.html">ComponentInfo</a> 
+</li>
+<li>
+<a href="../../function/cos/version/1.0.0.018.html">Cos</a> 
+</li>
+<li>
+<a href="../../function/createdate/version/1.0.0.018.html">CreateDate</a> 
+</li>
+<li>
+<a href="../../function/createdatetime/version/1.0.0.018.html">CreateDateTime</a> 
+</li>
+<li>
+<a href="../../function/createguid/version/1.0.0.018.html">CreateGUID</a> 
+</li>
+<li>
+<a href="../../function/createobject/version/1.0.0.018.html">CreateObject</a> 
+</li>
+<li>
+<a href="../../function/createodbcdate/version/1.0.0.018.html">CreateODBCDate</a> 
+</li>
+<li>
+<a href="../../function/createodbcdatetime/version/1.0.0.018.html">CreateODBCDateTime</a> 
+</li>
+<li>
+<a href="../../function/createodbctime/version/1.0.0.018.html">CreateODBCTime</a> 
+</li>
+<li>
+<a href="../../function/createtime/version/1.0.0.018.html">CreateTime</a> 
+</li>
+<li>
+<a href="../../function/createtimespan/version/1.0.0.018.html">CreateTimeSpan</a> 
+</li>
+</ul>
+<h4><a name="D">D</a></h4>
+<ul>
+<li>
+<a href="../../function/dateadd/version/1.0.0.018.html">DateAdd</a> 
+</li>
+<li>
+<a href="../../function/datecompare/version/1.0.0.018.html">DateCompare</a> 
+</li>
+<li>
+<a href="../../function/dateconvert/version/1.0.0.018.html">DateConvert</a> 
+</li>
+<li>
+<a href="../../function/datediff/version/1.0.0.018.html">Datediff</a> 
+</li>
+<li>
+<a href="../../function/dateformat/version/1.0.0.018.html">DateFormat</a> 
+</li>
+<li>
+<a href="../../function/datepart/version/1.0.0.018.html">DatePart</a> 
+</li>
+<li>
+<a href="../../function/day/version/1.0.0.018.html">Day</a> 
+</li>
+<li>
+<a href="../../function/dayofweek/version/1.0.0.018.html">DayOfWeek</a> 
+</li>
+<li>
+<a href="../../function/dayofweekasstring/version/1.0.0.018.html">DayOfWeekasString</a> 
+</li>
+<li>
+<a href="../../function/dayofyear/version/1.0.0.018.html">DayOfYear</a> 
+</li>
+<li>
+<a href="../../function/daysinmonth/version/1.0.0.018.html">DaysInMonth</a> 
+</li>
+<li>
+<a href="../../function/daysinyear/version/1.0.0.018.html">DaysInYear</a> 
+</li>
+<li>
+<a href="../../function/de/version/1.0.0.018.html">DE</a> 
+</li>
+<li>
+<a href="../../function/dec/version/1.0.0.018.html">dec</a> 
+</li>
+<li>
+<a href="../../function/decimalformat/version/1.0.0.018.html">DecimalFormat</a> 
+</li>
+<li>
+<a href="../../function/decrypt/version/1.0.0.018.html">Decrypt</a> 
+</li>
+<li>
+<a href="../../function/directoryexists/version/1.0.0.018.html">DirectoryExists</a> 
+</li>
+<li>
+<a href="../../function/dollarformat/version/1.0.0.018.html">DollarFormat</a> 
+</li>
+<li>
+<a href="../../function/dump/version/1.0.0.018.html">Dump</a> 
+</li>
+<li>
+<a href="../../function/duplicate/version/1.0.0.018.html">Duplicate</a> 
+</li>
+</ul>
+<h4><a name="E">E</a></h4>
+<ul>
+<li>
+<a href="../../function/echo/version/1.0.0.018.html">Echo</a> 
+</li>
+<li>
+<a href="../../function/encrypt/version/1.0.0.018.html">Encrypt</a> 
+</li>
+<li>
+<a href="../../function/evaluate/version/1.0.0.018.html">Evaluate</a> 
+</li>
+<li>
+<a href="../../function/exp/version/1.0.0.018.html">Exp</a> 
+</li>
+<li>
+<a href="../../function/expandpath/version/1.0.0.018.html">ExpandPath</a> 
+</li>
+</ul>
+<h4><a name="F">F</a></h4>
+<ul>
+<li>
+<a href="../../function/fileexists/version/1.0.0.018.html">FileExists</a> 
+</li>
+<li>
+<a href="../../function/find/version/1.0.0.018.html">Find</a> 
+</li>
+<li>
+<a href="../../function/findnocase/version/1.0.0.018.html">FindNoCase</a> 
+</li>
+<li>
+<a href="../../function/findoneof/version/1.0.0.018.html">FindOneOf</a> 
+</li>
+<li>
+<a href="../../function/firstdayofmonth/version/1.0.0.018.html">FirstDayOfMonth</a> 
+</li>
+<li>
+<a href="../../function/fix/version/1.0.0.018.html">Fix</a> 
+</li>
+<li>
+<a href="../../function/formatbasen/version/1.0.0.018.html">FormatBaseN</a> 
+</li>
+</ul>
+<h4><a name="G">G</a></h4>
+<ul>
+<li>
+<a href="../../function/generatesecretkey/version/1.0.0.018.html">GeneratesecretKey</a> 
+</li>
+<li>
+<a href="../../function/getauthuser/version/1.0.0.018.html">GetAuthUser</a> 
+</li>
+<li>
+<a href="../../function/getbasetagdata/version/1.0.0.018.html">GetBaseTagData</a> 
+</li>
+<li>
+<a href="../../function/getbasetaglist/version/1.0.0.018.html">GetBaseTagList</a> 
+</li>
+<li>
+<a href="../../function/getbasetemplatepath/version/1.0.0.018.html">GetBaseTemplatePath</a> 
+</li>
+<li>
+<a href="../../function/getclientvariableslist/version/1.0.0.018.html">GetClientVariablesList</a> 
+</li>
+<li>
+<a href="../../function/getcontextroot/version/1.0.0.018.html">GetContextRoot</a> 
+</li>
+<li>
+<a href="../../function/getcurrenttemplatepath/version/1.0.0.018.html">GetCurrentTemplatePath</a> 
+</li>
+<li>
+<a href="../../function/getdirectoryfrompath/version/1.0.0.018.html">GetDirectoryFromPath</a> 
+</li>
+<li>
+<a href="../../function/getencoding/version/1.0.0.018.html">GetEncoding</a> 
+</li>
+<li>
+<a href="../../function/getexception/version/1.0.0.018.html">Getexception</a> 
+</li>
+<li>
+<a href="../../function/getfilefrompath/version/1.0.0.018.html">GetFilefromPath</a> 
+</li>
+<li>
+<a href="../../function/getfunctiondata/version/1.0.0.018.html">GetFunctionData</a> 
+</li>
+<li>
+<a href="../../function/getfunctionlist/version/1.0.0.018.html">GetFunctionList</a> 
+</li>
+<li>
+<a href="../../function/getgatewayhelper/version/1.0.0.018.html">GetGatewayhelper</a> 
+</li>
+<li>
+<a href="../../function/gethttprequestdata/version/1.0.0.018.html">GetHTTPRequestData</a> 
+</li>
+<li>
+<a href="../../function/gethttptimestring/version/1.0.0.018.html">GetHTTPTimeString</a> 
+</li>
+<li>
+<a href="../../function/getk2serverdoccount/version/1.0.0.018.html">Getk2serverdocCount</a> 
+</li>
+<li>
+<a href="../../function/getk2serverdoccountlimit/version/1.0.0.018.html">Getk2serverdocCountlimit</a> 
+</li>
+<li>
+<a href="../../function/getlocale/version/1.0.0.018.html">GetLocale</a> 
+</li>
+<li>
+<a href="../../function/getmetadata/version/1.0.0.018.html">GetMetaData</a> 
+</li>
+<li>
+<a href="../../function/getmetricdata/version/1.0.0.018.html">GetmetricData</a> 
+</li>
+<li>
+<a href="../../function/getnumericdate/version/1.0.0.018.html">GetNumericDate</a> 
+</li>
+<li>
+<a href="../../function/getpagecontext/version/1.0.0.018.html">GetPageContext</a> 
+</li>
+<li>
+<a href="../../function/getprofilesections/version/1.0.0.018.html">GetproFilesections</a> 
+</li>
+<li>
+<a href="../../function/getprofilestring/version/1.0.0.018.html">GetproFileString</a> 
+</li>
+<li>
+<a href="../../function/getsoaprequest/version/1.0.0.018.html">GetSOAPRequest</a> 
+</li>
+<li>
+<a href="../../function/getsoaprequestheader/version/1.0.0.018.html">GetSOAPRequestHeader</a> 
+</li>
+<li>
+<a href="../../function/getsoapresponse/version/1.0.0.018.html">GetSOAPresponse</a> 
+</li>
+<li>
+<a href="../../function/getsoapresponseheader/version/1.0.0.018.html">GetSOAPresponseHeader</a> 
+</li>
+<li>
+<a href="../../function/getsysteminfo/version/1.0.0.018.html">GetSystemInfo</a> 
+</li>
+<li>
+<a href="../../function/gettagdata/version/1.0.0.018.html">GettagData</a> 
+</li>
+<li>
+<a href="../../function/gettaglist/version/1.0.0.018.html">GettagList</a> 
+</li>
+<li>
+<a href="../../function/gettempdirectory/version/1.0.0.018.html">GettempDirectory</a> 
+</li>
+<li>
+<a href="../../function/gettempfile/version/1.0.0.018.html">GettempFile</a> 
+</li>
+<li>
+<a href="../../function/gettemplatepath/version/1.0.0.018.html">GetTemplatePath</a> 
+</li>
+<li>
+<a href="../../function/gettickcount/version/1.0.0.018.html">GetTickCount</a> 
+</li>
+<li>
+<a href="../../function/gettimezoneinfo/version/1.0.0.018.html">GetTimezoneInfo</a> 
+</li>
+<li>
+<a href="../../function/gettoken/version/1.0.0.018.html">GetToken</a> 
+</li>
+<li>
+<a href="../../function/getvariable/version/1.0.0.018.html">GetVariable</a> 
+</li>
+</ul>
+<h4><a name="H">H</a></h4>
+<ul>
+<li>
+<a href="../../function/hash/version/1.0.0.018.html">Hash</a> 
+</li>
+<li>
+<a href="../../function/hour/version/1.0.0.018.html">Hour</a> 
+</li>
+<li>
+<a href="../../function/htmlcodeformat/version/1.0.0.018.html">HTMLCodeFormat</a> 
+</li>
+<li>
+<a href="../../function/htmleditformat/version/1.0.0.018.html">HTMLEditFormat</a> 
+</li>
+<li>
+<a href="../../function/htmlparse/version/1.0.0.018.html">HTMLParse</a> 
+</li>
+</ul>
+<h4><a name="I">I</a></h4>
+<ul>
+<li>
+<a href="../../function/iif/version/1.0.0.018.html">IIF</a> 
+</li>
+<li>
+<a href="../../function/inc/version/1.0.0.018.html">inc</a> 
+</li>
+<li>
+<a href="../../function/inputbasen/version/1.0.0.018.html">inputBaseN</a> 
+</li>
+<li>
+<a href="../../function/insert/version/1.0.0.018.html">Insert</a> 
+</li>
+<li>
+<a href="../../function/int/version/1.0.0.018.html">Int</a> 
+</li>
+<li>
+<a href="../../function/isbinary/version/1.0.0.018.html">isBinary</a> 
+</li>
+<li>
+<a href="../../function/isboolean/version/1.0.0.018.html">IsBoolean</a> 
+</li>
+<li>
+<a href="../../function/iscustomfunction/version/1.0.0.018.html">iscustomFunction</a> 
+</li>
+<li>
+<a href="../../function/isdefined/version/1.0.0.018.html">isDefined</a> 
+</li>
+<li>
+<a href="../../function/isk2serverabroker/version/1.0.0.018.html">isk2serverabroker</a> 
+</li>
+<li>
+<a href="../../function/isk2serverdoccountexceeded/version/1.0.0.018.html">isk2serverdocCountexceeded</a> 
+</li>
+<li>
+<a href="../../function/isk2serveronline/version/1.0.0.018.html">isk2serveronLine</a> 
+</li>
+<li>
+<a href="../../function/isleapyear/version/1.0.0.018.html">IsLeapYear</a> 
+</li>
+<li>
+<a href="../../function/isnotmap/version/1.0.0.018.html">IsNotMap</a> 
+</li>
+<li>
+<a href="../../function/isnull/version/1.0.0.018.html">IsNull</a> 
+</li>
+<li>
+<a href="../../function/isnumeric/version/1.0.0.018.html">IsNumeric</a> 
+</li>
+<li>
+<a href="../../function/isnumericdate/version/1.0.0.018.html">IsNumericDate</a> 
+</li>
+<li>
+<a href="../../function/isobject/version/1.0.0.018.html">IsObject</a> 
+</li>
+<li>
+<a href="../../function/isquery/version/1.0.0.018.html">IsQuery</a> 
+</li>
+<li>
+<a href="../../function/issimplevalue/version/1.0.0.018.html">IsSImpleValue</a> 
+</li>
+<li>
+<a href="../../function/issoaprequest/version/1.0.0.018.html">IsSOAPRequest</a> 
+</li>
+<li>
+<a href="../../function/isstruct/version/1.0.0.018.html">IsStruct</a> 
+</li>
+<li>
+<a href="../../function/isuserinrole/version/1.0.0.018.html">IsUserInRole</a> 
+</li>
+<li>
+<a href="../../function/iswddx/version/1.0.0.018.html">IsWDDX</a> 
+</li>
+<li>
+<a href="../../function/isxml/version/1.0.0.018.html">IsXML</a> 
+</li>
+<li>
+<a href="../../function/isxmlattribute/version/1.0.0.018.html">IsXMLAttribute</a> 
+</li>
+<li>
+<a href="../../function/isxmldoc/version/1.0.0.018.html">IsXMLdoc</a> 
+</li>
+<li>
+<a href="../../function/isxmlelem/version/1.0.0.018.html">IsXMLElem</a> 
+</li>
+<li>
+<a href="../../function/isxmlnode/version/1.0.0.018.html">IsXMLNode</a> 
+</li>
+<li>
+<a href="../../function/isxmlroot/version/1.0.0.018.html">IsXMLroot</a> 
+</li>
+</ul>
+</div>
+<div class="span6">
+<h4><a name="J">J</a></h4>
+<ul>
+<li>
+<a href="../../function/javacast/version/1.0.0.018.html">JavaCast</a> 
+</li>
+<li>
+<a href="../../function/jsstringformat/version/1.0.0.018.html">JSStringFormat</a> 
+</li>
+</ul>
+<h4><a name="K">K</a></h4>
+<ul>
+</ul>
+<h4><a name="L">L</a></h4>
+<ul>
+<li>
+<a href="../../function/left/version/1.0.0.018.html">Left</a> 
+</li>
+<li>
+<a href="../../function/len/version/1.0.0.018.html">Len</a> 
+</li>
+<li>
+<a href="../../function/listappend/version/1.0.0.018.html">ListAppend</a> 
+</li>
+<li>
+<a href="../../function/listavg/version/1.0.0.018.html">Listavg</a> 
+</li>
+<li>
+<a href="../../function/listcontains/version/1.0.0.018.html">ListContains</a> 
+</li>
+<li>
+<a href="../../function/listcontainsnocase/version/1.0.0.018.html">ListContainsNoCase</a> 
+</li>
+<li>
+<a href="../../function/listdeleteat/version/1.0.0.018.html">ListDeleteat</a> 
+</li>
+<li>
+<a href="../../function/listfind/version/1.0.0.018.html">ListFind</a> 
+</li>
+<li>
+<a href="../../function/listfindnocase/version/1.0.0.018.html">ListFindNoCase</a> 
+</li>
+<li>
+<a href="../../function/listfirst/version/1.0.0.018.html">ListFirst</a> 
+</li>
+<li>
+<a href="../../function/listgetat/version/1.0.0.018.html">ListGetat</a> 
+</li>
+<li>
+<a href="../../function/listindexexists/version/1.0.0.018.html">ListIndexExists</a> 
+</li>
+<li>
+<a href="../../function/listinsertat/version/1.0.0.018.html">ListInsertAt</a> 
+</li>
+<li>
+<a href="../../function/listlast/version/1.0.0.018.html">ListLast</a> 
+</li>
+<li>
+<a href="../../function/listlen/version/1.0.0.018.html">ListLen</a> 
+</li>
+<li>
+<a href="../../function/listprepend/version/1.0.0.018.html">ListPrepend</a> 
+</li>
+<li>
+<a href="../../function/listqualify/version/1.0.0.018.html">ListQualify</a> 
+</li>
+<li>
+<a href="../../function/listrest/version/1.0.0.018.html">ListRest</a> 
+</li>
+<li>
+<a href="../../function/listsetat/version/1.0.0.018.html">Listsetat</a> 
+</li>
+<li>
+<a href="../../function/listtoarray/version/1.0.0.018.html">ListtoArray</a> 
+</li>
+<li>
+<a href="../../function/listtrim/version/1.0.0.018.html">ListTrim</a> 
+</li>
+<li>
+<a href="../../function/listvaluecount/version/1.0.0.018.html">ListValueCount</a> 
+</li>
+<li>
+<a href="../../function/listvaluecountnocase/version/1.0.0.018.html">ListValueCountNoCase</a> 
+</li>
+<li>
+<a href="../../function/ljustify/version/1.0.0.018.html">LJustify</a> 
+</li>
+<li>
+<a href="../../function/log/version/1.0.0.018.html">Log</a> 
+</li>
+<li>
+<a href="../../function/log10/version/1.0.0.018.html">Log10</a> 
+</li>
+<li>
+<a href="../../function/lsdateformat/version/1.0.0.018.html">lsDateFormat</a> 
+</li>
+<li>
+<a href="../../function/lsiscurrency/version/1.0.0.018.html">LSisCurrency</a> 
+</li>
+<li>
+<a href="../../function/lsisdate/version/1.0.0.018.html">LSisDate</a> 
+</li>
+<li>
+<a href="../../function/lsisnumeric/version/1.0.0.018.html">LSIsNumeric</a> 
+</li>
+<li>
+<a href="../../function/lsnumberformat/version/1.0.0.018.html">LSNumberFormat</a> 
+</li>
+<li>
+<a href="../../function/lsparsecurrency/version/1.0.0.018.html">LSParseCurrency</a> 
+</li>
+<li>
+<a href="../../function/lsparsedatetime/version/1.0.0.018.html">LSParseDateTime</a> 
+</li>
+<li>
+<a href="../../function/lsparseeurocurrency/version/1.0.0.018.html">LSParseEuroCurrency</a> 
+</li>
+<li>
+<a href="../../function/lsparsenumber/version/1.0.0.018.html">LSParseNumber</a> 
+</li>
+<li>
+<a href="../../function/lstimeformat/version/1.0.0.018.html">LSTimeFormat</a> 
+</li>
+<li>
+<a href="../../function/ltrim/version/1.0.0.018.html">LTrim</a> 
+</li>
+</ul>
+<h4><a name="M">M</a></h4>
+<ul>
+<li>
+<a href="../../function/max/version/1.0.0.018.html">Max</a> 
+</li>
+<li>
+<a href="../../function/metaphone/version/1.0.0.018.html">Metaphone</a> 
+</li>
+<li>
+<a href="../../function/mid/version/1.0.0.018.html">Mid</a> 
+</li>
+<li>
+<a href="../../function/min/version/1.0.0.018.html">Min</a> 
+</li>
+<li>
+<a href="../../function/minute/version/1.0.0.018.html">Minute</a> 
+</li>
+<li>
+<a href="../../function/month/version/1.0.0.018.html">Month</a> 
+</li>
+<li>
+<a href="../../function/monthshortasstring/version/1.0.0.018.html">MonthShortasString</a> 
+</li>
+</ul>
+<h4><a name="N">N</a></h4>
+<ul>
+<li>
+<a href="../../function/now/version/1.0.0.018.html">Now</a> 
+</li>
+<li>
+<a href="../../function/nowserver/version/1.0.0.018.html">nowserver</a> 
+</li>
+<li>
+<a href="../../function/nullvalue/version/1.0.0.018.html">NullValue</a> 
+</li>
+<li>
+<a href="../../function/numberformat/version/1.0.0.018.html">NumberFormat</a> 
+</li>
+</ul>
+<h4><a name="O">O</a></h4>
+<ul>
+</ul>
+<h4><a name="P">P</a></h4>
+<ul>
+<li>
+<a href="../../function/paragraphformat/version/1.0.0.018.html">ParagraphFormat</a> 
+</li>
+<li>
+<a href="../../function/parameterexists/version/1.0.0.018.html">ParameterExists</a> 
+</li>
+<li>
+<a href="../../function/parsedatetime/version/1.0.0.018.html">ParseDateTime</a> 
+</li>
+<li>
+<a href="../../function/pi/version/1.0.0.018.html">Pi</a> 
+</li>
+<li>
+<a href="../../function/preservesinglequotes/version/1.0.0.018.html">Preservesinglequotes</a> 
+</li>
+</ul>
+<h4><a name="Q">Q</a></h4>
+<ul>
+<li>
+<a href="../../function/query/version/1.0.0.018.html">Query</a> 
+</li>
+<li>
+<a href="../../function/queryaddcolumn/version/1.0.0.018.html">QueryAddColumn</a> 
+</li>
+<li>
+<a href="../../function/queryaddrow/version/1.0.0.018.html">QueryAddRow</a> 
+</li>
+<li>
+<a href="../../function/querycolumnarray/version/1.0.0.018.html">QueryColumnArray</a> 
+</li>
+<li>
+<a href="../../function/querycolumncount/version/1.0.0.018.html">QueryColumnCount</a> 
+</li>
+<li>
+<a href="../../function/querycolumnlist/version/1.0.0.018.html">QueryColumnList</a> 
+</li>
+<li>
+<a href="../../function/querydeleterow/version/1.0.0.018.html">QueryDeleterow</a> 
+</li>
+<li>
+<a href="../../function/querygetcell/version/1.0.0.018.html">QueryGetCell</a> 
+</li>
+<li>
+<a href="../../function/querysort/version/1.0.0.018.html">QuerySort</a> 
+</li>
+<li>
+<a href="../../function/quotedvaluelist/version/1.0.0.018.html">quotedValueList</a> 
+</li>
+</ul>
+<h4><a name="R">R</a></h4>
+<ul>
+<li>
+<a href="../../function/rand/version/1.0.0.018.html">Rand</a> 
+</li>
+<li>
+<a href="../../function/randomize/version/1.0.0.018.html">Randomize</a> 
+</li>
+<li>
+<a href="../../function/randrange/version/1.0.0.018.html">RandRange</a> 
+</li>
+<li>
+<a href="../../function/refind/version/1.0.0.018.html">REFind</a> 
+</li>
+<li>
+<a href="../../function/refindnocase/version/1.0.0.018.html">REFindNoCase</a> 
+</li>
+<li>
+<a href="../../function/releasecomobject/version/1.0.0.018.html">ReleasecomObject</a> 
+</li>
+<li>
+<a href="../../function/removechars/version/1.0.0.018.html">RemoveChars</a> 
+</li>
+<li>
+<a href="../../function/repeatstring/version/1.0.0.018.html">RepeatString</a> 
+</li>
+<li>
+<a href="../../function/replace/version/1.0.0.018.html">Replace</a> 
+</li>
+<li>
+<a href="../../function/replacelist/version/1.0.0.018.html">ReplaceList</a> 
+</li>
+<li>
+<a href="../../function/replacenocase/version/1.0.0.018.html">ReplaceNoCase</a> 
+</li>
+<li>
+<a href="../../function/rereplace/version/1.0.0.018.html">REReplace</a> 
+</li>
+<li>
+<a href="../../function/rereplacenocase/version/1.0.0.018.html">REReplaceNoCase</a> 
+</li>
+<li>
+<a href="../../function/reverse/version/1.0.0.018.html">Reverse</a> 
+</li>
+<li>
+<a href="../../function/right/version/1.0.0.018.html">Right</a> 
+</li>
+<li>
+<a href="../../function/rjustify/version/1.0.0.018.html">RJustify</a> 
+</li>
+<li>
+<a href="../../function/round/version/1.0.0.018.html">Round</a> 
+</li>
+<li>
+<a href="../../function/rtrim/version/1.0.0.018.html">RTrim</a> 
+</li>
+</ul>
+<h4><a name="S">S</a></h4>
+<ul>
+<li>
+<a href="../../function/second/version/1.0.0.018.html">Second</a> 
+</li>
+<li>
+<a href="../../function/sendgatewaymessage/version/1.0.0.018.html">SendGatewayMessage</a> 
+</li>
+<li>
+<a href="../../function/setencoding/version/1.0.0.018.html">SetEncoding</a> 
+</li>
+<li>
+<a href="../../function/setlocale/version/1.0.0.018.html">SetLocale</a> 
+</li>
+<li>
+<a href="../../function/setprofilestring/version/1.0.0.018.html">SetProfileString</a> 
+</li>
+<li>
+<a href="../../function/sgn/version/1.0.0.018.html">Sgn</a> 
+</li>
+<li>
+<a href="../../function/sin/version/1.0.0.018.html">Sin</a> 
+</li>
+<li>
+<a href="../../function/soundex/version/1.0.0.018.html">Soundex</a> 
+</li>
+<li>
+<a href="../../function/spanexcluding/version/1.0.0.018.html">SpanExcluding</a> 
+</li>
+<li>
+<a href="../../function/spanincluding/version/1.0.0.018.html">SpanIncluding</a> 
+</li>
+<li>
+<a href="../../function/sqr/version/1.0.0.018.html">Sqr</a> 
+</li>
+<li>
+<a href="../../function/stripcr/version/1.0.0.018.html">StripCR</a> 
+</li>
+<li>
+<a href="../../function/struct/version/1.0.0.018.html">Struct</a> 
+</li>
+<li>
+<a href="../../function/structappend/version/1.0.0.018.html">StructAppend</a> 
+</li>
+<li>
+<a href="../../function/structclear/version/1.0.0.018.html">StructClear</a> 
+</li>
+<li>
+<a href="../../function/structcopy/version/1.0.0.018.html">StructCopy</a> 
+</li>
+<li>
+<a href="../../function/structcount/version/1.0.0.018.html">StructCount</a> 
+</li>
+<li>
+<a href="../../function/structdelete/version/1.0.0.018.html">StructDelete</a> 
+</li>
+<li>
+<a href="../../function/structfind/version/1.0.0.018.html">StructFind</a> 
+</li>
+<li>
+<a href="../../function/structfindkey/version/1.0.0.018.html">StructFindKey</a> 
+</li>
+<li>
+<a href="../../function/structget/version/1.0.0.018.html">StructGet</a> 
+</li>
+<li>
+<a href="../../function/structinsert/version/1.0.0.018.html">StructInsert</a> 
+</li>
+<li>
+<a href="../../function/structisempty/version/1.0.0.018.html">StructIsEmpty</a> 
+</li>
+<li>
+<a href="../../function/structkeyarray/version/1.0.0.018.html">StructKeyArray</a> 
+</li>
+<li>
+<a href="../../function/structkeyexists/version/1.0.0.018.html">StructKeyExists</a> 
+</li>
+<li>
+<a href="../../function/structkeylist/version/1.0.0.018.html">StructKeyList</a> 
+</li>
+<li>
+<a href="../../function/structnew/version/1.0.0.018.html">StructNew</a> 
+</li>
+<li>
+<a href="../../function/structsort/version/1.0.0.018.html">StructSort</a> 
+</li>
+<li>
+<a href="../../function/structupdate/version/1.0.0.018.html">StructUpdate</a> 
+</li>
+</ul>
+<h4><a name="T">T</a></h4>
+<ul>
+<li>
+<a href="../../function/tan/version/1.0.0.018.html">Tan</a> 
+</li>
+<li>
+<a href="../../function/timeformat/version/1.0.0.018.html">TimeFormat</a> 
+</li>
+<li>
+<a href="../../function/tobase64/version/1.0.0.018.html">ToBase64</a> 
+</li>
+<li>
+<a href="../../function/tobinary/version/1.0.0.018.html">ToBinary</a> 
+</li>
+<li>
+<a href="../../function/toint/version/1.0.0.018.html">toint</a> 
+</li>
+<li>
+<a href="../../function/toscript/version/1.0.0.018.html">ToScript</a> 
+</li>
+<li>
+<a href="../../function/tostring/version/1.0.0.018.html">ToString</a> 
+</li>
+<li>
+<a href="../../function/trim/version/1.0.0.018.html">Trim</a> 
+</li>
+</ul>
+<h4><a name="U">U</a></h4>
+<ul>
+<li>
+<a href="../../function/ucase/version/1.0.0.018.html">UCase</a> 
+</li>
+<li>
+<a href="../../function/ucfirst/version/1.0.0.018.html">UCFirst</a> 
+</li>
+<li>
+<a href="../../function/unserializejava/version/1.0.0.018.html">unSerializeJava</a> 
+</li>
+<li>
+<a href="../../function/urldecode/version/1.0.0.018.html">URLDecode</a> 
+</li>
+<li>
+<a href="../../function/urlencodedformat/version/1.0.0.018.html">URLEncodedFormat</a> 
+</li>
+<li>
+<a href="../../function/urlsessionformat/version/1.0.0.018.html">URLSessionFormat</a> 
+</li>
+</ul>
+<h4><a name="V">V</a></h4>
+<ul>
+<li>
+<a href="../../function/val/version/1.0.0.018.html">Val</a> 
+</li>
+<li>
+<a href="../../function/valuelist/version/1.0.0.018.html">ValueList</a> 
+</li>
+</ul>
+<h4><a name="W">W</a></h4>
+<ul>
+<li>
+<a href="../../function/week/version/1.0.0.018.html">Week</a> 
+</li>
+<li>
+<a href="../../function/wrap/version/1.0.0.018.html">Wrap</a> 
+</li>
+<li>
+<a href="../../function/writeoutput/version/1.0.0.018.html">WriteOutput</a> 
+</li>
+</ul>
+<h4><a name="X">X</a></h4>
+<ul>
+<li>
+<a href="../../function/xmlchildpos/version/1.0.0.018.html">XMLChildPos</a> 
+</li>
+<li>
+<a href="../../function/xmlelemnew/version/1.0.0.018.html">XMLElemNew</a> 
+</li>
+<li>
+<a href="../../function/xmlformat/version/1.0.0.018.html">XMLFormat</a> 
+</li>
+<li>
+<a href="../../function/xmlgetnodetype/version/1.0.0.018.html">XMLGetNodeType</a> 
+</li>
+<li>
+<a href="../../function/xmlnew/version/1.0.0.018.html">XMLNew</a> 
+</li>
+<li>
+<a href="../../function/xmlsearch/version/1.0.0.018.html">XMLSearch</a> 
+</li>
+<li>
+<a href="../../function/xmltransform/version/1.0.0.018.html">XMLTransform</a> 
+</li>
+<li>
+<a href="../../function/xmlvalidate/version/1.0.0.018.html">XMLValidate</a> 
+</li>
+</ul>
+<h4><a name="Y">Y</a></h4>
+<ul>
+<li>
+<a href="../../function/year/version/1.0.0.018.html">Year</a> 
+</li>
+<li>
+<a href="../../function/yesnoformat/version/1.0.0.018.html">YesNoFormat</a> 
+</li>
+</ul>
+<h4><a name="Z">Z</a></h4>
+<ul>
+</ul>
+</div>
+</div>
+</section>
+</div>
+</div> 
+</div> 
+<footer class="footer">
+<hr>
+<div class="container">
+<p>&copy; <a href="http://www.getrailo.com" target="_new">The Railo Company Limited</a> &amp; 
+<a href="http://www.twitter.com/markdrew/" target="_new">@markdrew</a> 2013 
+Version: <a href="1.0.0.018.html#" name="" class="btn btn-mini" id="beta" data-toggle="popover" data-placement="top" 
+data-content="Since this site is in beta, you might find errors and what have you. We are constantly working to improve the situation, so send us your feedback!" title="" data-original-title="About Beta Version">Beta</a>
+</p>
+</div>
+</footer>
+</body>
+</html>
