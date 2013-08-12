@@ -9,7 +9,8 @@ Usage
 -----
 
 ### Bleeding edge version ###
-Or for the most recent version, download the repository and doubleclick the railo.docset. The Railo Docset should then be installed into Dash and be ready to use. 
+For the most recent version, download the repository and doubleclick the railo.docset. The Railo Docset should then be installed into Dash and be ready to use.
+For the most recent version [click here](https://github.com/andyj/dash-docset-railo/archive/master.zip) to download the Github repository, unzip the folder, and doubleclick the railo.docset file within. The Railo Docset should then be installed into Dash and be ready to use.
 
 ### Current version ###
 
